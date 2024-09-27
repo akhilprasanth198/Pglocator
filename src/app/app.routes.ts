@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { PgSearchComponent } from './pg-search/pg-search.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
+    {path:'home',component:HomepageComponent},
     {path:'navbar',component:NavbarComponent},
     {path:'login',component:LoginComponent},
     {path:'about',component:AboutComponent},

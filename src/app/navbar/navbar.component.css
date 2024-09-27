@@ -3,13 +3,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px;
-        background-color: #007bff; /* Blue background */
+        padding: 5px 30px 5px 70px;
+        font-family:poppins;
+        font-weight:bold;
+        background-color: #2b2b67; /* Blue background */
     }
-    
     .site-name {
-        font-size: 24px;
-        color: white; /* White text */
+        font-size: 32px;
+        color: #fbfeff; /* White text */
     }
     
     nav ul {
@@ -25,11 +26,19 @@
     
     nav ul li a {
         text-decoration: none;
-        color:   
-    white; /* White text */
-        font-size: 18px;
+        color:#a5a5bd; /* White text */
+        font-size: 20px;
     }
     
     nav ul li a:hover {
-        color: #66b1ff; /* Teal hover color */
+        color: #37dfac; /* Teal hover color */
+    }
+    button{
+        padding: auto;
+        border-radius: 10px;
+        background-color: #1a6960;
+        color: #40e2af;
+        border: 0px;
+        font-family: poppins;
+        font-size: large;
     }
