@@ -31,14 +31,22 @@
     }
     
     nav ul li a:hover {
-        color: #37dfac; /* Teal hover color */
+        color: #3cc8a3; /* Teal hover color */
     }
     button{
-        padding: auto;
-        border-radius: 10px;
-        background-color: #1a6960;
-        color: #40e2af;
+        border-radius: 20px;
+        background-color: #2d4671;
+        color: #3cc8a3;
+        border: 0px;
         border: 0px;
         font-family: poppins;
-        font-size: large;
+        font-size: 18px;
+        padding: 2px 16px;
+        font-weight:bold;
+    }
+    button:hover{
+        background-color: #202052;
+    }
+    .button-style{
+        padding: 0px 50px 0px 20px;
     }
