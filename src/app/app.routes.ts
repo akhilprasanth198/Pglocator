@@ -5,6 +5,9 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { PgSearchComponent } from './pg-search/pg-search.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { PgNavbarComponent } from './pg-navbar/pg-navbar.component';
+import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -13,4 +16,19 @@ export const routes: Routes = [
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
     
+    {path:'admin-navbar',component:AdminNavbarComponent,
+        children:[
+            {path:'pg-search',component:PgSearchComponent},
+        ]
+    },
+    {path:'pg-navbar',component:PgNavbarComponent,
+        children:[
+
+        ]
+    },
+    {path:'user-navbar',component:UserNavbarComponent,
+        children:[
+            
+        ]
+    },
 ];
