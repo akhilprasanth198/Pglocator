@@ -12,10 +12,10 @@ input[type="text"] {
     width: 300px;
     border-radius: 25px;
     background-color: #d6cbf3;
-    border: 1px solid #d4ccf3;
+    border: 1px solid #bcb5d7;
     font-size: 16px;
     font-family: poppins;
-    margin-right: 10px;
+    margin-right: -36px;
     outline: none;
     transition: border 0.3s;
 }

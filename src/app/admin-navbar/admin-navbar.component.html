@@ -1,1 +1,27 @@
-<p>admin-navbar works!</p>
+<div class="sidebar">
+    <div class="profile">
+        <img src="portrait.jpg" alt="Profile Picture" class="profile-pic">
+    </div>
+    <li>Admin </li>
+    <ul>
+        <li class="dropdown"><a>PgList</a>
+            <ul class="dropdown-content">
+                <li><a routerLink="/admin-navbar/pg-search">Pg Search</a></li>
+                <!-- <li><a routerLink="/admin-navbar/"></a></li>
+                <li><a routerLink="/admin-navbar/"></a></li> -->
+            </ul>
+        </li>
+        <li class="dropdown"><a>User</a>
+            <ul class="dropdown-content">
+                <li><a routerLink="/admin-navbar/user-search">User Search</a></li>
+                <!-- <li><a routerLink="/admin-navbar/user-profile">User Profile</a></li> -->
+            </ul></li>
+        <li class="dropdown"><a>Pg Owner</a>
+            <ul class="dropdown-content">
+                <li><a routerLink="/admin-navbar/pgowner-search">Pgowner Search</a></li>
+                <!-- <li><a routerLink="/admin-navbar/Pgowner-profile">Pgowner Profile</a></li> -->
+            </ul>
+        </li>
+        <li><a routerLink="/">Logout</a></li>
+    </ul>
+</div>   

@@ -8,6 +8,7 @@ import { PgSearchComponent } from './pg-search/pg-search.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { PgNavbarComponent } from './pg-navbar/pg-navbar.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -28,7 +29,7 @@ export const routes: Routes = [
     },
     {path:'user-navbar',component:UserNavbarComponent,
         children:[
-            
+            {path:'user-profile',component:UserProfileComponent},
         ]
     },
 ];
