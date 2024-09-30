@@ -1,27 +1,32 @@
 <div class="sidebar">
     <div class="profile">
         <img src="portrait.jpg" alt="Profile Picture" class="profile-pic">
+        <ul>
+            <li class="dropdown"><h1>Admin</h1>
+                <ul class="dropdown-content">
+                    <li><a routerLink="/admin-navbar/">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <li>Admin </li>
     <ul>
-        <li class="dropdown"><a>PgList</a>
+        <li class="dropdown"><h3>PgOwner</h3>
             <ul class="dropdown-content">
-                <li><a routerLink="/admin-navbar/pg-search">Pg Search</a></li>
-                <!-- <li><a routerLink="/admin-navbar/"></a></li>
-                <li><a routerLink="/admin-navbar/"></a></li> -->
+                <li><a routerLink="/admin-navbar/pg-search">Manage PgOwner</a></li>
+                <li><a routerLink="/admin-navbar/">View PgOwner</a></li>
             </ul>
         </li>
-        <li class="dropdown"><a>User</a>
+        <li class="dropdown"><h3>User</h3>
             <ul class="dropdown-content">
-                <li><a routerLink="/admin-navbar/user-search">User Search</a></li>
-                <!-- <li><a routerLink="/admin-navbar/user-profile">User Profile</a></li> -->
+                <li><a routerLink="/admin-navbar/user-search">Manage User</a></li>
+                <li><a routerLink="/admin-navbar/user-profile">View Review</a></li>
             </ul></li>
-        <li class="dropdown"><a>Pg Owner</a>
+        <li class="dropdown"><h3>Pg </h3>
             <ul class="dropdown-content">
-                <li><a routerLink="/admin-navbar/pgowner-search">Pgowner Search</a></li>
-                <!-- <li><a routerLink="/admin-navbar/Pgowner-profile">Pgowner Profile</a></li> -->
+                <li><a routerLink="/admin-navbar/pgowner-search">Manage Pg</a></li>
+                <li><a routerLink="/admin-navbar/pgowner-search">View Pg</a></li>
+
             </ul>
         </li>
-        <li><a routerLink="/">Logout</a></li>
     </ul>
 </div>   
