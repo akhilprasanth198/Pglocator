@@ -17,9 +17,11 @@ export class LoginComponent {
 
   onSubmit() {
     // Add your authentication logic here
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-    // On successful login, redirect to another page
+    alert('Login successful!');    // On successful login, redirect to another page
     // this.router.navigate(['/dashboard']);
   }
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
+
 }
