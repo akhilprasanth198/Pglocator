@@ -9,6 +9,9 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { PgNavbarComponent } from './pg-navbar/pg-navbar.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
+import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
+import { ViewUsersComponent } from './admin/view-users/view-users.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -16,6 +19,10 @@ export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
+    {path:'owner-action',component:OwnerActionComponent},
+    {path:'view-owner',component:ViewOwnerComponent},
+    {path:'view-user',component:ViewUsersComponent},
+    {path:'register',component:PgownerRegisterComponent},
     
     {path:'admin-navbar',component:AdminNavbarComponent,
         children:[
