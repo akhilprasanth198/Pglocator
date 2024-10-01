@@ -42,8 +42,7 @@ export const routes: Routes = [
     },
     {path:'user-navbar',component:UserNavbarComponent,
         children:[
-            {path:'user-profile',component:UserProfileComponent
-            },
+            {path:'user-profile',component:UserProfileComponent},
         ]
     },
 ];

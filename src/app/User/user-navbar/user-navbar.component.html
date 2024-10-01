@@ -9,10 +9,11 @@
         <img src="/portrait.jpg" alt="Profile" class="profile-pic" />
         <div class="dropdown-content">
             <ul>
-                <li><a routerLink="/profile">Profile</a></li>
-                <li><a routerLink="/logout">Logout</a></li>
+                <li><a routerLink="/user-navbar/user-profile">Profile</a></li>
+                <li><a (click)="onLogout()">Logout</a></li>
             </ul>
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>
 
