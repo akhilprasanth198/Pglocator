@@ -10,6 +10,7 @@ import { PgSearchComponent } from './Pgowner/pg-search/pg-search.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
 
 import { PolicyComponent } from './Home/policy/policy.component';
+import { PrivacyComponent } from './Home/privacy/privacy.component';
 
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
     {path:'policy',component:PolicyComponent},
+    {path:'privacy',component:PrivacyComponent},
     
     {path:'admin-navbar',component:AdminNavbarComponent,
         children:[
