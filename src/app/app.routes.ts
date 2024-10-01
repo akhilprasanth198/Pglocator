@@ -12,10 +12,10 @@ import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.
 import { PolicyComponent } from './Home/policy/policy.component';
 import { PrivacyComponent } from './Home/privacy/privacy.component';
 
-import { OwnerActionComponent } from './Admin/owner-action/owner-action.component';
-import { ViewOwnerComponent } from './Admin/view-owner/view-owner.component';
-import { ViewUsersComponent } from './Admin/view-users/view-users.component';
-import { AdminNavbarComponent } from './Admin/admin-navbar/admin-navbar.component';
+import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
+import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
+import { ViewUsersComponent } from './admin/view-users/view-users.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
