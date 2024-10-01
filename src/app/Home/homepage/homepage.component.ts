@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { PgSearchComponent } from "../pg-search/pg-search.component";
+import { PgSearchComponent } from '../../Pgowner/pg-search/pg-search.component';
 
 @Component({
   selector: 'app-homepage',

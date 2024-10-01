@@ -1,18 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { PgSearchComponent } from './pg-search/pg-search.component';
-import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
-import { PgNavbarComponent } from './pg-navbar/pg-navbar.component';
-import { UserNavbarComponent } from './user-navbar/user-navbar.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HomepageComponent } from './Home/homepage/homepage.component';
+import { NavbarComponent } from './Home/navbar/navbar.component';
+import { LoginComponent } from './Home/login/login.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
-import { PgownerRegisterComponent } from './pgowner-register/pgowner-register.component';
+import { AboutComponent } from './Home/about/about.component';
+import { ContactComponent } from './Home/contact/contact.component';
+import { UserProfileComponent } from './User/user-profile/user-profile.component';
+import { PgSearchComponent } from './Pgowner/pg-search/pg-search.component';
+import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -23,14 +22,13 @@ export const routes: Routes = [
     {path:'owner-action',component:OwnerActionComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
-    {path:'register',component:PgownerRegisterComponent},
     
     {path:'admin-navbar',component:AdminNavbarComponent,
         children:[
             {path:'pg-search',component:PgSearchComponent},
         ]
     },
-    {path:'pg-navbar',component:PgNavbarComponent,
+    {path:'pg-navbar',component:PgownerNavbarComponent,
         children:[
 
         ]

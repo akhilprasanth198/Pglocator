@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PgownerSearchComponent } from './pgowner-search.component';
+import { PgownerNavbarComponent } from './pgowner-navbar.component';
 
-describe('PgownerSearchComponent', () => {
-  let component: PgownerSearchComponent;
-  let fixture: ComponentFixture<PgownerSearchComponent>;
+describe('PgownerNavbarComponent', () => {
+  let component: PgownerNavbarComponent;
+  let fixture: ComponentFixture<PgownerNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PgownerSearchComponent]
+      imports: [PgownerNavbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PgownerSearchComponent);
+    fixture = TestBed.createComponent(PgownerNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
