@@ -8,10 +8,14 @@ import { ContactComponent } from './Home/contact/contact.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { PgSearchComponent } from './Pgowner/pg-search/pg-search.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
+
+import { PolicyComponent } from './Home/policy/policy.component';
+
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -22,6 +26,7 @@ export const routes: Routes = [
     {path:'owner-action',component:OwnerActionComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
+    {path:'policy',component:PolicyComponent},
     
     {path:'admin-navbar',component:AdminNavbarComponent,
         children:[
