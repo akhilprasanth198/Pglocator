@@ -1,63 +1,161 @@
-    /* Navbar and Site Name Styles */
+/* Navbar and Site Name Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: #2b2b67; /* Blue background */
+    flex-wrap: wrap; /* Allows wrapping of navbar elements for smaller screens */
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Ensures the branding (icon and name) takes available space */
+}
+
+.site-icon {
+    width: 50px; /* Adjusted for better size on smaller screens */
+    height: 50px;
+    margin-right: 10px; /* Spacing between the icon and site name */
+}
+
+.site-name {
+    font-size: 24px;
+    color: #fbfeff; /* White text */
+    margin: 0;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures the nav items wrap on smaller screens */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #a5a5bd; /* Light text */
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3cc8a3; /* Teal hover color */
+}
+
+/* Button Styles */
+button {
+    border-radius: 25px;
+    background-color: #2d4671;
+    color: #3cc8a3;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    padding: 5px 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #202052;
+}
+
+/* Ensure button has some margin */
+.button-style {
+    margin-left: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    /* For tablets and medium screens */
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 20px 5px 70px;
-        font-family:poppins;
-        font-weight:bold;
-        background-color: #2b2b67; /* Blue background */
-        
-    }
-    .site-name {
-        font-size: 32px;
-        color: #fbfeff; /* White text */
-        padding: 2px 500px 2px 0px
-    }
-    
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-    
-    nav ul li {
-        margin-right: 20px;
-    }
-    
-    nav ul li a {
-        text-decoration: none;
-        color:#a5a5bd; /* White text */
-        font-size: 20px;
-        padding: 20px;
-    }
-    
-    nav ul li a:hover {
-        color: #3cc8a3; /* Teal hover color */
-    }
-    button{
-        border-radius: 25px;
-        background-color: #2d4671;
-        color: #3cc8a3;
-        border: 0px;
-        font-family: poppins;
-        font-size: 18px;
-        padding: 2px 16px 2px 16px;
-        font-weight:bold;
-    }
-    button:hover{
-        background-color: #202052;
-    }
-    .button-style{
-        padding: 0px 0px 0px 20px;
-    }
-    .site-icon {
-        margin-top: 0px;
-        width: 70px; 
-        height: 70px; 
-        background-color: #2b2b67;
-        
+        padding: 10px;
     }
 
-    
+    .site-name {
+        font-size: 22px; /* Slightly smaller for medium screens */
+    }
+
+    .site-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Adjusting nav link size */
+    }
+
+    button {
+        font-size: 16px;
+        padding: 5px 12px; /* Smaller padding for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    /* For mobile devices and small screens */
+    .navbar {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        padding: 10px;
+    }
+
+    .site-name {
+        font-size: 18px; /* Smaller font size for the site name */
+    }
+
+    .site-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: flex-start; /* Align nav items to the left */
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 5px 12px;
+    }
+
+    .button-style {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small screens */
+    .site-name {
+        font-size: 16px; /* Smaller site name */
+    }
+
+    .site-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for nav links */
+    }
+
+    button {
+        font-size: 14px;
+        padding: 4px 10px; /* Smaller padding for buttons */
+    }
+}
