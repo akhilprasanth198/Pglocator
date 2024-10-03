@@ -6,24 +6,22 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PgService {
+  
+  private apiUrl = 'https://localhost:7152/api/Pg/search'; // Change the URL as needed
 
-  private baseUrl = ''; // Replace with your API  URL
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {}
-
-  // Method to search PGs by district and city
-  searchPgs(district?: string, city?: string): Observable<any> {
+  searchPgs(district?: string, city?: string): Observable<any[]> {
     let params = new HttpParams();
 
-    // Add query parameters if provided
     if (district) {
-      params = params.append('district', district);
+      params = params.set('district', district);
     }
 
     if (city) {
-      params = params.append('city', city);
+      params = params.set('city', city);
     }
 
-    return this.http.get(`${this.baseUrl}/search`, { params });
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
 }
