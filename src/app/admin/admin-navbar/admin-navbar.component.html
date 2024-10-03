@@ -1,33 +1,9 @@
-<div class="sidebar">
-    <div class="profile">
-        <img src="portrait.jpg" alt="Profile Picture" class="profile-pic">
-        <ul>
-            <li class="dropdown"><h1>Admin</h1>
-                <ul class="dropdown-content">
-                    <li><a routerLink="/admin-navbar/">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <ul>
-        <li class="dropdown"><h3>PgOwner</h3>
-            <ul class="dropdown-content">
-                <li><a routerLink="/admin-navbar/owner-action">Manage PgOwner</a></li>
-                <li><a routerLink="/admin-navbar/view-owner">View PgOwner</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><h3>User</h3>
-            <ul class="dropdown-content">
-                <li><a routerLink="/admin-navbar/user-search">Manage User</a></li>
-                <li><a routerLink="/admin-navbar/user-profile">View Review</a></li>
-            </ul></li>
-        <li class="dropdown"><h3>Pg </h3>
-            <ul class="dropdown-content">
-                <li><a routerLink="/admin-navbar/pgowner-search">Manage Pg</a></li>
-                <li><a routerLink="/admin-navbar/pgowner-search">View Pg</a></li>
+<!-- Topbar at the top -->
+<app-admin-topbar></app-admin-topbar>
 
-            </ul>
-        </li>
-    </ul>
-</div>   
-<router-outlet></router-outlet>
+<!-- Sidebar on the left -->
+<app-admin-sidebar></app-admin-sidebar>
+<!-- Content section -->
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
