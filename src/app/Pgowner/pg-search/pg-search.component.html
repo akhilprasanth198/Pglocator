@@ -1,9 +1,25 @@
 <div class="search-box">
-    <div class="city-box">
-        <input type="text"  name="district" placeholder="Search cities">
+    <form (submit)="searchPgs()">
+        <div class="city-box">
+            <label for="district">District:</label>
+            <input type="text" id="district" [(ngModel)]="searchModel.district" name="district">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" [(ngModel)]="searchModel.city" name="city">
+
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <div *ngIf="pgs.length > 0">
+        <h3>Search Results:</h3>
+        <ul>
+            <li *ngFor="let pg of pgs">
+                {{ pg.Pgname }} - {{ pg.City }} ({{ pg.District }})
+            </li>
+        </ul>
     </div>
-    <div class="location-box">
-        <input type="text"  placeholder="Search for locality">
+    <div *ngIf="pgs.length === 0">
+        <p>No PGs found.</p>
     </div>
-    <button class="button-search" (click)="onSearch()">Search</button>
 </div>
