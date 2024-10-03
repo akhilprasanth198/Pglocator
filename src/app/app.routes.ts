@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { Routes,RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { HomepageComponent } from './Home/homepage/homepage.component';
 import { NavbarComponent } from './Home/navbar/navbar.component';
 import { LoginComponent } from './Home/login/login.component';
@@ -12,6 +13,8 @@ import { OwnerActionComponent } from './admin/owner-action/owner-action.componen
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { RegistrationComponent } from './registration/registration.component';
+
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -22,6 +25,7 @@ export const routes: Routes = [
     {path:'owner-action',component:OwnerActionComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
+    {path:'registration',component:RegistrationComponent},
     
     {path:'admin-navbar',component:AdminNavbarComponent,
         children:[
@@ -40,3 +44,9 @@ export const routes: Routes = [
         ]
     },
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
