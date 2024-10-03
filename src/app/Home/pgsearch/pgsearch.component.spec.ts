@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PgSearchComponent } from './pg-search.component';
+import { PgsearchComponent } from './pgsearch.component';
 
-describe('PgSearchComponent', () => {
-  let component: PgSearchComponent;
-  let fixture: ComponentFixture<PgSearchComponent>;
+describe('PgsearchComponent', () => {
+  let component: PgsearchComponent;
+  let fixture: ComponentFixture<PgsearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PgSearchComponent]
+      imports: [PgsearchComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PgSearchComponent);
+    fixture = TestBed.createComponent(PgsearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

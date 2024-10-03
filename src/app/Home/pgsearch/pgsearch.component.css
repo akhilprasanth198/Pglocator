@@ -1,3 +1,32 @@
+table {
+    width: 100%; /* Make the table take the full width of the container */
+    border-collapse: collapse; /* Combine borders to avoid double lines */
+    margin-top: 20px; /* Add some space above the table */
+}
+
+thead {
+    background-color: #f2f2f2; /* Light gray background for the header */
+}
+
+th, td {
+    padding: 10px; /* Add some padding for better spacing */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #000000; /* Light gray border for the cells */
+}
+
+tr:nth-child(even) {
+    background-color: #e7dfdf; /* Alternate row color for readability */
+}
+
+tr:hover {
+    background-color: #000000; /* Change background on hover for better interactivity */
+}
+
+h3 {
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+
 div {
     display: flex;
     justify-content: center;
