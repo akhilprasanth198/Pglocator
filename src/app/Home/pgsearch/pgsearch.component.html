@@ -1,0 +1,36 @@
+<div class="search-box">
+    <form (submit)="searchPgs()">
+        <div class="city-box">
+            <!-- <label for="district">District:</label> -->
+            <input type="text" placeholder="District" id="district" [(ngModel)]="searchModel.district" name="district">
+<!-- 
+            <label for="city">City:</label> -->
+            <input type="text" placeholder="City" id="city" [(ngModel)]="searchModel.city" name="city">
+
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <div *ngIf="pgs.length > 0">
+        <h3>Search Results:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>PG Name</th>
+                    <th>City</th>
+                    <th>District</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pg of pgs">
+                    <td>{{ pg.Pgname }}</td>
+                    <td>{{ pg.City }}</td>
+                    <td>{{ pg.District }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="pgs.length === 0">
+        <p>No PGs found.</p>
+    </div>
+</div>

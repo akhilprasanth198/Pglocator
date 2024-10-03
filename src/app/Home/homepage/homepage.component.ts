@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { PgSearchComponent } from '../../Pgowner/pg-search/pg-search.component';
+import { PgsearchComponent } from '../pgsearch/pgsearch.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [NavbarComponent, PgSearchComponent],
+  imports: [NavbarComponent, PgsearchComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

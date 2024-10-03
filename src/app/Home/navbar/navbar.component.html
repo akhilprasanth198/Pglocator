@@ -1,15 +1,18 @@
 <!-- Navbar and Site Name -->
 <div class="navbar">
-    <img src="/icon.png" alt="Site Icon" class="site-icon" />
-    <h1 class="site-name">
-        FindMyPg</h1>
+    <div class="site-branding">
+        <img src="/icon.png" alt="Site Icon" class="site-icon" />
+        <h1 class="site-name">FindYourNest</h1>
+    </div>
     <nav>
         <ul>
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/about">About</a></li>
             <li><a routerLink="/contact">Contact</a></li>
+            <li><a routerLink="/policy">Policy</a></li>
             <li class="button-style"><button routerLink="/login">Login</button></li>
         </ul>
     </nav>
 </div>
+
 <router-outlet></router-outlet>

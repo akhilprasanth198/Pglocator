@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Pglocator';
-  isDashboardRoute = false;
-  isNavlogRoute = false;
+  // isDashboardRoute = false;
+  // isNavlogRoute = false;
   // constructor(private router: Router) {
   //   this.router.events.subscribe((event: any) => {
   //     if (event.url) {

@@ -1,135 +1,167 @@
-/* Sidebar styles */
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #2b2b67;
-    padding: 20px 20px 20px 20px;
-    overflow: auto;
-    font-family: poppins;
-    text-align:center;
+/* Navbar and Site Name Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: #f2f7fa; /* Blue background */
+    flex-wrap: wrap; /* Allows wrapping of navbar elements for smaller screens */
 }
 
-.sidebar li {
-    list-style: none;
-    padding: 10px 20px ;
-    color: #ffffff;
-    font-size: 18px;
+.site-branding {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Ensures the branding (icon and name) takes available space */
+}
+
+.site-icon {
+    width: 50px; /* Adjusted for better size on smaller screens */
+    height: 50px;
+    margin-right: 10px; /* Spacing between the icon and site name */
+}
+
+.site-name {
+    font-size: 24px;
+    color: #2f92d4; /* White text */
+    margin: 0;
+}
+
+/* Profile Menu Styles */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
+    object-fit: cover;
 }
 
-.sidebar li a {
-    text-decoration: none;
-    color: inherit;
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f2f7fa;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.profile-menu:hover .dropdown-content {
     display: block;
-    padding: 12px;
-    transition: background 0.3s ease;
 }
 
-.sidebar li a:hover {
-    background-color: #2b2b67;
-}
-
-.sidebar ul {
+.dropdown-content ul {
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: relative;
-    background-color: #1e4e7e;
-    margin-top: 10px;
-    border-radius: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content li {
-    padding-left: 15px;
-}
-
-.dropdown-content a {
-    color: #bdc3c7;
-    font-size: 15px;
-    border-radius: 10px;
-}
-
-.dropdown-content a:hover {
-    background-color: #1abc9c;
-    color: #fff;
-}
-
-/* Navbar styles (if you want to integrate it) */
-.navbar {
-    background-color: #2980b9;
-    color: #fff;
+.dropdown-content ul li {
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border: 1px solid #ffffff;
 }
 
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: background 0.3s ease;
-}
-
-.navbar a:hover {
-    background-color: #3498db;
-}
-
-.navbar .dropdown-menu {
-    background-color: #3498db;
-    border: none;
-}
-
-.navbar .dropdown-item {
-    color: #fff;
-    padding: 10px 20px;
-    display: block;
-}
-
-.navbar .dropdown-item:hover {
-    background-color: #1abc9c;
-}
-
-/* Button and input styles */
-button {
-    background-color: #2ecc71;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #27ae60;
-}
-
-input[type="search"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.profile {
+.dropdown-content ul li a {
+    color: #353638;
     text-align: center;
-    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    transition: background-color 0.3s ease;
+
 }
 
-.profile-pic {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit:cover;
-    border: 2px solid #ffffff;
+.dropdown-content ul li a:hover {
+    background-color: #d5dfe4;
+    padding: 5px;
+    border-radius:  25px; 
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    /* For tablets and medium screens */
+    .navbar {
+        padding: 10px;
+    }
+
+    .site-name {
+        font-size: 22px; /* Slightly smaller for medium screens */
+    }
+
+    .site-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .profile-pic {
+        width: 45px;
+        height: 45px;
+    }
+
+    .dropdown-content ul li a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For mobile devices and small screens */
+    .navbar {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        padding: 10px;
+    }
+
+    .site-branding {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .site-name {
+        font-size: 18px; /* Smaller font size for the site name */
+    }
+
+    .site-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dropdown-content {
+        min-width: 120px; /* Smaller width for dropdown */
+    }
+
+    .dropdown-content ul li a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small screens */
+    .site-name {
+        font-size: 16px; /* Smaller site name */
+    }
+
+    .site-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    .dropdown-content ul li a {
+        font-size: 12px;
+    }
 }
