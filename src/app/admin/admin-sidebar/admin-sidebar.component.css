@@ -1,54 +1,121 @@
+/* Sidebar base styles */
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #d6e3ed;
-    padding-top: 20px;
-    position: fixed;
-    top: 65px;
-    left: 0;
-    color:#4c4d51;
-  }
-  
-  .profile {
-    text-align: center;
-    margin-bottom: 20px;
+  width: 250px;
+  height: 100vh;
+  background-color: #f2f7fa; /* Same background color as the navbar */
+  padding-top: 20px;
+  position: fixed; /* Fixed position so it stays on the screen while scrolling */
+  top: 65px; /* Adjust as needed depending on the navbar height */
+  left: 0;
+  color: #353638; /* Darker gray to match the navbar's dropdown text */
+  transition: all 0.3s ease;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  padding: 10px 20px;
+}
+
+.sidebar-nav li a {
+  color: #2f92d4; /* Blue color similar to the site name in the navbar */
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.sidebar-nav li a:hover {
+  background-color: #d5dfe4; /* Matches the hover background color from the dropdown */
+  height: 37px;
+  margin: 10px;
+  width: 190px;
+  border-radius: 10px;
+  color: #2f92d4; /* Keeps the same blue on hover */
+}
+
+h3 {
+  padding-top: 10px;
+  text-align: center;
+  color: #2f92d4; /* Matches the site name's color */
+}
+
+/* Responsive Styles */
+
+/* Medium screens - Tablets and small laptops */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 220px; /* Smaller width for tablets */
   }
   
   .profile-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: transparent;
-    margin-bottom: 10px;
+    width: 80px;
+    height: 80px;
   }
-  
-  .sidebar-nav {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar-nav li {
-    padding: 10px 20px;
-  }
-  
+
   .sidebar-nav li a {
-    color:#4c4d51;
-    text-align: center;
-    text-decoration: none;
-    display: block;
+    font-size: 14px; /* Slightly smaller text */
   }
-  
+}
+
+/* Small screens - Smartphones */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Narrower width for small screens */
+  }
+
+  .profile-pic {
+    width: 70px;
+    height: 70px;
+  }
+
+  .sidebar-nav li {
+    padding: 8px 15px;
+  }
+
+  .sidebar-nav li a {
+    font-size: 13px;
+  }
+
   .sidebar-nav li a:hover {
-    background-color: white;
-    height: 37px;
-    margin: 10px;
-    width: 190px;
-    border-radius: 10px;
-    color: #55bafc;
+    width: 170px; /* Slightly smaller hover effect */
   }
-  
-h3{
-  padding-top: 10px;
-    text-align: center;
+}
+
+/* Extra small screens - Small smartphones */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 180px; /* Compact width for very small screens */
+  }
+
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sidebar-nav li a {
+    font-size: 12px; /* Smaller font size for better fit */
+  }
+
+  .sidebar-nav li a:hover {
+    width: 150px; /* Adjusted hover width */
+  } 
 }
