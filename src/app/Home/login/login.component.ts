@@ -29,9 +29,9 @@ export class LoginComponent {
         if (result && result.message === 'Login successful') {
           // Handle redirection based on the user's role
           if (result.role === 'Admin') {
-            this.router.navigateByUrl('/admin-dashboard');
-          } else if (result.role === 'PgOwner') {
-            this.router.navigateByUrl('/pgowner-dashboard');
+            this.router.navigateByUrl('/admin-navbar');
+          } else if (result.role === 'pgowner') {
+            this.router.navigateByUrl('/pgowner-navbar');
           } else {
             this.router.navigateByUrl('/user-dashboard');
           }
