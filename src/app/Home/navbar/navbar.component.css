@@ -1,4 +1,4 @@
-/* Navbar and Site Name Styles */
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -10,24 +10,34 @@
     flex-wrap: wrap; 
 }
 
-.site-branding {
+    .site-branding {
     display: flex;
     align-items: center;
-    flex: 1; /* Ensures the branding (icon and name) takes available space */
-}
+    flex: 1; 
+    }
 
-.site-icon {
-    width: 50px; /* Adjusted for better size on smaller screens */
+    .site-icon {
+    width: 50px; 
     height: 50px;
-    margin-right: 10px; /* Spacing between the icon and site name */
-}
+    margin-right: 10px; 
+    }
 
-.site-name {
+    .site-name {
     font-size: 24px;
-    color: #2f92d4; /* White text */
+    color: #2f92d4;
     margin: 0;
-}
+    }
 
+    .site-name a {
+    text-decoration: none;
+    color: inherit; 
+    }
+    
+    .site-name a:hover {
+    color: inherit; 
+    }
+    
+    
 /* Navigation Styles */
 nav ul {
     list-style: none;
@@ -38,44 +48,133 @@ nav ul {
     flex-wrap: wrap; /* Ensures the nav items wrap on smaller screens */
 }
 
-nav ul li {
-    margin-right: 20px;
+    nav ul li {
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #2f92d4; 
+        font-size: 18px;
+        padding: 10px 15px;
+        transition: color 0.3s ease;
+    }
+    /* Text Link Hover */
+    nav ul li a:hover {
+        color: #0066a1;
+        text-decoration: underline; 
+    }
+/* Button Styles */
+button {
+        border-radius: 25px;
+        background: linear-gradient(135deg, #6db8ff, #2f92d4); 
+        color: #ffffff; 
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    button:hover {
+        background: linear-gradient(135deg, #0090fe, #0078c6); /* More vibrant hover gradient */
+        color: #fffdfa; 
+        transform: translateY(-3px); /* Subtle lift on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for hover effect */
+    }
+
+    button:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(47, 146, 212, 0.4); 
+    }
+
+    .button-style {
+        margin-left: 20px;
+    }
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-nav ul li a {
+/* Hide dropdown content initially */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f7fa;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    opacity: 0; /* Start as invisible */
+    visibility: hidden; /* Ensure it's not interactable */
+    transform: translateY(15px) scale(0.95); /* Slightly lower and smaller */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    overflow: hidden; /* Prevent overflow from submenus */
+}
+
+/* Show dropdown on hover with fade, scale, and slide-up */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it interactable */
+    transform: translateY(0) scale(1); /* Slide up and scale to original size */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Dropdown links */
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content li a {
+    color: #2f92d4;
+    padding: 12px 15px;
     text-decoration: none;
-    color: #2f92d4; /* Light text */
+    display: block;
+    font-size: 16px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid #e0e0e0; /* Light divider between items */
+}
+
+/* Hover effects for dropdown links */
+.dropdown-content li a:hover {
+    background-color: #0090fe;
+    color: #fffdfa;
+    box-shadow: inset 0 0 5px rgba(0, 144, 254, 0.2); /* Glow effect on hover */
+}
+
+/* Style the Policies link to match others */
+.dropdown a {
+    color: #2f92d4;
     font-size: 18px;
     padding: 10px 15px;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #3cc8a3; /* Teal hover color */
+/* Dropdown hover */
+.dropdown:hover a {
+    color: #0066a1;
+    text-decoration: underline;
+    transition: color 0.3s ease;
 }
 
-/* Button Styles */
-button {
-    border-radius: 25px;
-    background-color: #c6ddef;
-    color: #2f92d4;
-    border: 0;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    padding: 5px 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+/* Dropdown item hover effect */
+.dropdown-content li a:hover {
+    background-color: #0090fe; /* Hover background */
+    color: white; /* Hover text color */
+    transform: scale(1.05); /* Slight scale on hover */
 }
 
-button:hover {
-    color: #0c6bb4;
-    background-color: #cbdeeb;
+/* Modern transition for dropdown link background */
+.dropdown-content li a {
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, transform 0.2s ease-in;
 }
 
-/* Ensure button has some margin */
-.button-style {
-    margin-left: 20px;
-}
 
 /* Responsive Styles */
 @media (max-width: 992px) {

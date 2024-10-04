@@ -29,6 +29,7 @@ export class PgsearchComponent implements OnInit {
             alert('No PGs found');
             this.pgs = []; // Clear previous search results
           } else {
+            console.log(result);
             this.pgs = result; // Display new search results
           }
         },

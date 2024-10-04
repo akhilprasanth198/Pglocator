@@ -8,15 +8,16 @@ import { ContactComponent } from './Home/contact/contact.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { PgsearchComponent } from './Home/pgsearch/pgsearch.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
-import { PolicyComponent } from './Home/policy/policy.component';
-import { PrivacyComponent } from './Home/privacy/privacy.component';
+import { PolicyComponent } from './Home/policies/policy/policy.component';
+import { PrivacyComponent } from './Home/policies/privacy/privacy.component';
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.component';
-
+import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
+import { PoliciesComponent } from './Home/policies/policies.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -26,30 +27,44 @@ export const routes: Routes = [
     {path:'contact',component:ContactComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
-    {path:'policy',component:PolicyComponent},
-    {path:'privacy',component:PrivacyComponent},
-    
-    {path:'admin-navbar',component:AdminNavbarComponent,
+    {path:'policies',component:PoliciesComponent,
         children:[
-            {path:'owner-action',component:OwnerActionComponent},
-            {path:'view-owner',component:ViewOwnerComponent},
-            {path:'pg-search',component:PgSearchComponent},
+            {path:'policy',component:PolicyComponent},
+            {path:'privacy',component:PrivacyComponent},
         ]
     },
+    
+    
+    // {path:'admin-dashboard',component:AdminDashboardComponent,
+    //     children:[
+            {path:'admin-navbar',component:AdminNavbarComponent,
+                children:[
+                    {path:'owner-action',component:OwnerActionComponent},
+                    {path:'view-owner',component:ViewOwnerComponent},
+                    {path:'pg-search',component:PgsearchComponent},
+                ]
+            },
+    //     ]
+    // },
+    
 
     // PG Owner routes
-    {
-        path: 'pg-navbar', component: PgownerNavbarComponent,
+    {path: 'pg-navbar', component: PgownerNavbarComponent,
         children: [
             // Add PG owner-specific routes here when needed
         ]
     },
 
     // User routes
-    {
-        path: 'user-navbar', component: UserNavbarComponent,
-        children: [
-            { path: 'user-profile', component: UserProfileComponent },
+    {path:'user-dashboard',component:UserDashboardComponent,
+        children:[
+            {
+                path: 'user-navbar', component: UserNavbarComponent,
+                children: [
+                    { path: 'user-profile', component: UserProfileComponent },
+                ]
+            }
         ]
-    }
+    },
+    
 ];

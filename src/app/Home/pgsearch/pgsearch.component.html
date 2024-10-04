@@ -1,36 +1,30 @@
-<div class="search-box">
-    <form (submit)="searchPgs()">
-        <div class="city-box">
-            <!-- <label for="district">District:</label> -->
-            <input type="text" placeholder="District" id="district" [(ngModel)]="searchModel.district" name="district">
-<!-- 
-            <label for="city">City:</label> -->
-            <input type="text" placeholder="City" id="city" [(ngModel)]="searchModel.city" name="city">
+    <!-- PgsearchComponent.html -->
 
-            <button type="submit">Search</button>
-        </div>
-    </form>
-
-    <div *ngIf="pgs.length > 0">
-        <h3>Search Results:</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>PG Name</th>
-                    <th>City</th>
-                    <th>District</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pg of pgs">
-                    <td>{{ pg.Pgname }}</td>
-                    <td>{{ pg.City }}</td>
-                    <td>{{ pg.District }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div>
+        <input type="text" [(ngModel)]="searchModel.district" placeholder="District" name="district" />
+        <input type="text" [(ngModel)]="searchModel.city" placeholder="City" name="city"/>
+        <button (click)="searchPgs()">Search</button>
     </div>
-    <div *ngIf="pgs.length === 0">
+    <div *ngIf="pgs.length > 0">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>PG Name</th>
+              <th>Address</th>
+              <!-- Add more table headers if needed -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pg of pgs">
+              <td>{{ pg.pgname }}</td>
+              <td>{{ pg.address }}</td>
+              <!-- Add other fields as necessary -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+    <div *ngIf="pgs.length === 0 && searchModel.district && searchModel.city">
         <p>No PGs found.</p>
     </div>
-</div>
+    
