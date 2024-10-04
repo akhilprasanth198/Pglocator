@@ -10,7 +10,7 @@ import { UserProfileComponent } from './User/user-profile/user-profile.component
 import { PgsearchComponent } from './Home/pgsearch/pgsearch.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
 import { PolicyComponent } from './Home/policies/policy/policy.component';
-import { PrivacyComponent } from './Home/policies/privacy/privacy.component';
+import { PrivacyComponent } from './Home/privacy/privacy.component';
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
