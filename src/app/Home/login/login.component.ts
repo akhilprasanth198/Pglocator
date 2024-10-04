@@ -29,7 +29,7 @@ export class LoginComponent {
         if (result && result.message === 'Login successful') {
           // Handle redirection based on the user's role
           if (result.role === 'Admin') {
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/admin-dashboard');
           } else if (result.role === 'pgowner') {
             this.router.navigateByUrl('/pgowner-navbar');
           } else if(result.role === 'user'){
