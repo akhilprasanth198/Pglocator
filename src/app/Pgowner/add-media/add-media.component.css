@@ -1,0 +1,36 @@
+.media-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .media-container h2,
+  .media-container h3 {
+    text-align: center;
+  }
+  
+  .media-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .media-thumbnail {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 20px;
+  }
+  
+  .media-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    margin-top: 5px;
+  }
+  

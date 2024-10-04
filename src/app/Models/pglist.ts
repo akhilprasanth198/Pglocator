@@ -12,6 +12,7 @@ export interface PG {
     genderPreference: string;
     amenities: string[];
     foodAvailable: boolean;
+    status:string;
     meals: string[];
     rules: string;
 }

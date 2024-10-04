@@ -1,12 +1,12 @@
 import { Component,inject, OnInit } from '@angular/core';
 import { PG } from '../../Models/pglist';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
 import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-viewdetails-pg',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf,RouterOutlet],
   templateUrl: './viewdetails-pg.component.html',
   styleUrl: './viewdetails-pg.component.css'
 })

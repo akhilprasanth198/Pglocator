@@ -81,7 +81,12 @@
         <!-- Meals -->
         <div class="form-group">
             <label for="meals">Meals (Comma Separated)</label>
-            <input type="text" id="meals" class="form-control" [(ngModel)]="mealsString" name="meals" />
+            <input type="text" id="meals" class="form-control" [(ngModel)]="pg.meals" name="meals" />
+        </div>
+
+        <div class="form-group">
+            <label for="meals">Status</label>
+            <input type="text" id="status" class="form-control" [(ngModel)]="pg.status" name="status" />
         </div>
 
         <!-- Rules -->

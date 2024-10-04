@@ -23,6 +23,7 @@ import { PoliciesComponent } from './Home/policies/policies.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
+import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -58,11 +59,11 @@ export const routes: Routes = [
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
             {path:'view-pg',component:ViewPgComponent},
+            {path:'add-media',component:AddMediaComponent},
             // Add PG owner-specific routes here when needed
         ]
     },
     {path:'viewdetails-pg',component:ViewdetailsPgComponent},
-    {path:'view-pg',component:ViewPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     // User routes
     {path:'user-dashboard',component:UserDashboardComponent,
