@@ -20,6 +20,9 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.component';
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
 import { PoliciesComponent } from './Home/policies/policies.component';
+import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
+import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
+import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -52,12 +55,15 @@ export const routes: Routes = [
     
 
     // PG Owner routes
-    {path: 'pg-navbar', component: PgownerNavbarComponent,
+    {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
+            {path:'view-pg',component:ViewPgComponent},
             // Add PG owner-specific routes here when needed
         ]
     },
-
+    {path:'viewdetails-pg',component:ViewdetailsPgComponent},
+    {path:'view-pg',component:ViewPgComponent},
+    {path:'add-pg',component:RegisterPgComponent},
     // User routes
     {path:'user-dashboard',component:UserDashboardComponent,
         children:[
