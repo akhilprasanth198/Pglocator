@@ -15,20 +15,11 @@ import { OwnerActionComponent } from './admin/owner-action/owner-action.componen
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
-<<<<<<< HEAD
 import { RegistrationComponent } from './registration/registration.component';
-import { PoliciesComponent } from './Home/policies/policies.component';
-import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
-=======
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.component';
-<<<<<<< HEAD
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
 import { PoliciesComponent } from './Home/policies/policies.component';
-=======
->>>>>>> 32fc641dfaeb3b7e3692b835696333e65d7fa36b
-
->>>>>>> 447135556af359ddf56b356be49fa1850713064f
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -37,9 +28,8 @@ export const routes: Routes = [
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
     {path:'view-owner',component:ViewOwnerComponent},
-    {path:'view-user',component:ViewUsersComponent}
+    {path:'view-user',component:ViewUsersComponent},
     {path:'registration',component:RegistrationComponent},
-    {path:'admin-navbar',component:AdminNavbarComponent,
     {path:'policies',component:PoliciesComponent,
         children:[
             {path:'policy',component:PolicyComponent},
