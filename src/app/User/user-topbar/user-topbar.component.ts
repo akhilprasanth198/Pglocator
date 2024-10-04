@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 @Component({
-  selector: 'app-pgowner-topbar',
+  selector: 'app-user-topbar',
   standalone: true,
-  imports: [RouterOutlet,RouterLink],
-  templateUrl: './pgowner-topbar.component.html',
-  styleUrl: './pgowner-topbar.component.css'
+  imports: [RouterOutlet,RouterLink,UserProfileComponent],
+  templateUrl: './user-topbar.component.html',
+  styleUrl: './user-topbar.component.css'
 })
-export class PgownerTopbarComponent {
+export class UserTopbarComponent {
   constructor(private router: Router) {}
   onLogout() {
     console.log('User logged out');
