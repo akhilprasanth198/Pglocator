@@ -1,0 +1,139 @@
+/* Sidebar base styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #f2f7fa;
+    padding-top: 20px;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    color: #353638;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Flexbox for profile alignment */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.profile-name {
+    font-size: 18px;
+    color: #353638;
+    font-weight: bold;
+}
+
+/* Sidebar navigation styles */
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    padding: 10px 20px;
+}
+
+.sidebar-nav li a {
+    color: #2f92d4;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #d5dfe4;
+    border-radius: 10px;
+}
+
+h3 {
+    padding-top: 10px;
+    text-align: center;
+    color: #2f92d4;
+}
+
+/* Divider between menu items */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 10px 0;
+}
+
+/* Responsive Styles */
+
+/* Medium screens - Tablets and small laptops */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile-name {
+        font-size: 16px;
+    }
+
+    .sidebar-nav li a {
+        font-size: 14px;
+    }
+}
+
+/* Small screens - Smartphones */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    .profile-name {
+        font-size: 14px;
+    }
+
+    .sidebar-nav li {
+        padding: 8px 15px;
+    }
+
+    .sidebar-nav li a {
+        font-size: 13px;
+    }
+}
+
+/* Extra small screens - Small smartphones */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+    }
+
+    .profile-name {
+        font-size: 12px;
+    }
+
+    .sidebar-nav li a {
+        font-size: 12px;
+    }
+}
