@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { Routes,RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { HomepageComponent } from './Home/homepage/homepage.component';
 import { NavbarComponent } from './Home/navbar/navbar.component';
 import { LoginComponent } from './Home/login/login.component';
@@ -14,10 +15,18 @@ import { OwnerActionComponent } from './admin/owner-action/owner-action.componen
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+<<<<<<< HEAD
+import { RegistrationComponent } from './registration/registration.component';
+=======
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.component';
+<<<<<<< HEAD
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
 import { PoliciesComponent } from './Home/policies/policies.component';
+=======
+>>>>>>> 32fc641dfaeb3b7e3692b835696333e65d7fa36b
+
+>>>>>>> 447135556af359ddf56b356be49fa1850713064f
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -27,7 +36,18 @@ export const routes: Routes = [
     {path:'contact',component:ContactComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
+<<<<<<< HEAD
     {path:'policies',component:PoliciesComponent,
+=======
+<<<<<<< HEAD
+    {path:'registration',component:RegistrationComponent},
+=======
+    {path:'policy',component:PolicyComponent},
+    {path:'privacy',component:PrivacyComponent},
+>>>>>>> 32fc641dfaeb3b7e3692b835696333e65d7fa36b
+    
+    {path:'admin-navbar',component:AdminNavbarComponent,
+>>>>>>> 447135556af359ddf56b356be49fa1850713064f
         children:[
             {path:'policy',component:PolicyComponent},
             {path:'privacy',component:PrivacyComponent},
@@ -68,3 +88,9 @@ export const routes: Routes = [
     },
     
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

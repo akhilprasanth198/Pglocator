@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgForm,FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+  constructor(private router: Router) {}
+  onSubmit(form: NgForm) { 
+    if (form.valid) {
+      console.log('Form Submitted!', form.value);
+      // You can also send the data to your backend server here
+      this.router.navigate(['/login']);
+      form.reset();
+    }
+  }
 
 }

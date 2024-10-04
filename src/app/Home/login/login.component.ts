@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +15,20 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
+  onLogin(form: NgForm) {
+    if (form.valid) {
+      console.log('Login Form Submitted!', form.value);
+      // Here you can handle the login logic (e.g., validate credentials)
+      form.reset();
+    }
+  }
   onSubmit() {
     // Add your authentication logic here
     alert('Login successful!');    // On successful login, redirect to another page
     // this.router.navigate(['/dashboard']);
   }
   navigateToRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/registration']);
   }
 
 }

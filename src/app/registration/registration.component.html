@@ -1,91 +1,115 @@
-<!-- <form class="registration-form" (ngSubmit)="onSubmit()" #registrationForm="ngForm"> -->
-    <h2>Registration Form</h2>
-    
-    <div>
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName" ngModel required>
-    </div>
-    
-    <div>
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" ngModel required>
-    </div>
-    
-    <div>
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" ngModel required>
-    </div>
-    
-    <div>
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" ngModel required>
-    </div>
-    
-    <div>
-      <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" name="dob" ngModel required>
-    </div>
-    
-    <div>
-      <label for="address">Street Address:</label>
-      <input type="text" id="address" name="address" ngModel required>
-    </div>
-    
-    <div>
-      <label for="city">City:</label>
-      <input type="text" id="city" name="city" ngModel required>
-    </div>
-    
-    <div>
-      <label for="state">State/Province:</label>
-      <input type="text" id="state" name="state" ngModel required>
-    </div>
-    
-    <div>
-      <label for="postalCode">Postal Code:</label>
-      <input type="text" id="postalCode" name="postalCode" ngModel required>
-    </div>
-    
-    <div>
-      <label for="country">Country:</label>
-      <input type="text" id="country" name="country" ngModel required>
-    </div>
-    
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" ngModel required>
-    </div>
-    
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" ngModel required>
-    </div>
-    
-    <div>
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" ngModel required>
-    </div>
-    
-    <div>
-      <label>Preferred Contact Method:</label>
-      <div>
-        <input type="radio" id="contactEmail" name="contactMethod" value="Email" ngModel>
-        <label for="contactEmail">Email</label>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Registration Form </title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+  <div class="container">
+    <!-- Title section -->
+    <div class="title">Registration Form</div>
+    <div class="content">
+      <!-- Registration form -->
+      <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+        <div class="user-details">
+          <!-- Input for First Name -->
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your name" ngModel required>
+          </div>
+  
+          <!-- input for Last Name -->
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter your name" ngModel required>
+          </div>
+  
+            <!-- Input for Email -->
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="email" placeholder="Enter your email" ngModel required>
+            </div>
+  
+            <!-- Input for Phone Number -->
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="tel" placeholder="Enter your number" ngModel required>
+            </div>
+  
+            <!-- input for Date of Birth -->
+            <div class="input-box">
+              <span class="details">Date of Birth</span>
+              <input type="date" placeholder="Enter your Date of Birth" ngModel required>
+            </div>
+  
+            <!-- input for Address -->
+            <div class="input-box">
+              <span class="details">Address</span>
+              <input type="text" placeholder="Enter your Address" ngModel required>
+            </div>
+  
+            <!-- input for City -->
+            <div class="input-box">
+              <span class="details">city</span>
+              <input type="text" placeholder="Enter your city" ngModel required>
+            </div>
+  
+            <!-- input for Postal code -->
+            <div class="input-box">
+              <span class="details">Postal code</span>
+              <input type="text" placeholder="Enter your postal code" ngModel required>
+            </div>
+  
+          <!-- Input for Username -->
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" ngModel required>
+          </div>
         
-        <input type="radio" id="contactPhone" name="contactMethod" value="Phone" ngModel>
-        <label for="contactPhone">Phone</label>
-      </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" ngModel required>
+          </div>
+  
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" ngModel required>
+          </div>
+        </div>
+
+        <!-- input for gender -->
+        <div>
+          <span class="gender-title">Gender:</span>
+          <label>
+            <input type="radio" name="gender" value="male" ngModel required /> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="female" ngModel /> Female
+          </label>
+          <label>
+            <input type="radio" name="gender" value="other" ngModel /> Other
+          </label>
+        </div>
+
+        <!-- input for contact -->
+        <div>
+          <span class="contact-title">Preferred Contact Method:</span>
+          <label>
+            <input type="radio" name="contactMethod" value="email" ngModel required /> Email
+          </label>
+          <label>
+            <input type="radio" name="contactMethod" value="phone" ngModel /> Phone
+          </label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+      </form>
     </div>
-    
-    <div>
-      <label for="referral">How did you hear about us?</label>
-      <input type="text" id="referral" name="referral" ngModel>
-    </div>
-    
-    <div>
-      <input type="checkbox" id="agreement" name="agreement" ngModel required>
-      <label for="agreement">I agree to the Terms and Conditions.</label>
-    </div>
-    
-    <button type="submit">Submit</button>
-  <!-- </form> -->
+  </div>
+</body>
+</html>
