@@ -1,34 +1,51 @@
-import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']  // Ensure you fix the typo from styleUrl to styleUrls
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  userobject: any = {
+    email: "", 
+    password: "",
+  };
 
-  constructor(private router: Router) {}
+  userService = inject(UserService);
+  router = inject(Router);
 
-  onLogin(form: NgForm) {
-    if (form.valid) {
-      console.log('Login Form Submitted!', form.value);
-      // Here you can handle the login logic (e.g., validate credentials)
-      form.reset();
-    }
-  }
+  // Function to handle login submission
   onSubmit() {
-    // Add your authentication logic here
-    alert('Login successful!');    // On successful login, redirect to another page
-    // this.router.navigate(['/dashboard']);
+    this.userService.onLoginSubmit(this.userobject).subscribe(
+      (result: any) => {
+        console.log(result);
+        // If login is successful
+        if (result && result.message === 'Login successful') {
+          // Handle redirection based on the user's role
+          if (result.role === 'Admin') {
+            this.router.navigateByUrl('/admin-dashboard');
+          } else if (result.role === 'PgOwner') {
+            this.router.navigateByUrl('/pgowner-dashboard');
+          } else {
+            this.router.navigateByUrl('/user-dashboard');
+          }
+        }
+      },
+      (error: any) => {
+        alert('Invalid username or password');
+        console.log(error);
+      }
+    );
   }
+
+  // Navigate to register component
   navigateToRegister() {
     this.router.navigate(['/registration']);
   }
-
 }
