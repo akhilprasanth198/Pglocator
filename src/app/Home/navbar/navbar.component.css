@@ -103,22 +103,23 @@ button {
 .dropdown-content {
     display: none;
     position: absolute;
+    right: 0;
     background-color: #ffffff;
     min-width: 180px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
     opacity: 0; /* Start as invisible */
-    visibility: hidden; /* Ensure it's not interactable */
-    transform: translateY(15px) scale(0.95); /* Slightly lower and smaller */
+    visibility: hidden; 
+    transform: translateY(15px) scale(0.95); 
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    border-radius: 6px; /* Rounded corners for a modern look */
-    overflow: hidden; /* Prevent overflow from submenus */
+    border-radius: 6px; 
+    overflow: hidden; 
 }
 
 /* Show dropdown on hover with fade, scale, and slide-up */
 .dropdown:hover .dropdown-content {
     display: block;
-    opacity: 1; /* Fully visible */
+    opacity: 1; 
     visibility: visible; 
     transform: translateY(0) scale(1); 
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -132,19 +133,19 @@ button {
 .dropdown-content li a {
     color: #2f92d4;
     padding: 12px 15px;
-    text-decoration: none;
     display: block;
     font-size: 16px;
     background-color: #fff;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-bottom: 1px solid #e0e0e0; /* Light divider between items */
+    border-bottom: 1px solid #e0e0e0; 
+    
 }
 
 /* Hover effects for dropdown links */
 .dropdown-content li a:hover {
     background-color: #0090fe;
     color: #fffdfa;
-    box-shadow: inset 0 0 5px rgba(0, 144, 254, 0.2); /* Glow effect on hover */
+    box-shadow: inset 0 0 5px rgba(0, 144, 254, 0.2); 
 }
 
 /* Style the Policies link to match others */
@@ -163,9 +164,9 @@ button {
 
 /* Dropdown item hover effect */
 .dropdown-content li a:hover {
-    background-color: #b4d8f7; /* Hover background */
+    background-color: #a2d2fc; /* Hover background */
     color: white; /* Hover text color */
-    transform: scale(1.05); /* Slight scale on hover */
+    transform: scale(1.05); 
 }
 
 /* Modern transition for dropdown link background */

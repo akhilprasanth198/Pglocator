@@ -10,7 +10,7 @@ import { UserProfileComponent } from './User/user-profile/user-profile.component
 import { PgsearchComponent } from './Home/pgsearch/pgsearch.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
 import { PolicyComponent } from './Home/policies/policy/policy.component';
-import { PrivacyComponent } from './Home/policies/privacy/privacy.component';
+import { PrivacyComponent } from './Home/privacy/privacy.component';
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
@@ -40,21 +40,18 @@ export const routes: Routes = [
             {path:'privacy',component:PrivacyComponent},
         ]
     },
-    
-    
-    // {path:'admin-dashboard',component:AdminDashboardComponent,
-    //     children:[
+    // Admin routes
+    {path:'admin-dashboard',component:AdminDashboardComponent,
+        children:[
             {path:'admin-navbar',component:AdminNavbarComponent,
                 children:[
                     {path:'owner-action',component:OwnerActionComponent},
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
                 ]
-            },
-    //     ]
-    // },
-    
-
+            }
+        ]
+    },
     // PG Owner routes
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
@@ -71,6 +68,7 @@ export const routes: Routes = [
             {
                 path: 'user-navbar', component: UserNavbarComponent,
                 children: [
+                    // {path:'pg-search',component:PgsearchComponent},
                     { path: 'user-profile', component: UserProfileComponent },
                 ]
             }

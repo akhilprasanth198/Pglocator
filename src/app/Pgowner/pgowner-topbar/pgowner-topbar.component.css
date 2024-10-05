@@ -1,179 +1,206 @@
 /* Navbar and Site Name Styles */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    background-color: #f2f7fa; /* Blue background */
-    flex-wrap: wrap; /* Allows wrapping of navbar elements for smaller screens */
-    position: fixed; /* Fix the navbar at the top */
-    top: 0; /* Ensure it stays at the top */
-    left: 0; /* Keep it aligned to the left */
-    width: 100%; /* Take full width */
-    z-index: 1000; /* Ensure it stays on top of other content */
-  }
-  
-  /* Adjust the content below the navbar */
-  body {
-    padding-top: 70px; /* To prevent content from being hidden behind the navbar */
-  }
-  
-  .site-branding {
-    display: flex;
-    align-items: center;
-    flex: 1; /* Ensures the branding (icon and name) takes available space */
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  background-color: #f2f7fa; /* Blue background */
+  flex-wrap: wrap; /* Allows wrapping of navbar elements for smaller screens */
+  position: fixed; /* Fix the navbar at the top */
+  top: 0; /* Ensure it stays at the top */
+  left: 0; /* Keep it aligned to the left */
+  width: 100%; /* Take full width */
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+/* Adjust the content below the navbar */
+body {
+  padding-top: 70px; 
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Ensures the branding (icon and name) takes available space */
+}
+
   .site-icon {
     width: 50px; /* Adjusted for better size on smaller screens */
     height: 50px;
     margin-right: 10px; /* Spacing between the icon and site name */
   }
-  
+
   .site-name {
     font-size: 24px;
     color: #2f92d4; /* White text */
     margin: 0;
   }
-  
-  /* Profile Menu Styles */
-  .profile-menu {
-    position: relative;
-    display: inline-block;
-    
+  .site-name a {
+    text-decoration: none;
+    color: inherit; 
   }
-  
+    
+  .site-name a:hover {
+    color: inherit; 
+  }
+/* Profile Menu Styles */
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
   .profile-pic {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    margin:0px 0px 0px 0px;
     object-fit: cover;
   }
-  
-  /* Dropdown Menu */
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+  /* Dropdown Content */
   .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #f2f7fa;
-    min-width: 150px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    border-radius: 6px;
+    overflow: hidden;
+    
   }
-  
+
+  /* Show dropdown on hover with transition */
   .profile-menu:hover .dropdown-content {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
-  
+
+  /* Dropdown Links */
   .dropdown-content ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
+    
   }
-  
+
   .dropdown-content ul li {
-    padding: 10px;
-    border: 1px solid #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    
   }
-  
+
   .dropdown-content ul li a {
-    color: #353638;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
+    color: #2f92d4;
+    padding: 12px 15px;
     display: block;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
   }
-  
+
+  /* Hover Effects for Dropdown Links */
   .dropdown-content ul li a:hover {
-    background-color: #d5dfe4;
-    padding: 5px;
-    border-radius: 25px;
+    background-color: #a2d2fc;
+    color: #0066a1;
+    box-shadow: inset 0 0 5px rgba(0, 144, 254, 0.2);
+    transform: scale(1.05);
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 992px) {
-    /* For tablets and medium screens */
-    .navbar {
-      padding: 10px;
-    }
-  
-    .site-name {
-      font-size: 22px; /* Slightly smaller for medium screens */
-    }
-  
-    .site-icon {
-      width: 45px;
-      height: 45px;
-    }
-  
-    .profile-pic {
-      width: 45px;
-      height: 45px;
-    }
-  
-    .dropdown-content ul li a {
-      font-size: 14px;
-    }
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  /* For tablets and medium screens */
+  .navbar {
+    padding: 10px;
   }
-  
-  @media (max-width: 768px) {
-    /* For mobile devices and small screens */
-    .navbar {
-      flex-direction: column; /* Stack elements vertically on small screens */
-      padding: 10px;
-    }
-  
-    .site-branding {
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-  
-    .site-name {
-      font-size: 18px; /* Smaller font size for the site name */
-    }
-  
-    .site-icon {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .profile-pic {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .dropdown-content {
-      min-width: 120px; /* Smaller width for dropdown */
-    }
-  
-    .dropdown-content ul li a {
-      font-size: 14px;
-    }
+
+  .site-name {
+    font-size: 22px; /* Slightly smaller for medium screens */
   }
-  
-  @media (max-width: 480px) {
-    /* For very small screens */
-    .site-name {
-      font-size: 16px; /* Smaller site name */
-    }
-  
-    .site-icon {
-      width: 35px;
-      height: 35px;
-    }
-  
-    .profile-pic {
-      width: 35px;
-      height: 35px;
-    }
-  
-    .dropdown-content ul li a {
-      font-size: 12px;
-    }
+
+  .site-icon {
+    width: 45px;
+    height: 45px;
   }
-  
+
+  .profile-pic {
+    width: 45px;
+    height: 45px;
+  }
+
+  .dropdown-content ul li a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* For mobile devices and small screens */
+  .navbar {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    padding: 10px;
+  }
+
+  .site-branding {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .site-name {
+    font-size: 18px; /* Smaller font size for the site name */
+  }
+
+  .site-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dropdown-content {
+    min-width: 120px; /* Smaller width for dropdown */
+  }
+
+  .dropdown-content ul li a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For very small screens */
+  .site-name {
+    font-size: 16px; /* Smaller site name */
+  }
+
+  .site-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .profile-pic {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dropdown-content ul li a {
+    font-size: 12px;
+  }
+}
