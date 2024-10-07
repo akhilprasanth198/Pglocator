@@ -23,11 +23,10 @@ import { PoliciesComponent } from './Home/policies/policies.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
-<<<<<<< HEAD
+
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
-=======
 import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
->>>>>>> de56197adf1a39a858b9dc3bf89a84d6e49c93f8
+
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
