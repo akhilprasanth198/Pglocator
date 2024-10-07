@@ -13,52 +13,71 @@ import { NgFor, NgIf } from '@angular/common';
 export class AddMediaComponent implements OnInit {
   selectedFile: File|null = null;
   mediaList: any[] = [];
-  pgId = 1; // Replace with actual PG ID
+  pgId!:number; // Replace with actual PG ID
 
 mediaservice=inject(MediaService)
-  ngOnInit(): void {
-    this.loadMedia();
-  }
-
-  // Load media for the PG
-  loadMedia() {
-    this.mediaservice.GetMedia(this.pgId).subscribe((data:any) => {
-      this.mediaList = data;
-    });
-  }
-
-  // File selection
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-  }
-
-  // Upload media
-  onUploadMedia() {
-    if (this.selectedFile) {
-      this.mediaservice.uploadMedia(this.pgId, this.selectedFile).subscribe(() => {
-        this.loadMedia(); // Reload media after upload
-        this.selectedFile = null;
-      });
+ngOnInit() {
+  this.getPgId();
+  this.getMediaList();
+}
+getPgId() {
+  // Fetch the PG ID from your PG service after the user registers or selects a PG
+  this.mediaservice.getPgId().subscribe(
+    (id: number) => {
+      this.pgId = id;
+      console.log('PG ID:', this.pgId);
+      this.getMediaList();  // Fetch media after PG ID is obtained
+    },
+    error => {
+      console.error('Error fetching PG ID:', error);
     }
-  }
+  );
+}
 
-  // Edit media (Here you can open a modal for editing details)
-  onEditMedia(media: any) {
-    const updatedMedia = {
-      type: media.type,
-      url: media.url // This can be updated via an input form in the modal
-    };
-    this.mediaservice.editMedia(media.mid, updatedMedia).subscribe(() => {
-      this.loadMedia(); // Reload media after editing
-    });
-  }
+onFileSelected(event: any) {
+  this.selectedFile = event.target.files[0];
+}
 
-  // Delete media
-  onDeleteMedia(mediaId: number) {
-    if (confirm('Are you sure you want to delete this media?')) {
-      this.mediaservice.deleteMedia(mediaId).subscribe(() => {
-        this.loadMedia(); // Reload media after deletion
-      });
+onUploadMedia() {
+  if (this.selectedFile && this.pgId) {
+    this.mediaservice.uploadMedia(this.selectedFile, this.pgId).subscribe(
+      response => {
+        console.log('Media uploaded successfully', response);
+        this.getMediaList();  // Refresh media list after upload
+      },
+      error => {
+        console.error('Error uploading media', error);
+      }
+    );
+  }
+}
+
+getMediaList() {
+  if (this.pgId) {
+    this.mediaservice.getMediaByPg(this.pgId).subscribe(
+      response => {
+        this.mediaList = response;
+      },
+      error => {
+        console.error('Error fetching media', error);
+      }
+    );
+  }
+}
+
+onDeleteMedia(mediaId: number) {
+  this.mediaservice.deleteMedia(mediaId).subscribe(
+    response => {
+      console.log('Media deleted successfully');
+      this.getMediaList();  // Refresh media list after deletion
+    },
+    error => {
+      console.error('Error deleting media', error);
     }
-  }
+  );
+}
+
+onEditMedia(media: any) {
+  // Logic for editing media goes here
+}
 }
