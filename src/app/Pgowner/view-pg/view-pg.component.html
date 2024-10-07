@@ -14,7 +14,7 @@
                 <p><strong>Pin:</strong> {{ pg.Pin }}</p>
             </div>
             <div class="pg-actions">
-                <button class="view-details-btn" (click)="viewPGDetails()">View Details</button>
+                <button class="view-details-btn" (click)="pg.Uid !== null && viewPGDetails(pg.Uid)">View Details</button>
             </div>
         </div>
     </div>
