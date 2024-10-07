@@ -47,16 +47,12 @@ export const routes: Routes = [
         ]
     },
     // Admin routes
-    {path:'admin-dashboard',component:AdminDashboardComponent,
-        children:[
-            {path:'admin-navbar',component:AdminNavbarComponent,
+    {path:'admin-navbar',component:AdminNavbarComponent,
                 children:[
                     {path:'owner-action',component:OwnerActionComponent},
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
                 ]
-            }
-        ]
     },
     // PG Owner routes
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
