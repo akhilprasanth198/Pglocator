@@ -43,7 +43,7 @@ export class ViewActiveUserComponent implements OnInit {
 
 
   //working code
-  approveRequest(id: number) {
+  unban(id: number) {
     this.pgService.approveRequest(id).subscribe(
         response => {
             console.log(`Approved request with ID: ${id}`);

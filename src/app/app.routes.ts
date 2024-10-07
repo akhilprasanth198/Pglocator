@@ -55,9 +55,14 @@ export const routes: Routes = [
         children:[
             {path:'admin-navbar',component:AdminNavbarComponent,
                 children:[
-                    {path:'owner-action',component:OwnerActionComponent},
+                    
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
+                    {path:'owner-action',component:OwnerActionComponent},
+                    {path:'view-approved',component:ViewApprovedOwnerComponent},
+                    {path:'view-banned-user',component:ViewBannedUserComponent},
+                    {path:'view-active-user',component:ViewActiveUserComponent},
+                
                 ]
             }
         ]
