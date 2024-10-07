@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
 
   userService = inject(UserService);
   router = inject(Router);
+  authservice=inject(AuthService)
 
   // Function to handle login submission
   onSubmit() {
@@ -30,6 +32,7 @@ export class LoginComponent {
           this.router.navigateByUrl('/admin-navbar');
         }
         if (result && result.message === 'Login successful') {
+          this.authservice.setUserId(result.userId)
           console.log("User Role:", result.role);
           
           // Handle redirection based on the user's role

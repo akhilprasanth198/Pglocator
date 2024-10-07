@@ -23,6 +23,8 @@ import { PoliciesComponent } from './Home/policies/policies.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
+import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-user.component';
+import { ViewActiveUserComponent } from './admin/view-active-user/view-active-user.component';
 
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
@@ -38,6 +40,8 @@ export const routes: Routes = [
     {path:'view-user',component:ViewUsersComponent},
     {path:'owner-action',component:OwnerActionComponent},
     {path:'view-approved',component:ViewApprovedOwnerComponent},
+    {path:'view-banned-user',component:ViewBannedUserComponent},
+    {path:'view-active-user',component:ViewActiveUserComponent},
 
     {path:'registration',component:RegistrationComponent},
     {path:'policies',component:PoliciesComponent,
@@ -49,9 +53,14 @@ export const routes: Routes = [
     // Admin routes
     {path:'admin-navbar',component:AdminNavbarComponent,
                 children:[
-                    {path:'owner-action',component:OwnerActionComponent},
+                    
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
+                    {path:'owner-action',component:OwnerActionComponent},
+                    {path:'view-approved',component:ViewApprovedOwnerComponent},
+                    {path:'view-banned-user',component:ViewBannedUserComponent},
+                    {path:'view-active-user',component:ViewActiveUserComponent},
+                
                 ]
     },
     // PG Owner routes
