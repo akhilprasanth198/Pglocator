@@ -16,11 +16,12 @@
                 <p><strong>Amenities:</strong> {{ pg.amenities }}</p>
                 <p><strong>Food Available:</strong> {{ pg.foodAvailable ? 'Yes' : 'No' }}</p>
                 <p><strong>Meals:</strong> {{ pg.meals }}</p>
+                <p><strong>Status:</strong>{{ pg.status }}</p>
                 <p><strong>Rules:</strong> {{ pg.rules }}</p>
             </div>
             <button class="add-member-btn btn btn-primary" (click)="editPg(pg.id)">Edit</button>
             <button class="add-member-btn btn btn-danger" (click)="deletePg(pg.id)">Delete</button>
         </div>
     </div>
-    <div *ngIf="!pg">Loading PG details...</div>
 </div>
+<router-outlet></router-outlet>

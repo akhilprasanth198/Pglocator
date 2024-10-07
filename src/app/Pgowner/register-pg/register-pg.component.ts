@@ -24,6 +24,7 @@ export class RegisterPgComponent {
     genderPreference: 'Both',
     amenities: [],
     foodAvailable: false,
+    status: 'Pending',
     meals: [],
     rules: ''
   };
