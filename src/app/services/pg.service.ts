@@ -40,7 +40,15 @@ export class PgService {
 
 rejectRequest(userId: number): Observable<any> {
     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner?userId=${userId}&action=reject`, {});
+  
 }
+  // Fetch pending requests
+  fetchactiveuser(): Observable<any[]> {
+    return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchaction`);
+  }
+  fetchbanneduser(): Observable<any[]> {
+    return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchaction`); 
+  }
 
 //   approveRequest(userId: number): Observable<any> {
 //     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner`, { userId, action: 'approve' });
@@ -50,4 +58,5 @@ rejectRequest(userId: number): Observable<any> {
 //     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner`, { userId, action: 'reject' });
 // }
 
+  
 }
