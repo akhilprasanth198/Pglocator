@@ -1,4 +1,50 @@
 <div class="container">
+    <h2>Approved Owners</h2>
+
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search by Email" class="input-field">
+        <button class="search-button" (click)="onSearch()">Search</button>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> <!-- Display error message -->
+
+    <div *ngIf="filteredRequests.length > 0">
+        <table class="approved-requests">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>WhatsApp</th>
+                    <th>Chat Link</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of filteredRequests">
+                    <td>{{ request.firstName }}</td>
+                    <td>{{ request.lastName }}</td>
+                    <td>{{ request.email }}</td>
+                    <td>{{ request.phone }}</td>
+                    <td>{{ request.gender }}</td>
+                    <td>{{ request.dob }}</td>
+                    <td>{{ request.whatsapp }}</td>
+                    <td><a [href]="request.chatLink">Chat</a></td>
+                    <td>{{ request.address }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="filteredRequests.length === 0 && !errorMessage">
+        <p>No approved Owners.</p>
+    </div>
+</div>
+
+<!-- <div class="container">
     <h2>Pending Requests</h2>
 
     <div class="search-container">
@@ -33,11 +79,7 @@
                     <td>{{ request.whatsapp }}</td>
                     <td><a [href]="request.chatLink">Chat</a></td>
                     <td>{{ request.address }}</td>
-                    <td>
-                        <button (click)="approveRequest(request.uid)">Approve</button>
-                        <button (click)="rejectRequest(request.uid)">Reject</button>
-                        
-                    </td>
+                    
                 </tr>
             </tbody>
         </table>
@@ -51,56 +93,4 @@
 
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pending Requests</title>
-</head>
-<body>
-
-    <div class="container">
-        <h2>Pending Requests</h2>
-        <p>You have 50+ new requests</p> -->
-        
-        <!-- <button class="add-member-btn">Add new member</button> -->
-<!-- 
-        <table class="pending-requests">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Gender</th>
-                    <th>DOB</th>
-                    <th>WhatsApp</th>
-                    <th>Chat Link</th>
-                    <th>Address</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Brandon</td>
-                    <td>Washington</td>
-                    <td>brandon</td>
-                    <td>(123) 456-7890</td>
-                    <td>Male</td>
-                    <td>01/01/1980</td>
-                    <td>(123) 456-7890</td>
-                    <td><a href="chat-link">Chat</a></td>
-                    <td>123 Main St, City, Country</td>
-                    <td><button class="add-member-btn">Approve</button><br>
-                   <button class="add-member-btn">Reject</button></td>
-
-                </tr>
-               
-               Add more rows as per your need -->
-            <!-- </tbody>
-        </table>
-    </div>
-
-</body>
-</html> -->
+   -->

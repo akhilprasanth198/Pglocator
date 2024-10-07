@@ -23,6 +23,7 @@ import { PoliciesComponent } from './Home/policies/policies.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
+import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -32,6 +33,9 @@ export const routes: Routes = [
     {path:'contact',component:ContactComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
+    {path:'owner-action',component:OwnerActionComponent},
+    {path:'view-approved',component:ViewApprovedOwnerComponent},
+
     {path:'registration',component:RegistrationComponent},
     {path:'policies',component:PoliciesComponent,
         children:[
