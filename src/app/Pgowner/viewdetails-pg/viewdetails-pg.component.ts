@@ -12,34 +12,36 @@ import { NgIf } from '@angular/common';
 })
 export class ViewdetailsPgComponent implements OnInit{
 pg:PG|null=null;
+pgId!:number;
 router=inject(Router);
 route=inject(ActivatedRoute)
 pgownerservice=inject(PgownerService)
 ngOnInit(): void {
-  const pgId = this.route.snapshot.paramMap.get('id');
-  if (pgId) {
-    this.getPgDetails(+pgId);
+  const paramMapValue = this.route.snapshot.paramMap.get('pgId');
+    if (paramMapValue !== null) {
+    this.pgId = +paramMapValue;
+    this.getPgDetails();
   }
 }
 
-getPgDetails(id: number): void {
-  this.pgownerservice.getPG(id).subscribe(
-    (data: PG) => {
-      this.pg = data;
+getPgDetails() {
+  this.pgownerservice.getApprovedPGs(this.pgId).subscribe(
+    response => {
+      this.pg = response;
     },
-    (error:any) => {
-      console.error('Error fetching PG details:', error);
+    error => {
+      console.error('Error fetching PG details', error);
     }
   );
 }
 
-editPg(id: number): void {
-  this.router.navigate(['/edit-pg', id]); // Navigate to edit page
+editPg() {
+  this.router.navigate(['/edit-pg', this.pgId]); // Navigate to edit page
 }
 
-deletePg(id: number): void {
+deletePg(){
   if (confirm('Are you sure you want to delete this PG?')) {
-    this.pgownerservice.deletePG(id).subscribe(
+    this.pgownerservice.deletePG(this.pgId).subscribe(
       () => {
         alert('PG deleted successfully!');
         this.router.navigate(['/pg-list']); // Navigate to PG list or appropriate route

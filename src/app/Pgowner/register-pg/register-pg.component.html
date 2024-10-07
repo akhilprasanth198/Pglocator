@@ -3,56 +3,56 @@
     <form (ngSubmit)="onSubmit()">
         <!-- PG Name -->
         <div class="form-group">
-            <label for="name">PG Name</label>
-            <input type="text" id="name" class="form-control" [(ngModel)]="pg.name" name="name" required />
+            <label for="Pgname">PG Name</label>
+            <input type="text" id="Pgname" class="form-control" [(ngModel)]="pg.Pgname" name="Pgname" required />
         </div>
 
         <!-- Description -->
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" class="form-control" [(ngModel)]="pg.description" name="description" rows="4" required></textarea>
+            <label for="Description">Description</label>
+            <textarea id="Description" class="form-control" [(ngModel)]="pg.Description" name="Description" rows="4" required></textarea>
         </div>
 
         <!-- Address -->
         <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" id="address" class="form-control" [(ngModel)]="pg.address" name="address" required />
+            <label for="Address">Address</label>
+            <input type="text" id="Address" class="form-control" [(ngModel)]="pg.Address" name="Address" required />
         </div>
 
         <!-- District -->
         <div class="form-group">
-            <label for="district">District</label>
-            <input type="text" id="district" class="form-control" [(ngModel)]="pg.district" name="district" required />
+            <label for="District">District</label>
+            <input type="text" id="District" class="form-control" [(ngModel)]="pg.District" name="District" required />
         </div>
 
         <!-- City -->
         <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" id="city" class="form-control" [(ngModel)]="pg.city" name="city" required />
+            <label for="City">City</label>
+            <input type="text" id="City" class="form-control" [(ngModel)]="pg.City" name="City" required />
         </div>
 
         <!-- Latitude & Longitude -->
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="latitude">Latitude</label>
-                <input type="number" id="latitude" class="form-control" [(ngModel)]="pg.latitude" name="latitude" required />
+                <label for="Latitude">Latitude</label>
+                <input type="text" id="Latitude" class="form-control" [(ngModel)]="pg.Latitude" name="Latitude" required />
             </div>
             <div class="form-group col-md-6">
-                <label for="longitude">Longitude</label>
-                <input type="number" id="longitude" class="form-control" [(ngModel)]="pg.longitude" name="longitude" required />
+                <label for="Longitude">Longitude</label>
+                <input type="text" id="Longitude" class="form-control" [(ngModel)]="pg.Longitude" name="Longitude" required />
             </div>
         </div>
 
         <!-- Pin Code -->
         <div class="form-group">
-            <label for="pin">Pin Code</label>
-            <input type="text" id="pin" class="form-control" [(ngModel)]="pg.pin" name="pin" required />
+            <label for="Pin">Pin Code</label>
+            <input type="text" id="Pin" class="form-control" [(ngModel)]="pg.Pin" name="Pin" required />
         </div>
 
         <!-- Gender Preference -->
         <div class="form-group">
-            <label for="genderPreference">Gender Preference</label>
-            <select id="genderPreference" class="form-control" [(ngModel)]="pg.genderPreference" name="genderPreference">
+            <label for="Gender_preference">Gender Preference</label>
+            <select id="Gender_preference" class="form-control" [(ngModel)]="pg.Gender_perference" name="Gender_preference">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Both">Both</option>
@@ -61,38 +61,33 @@
 
         <!-- Amenities -->
         <div class="form-group">
-            <label for="amenities">Amenities (Comma Separated)</label>
-            <input type="text" id="amenities" class="form-control" [(ngModel)]="amenitiesString" name="amenities" required />
+            <label for="Amenities">Amenities (Comma Separated)</label>
+            <input type="text" id="Amenities" class="form-control" [(ngModel)]="pg.Amentities" name="Amenities" required />
         </div>
 
         <!-- Food Available -->
         <div class="form-group">
-            <label for="foodAvailable">Food Available</label>
+            <label for="Foodavailable">Food Available</label>
             <div>
                 <label>
-                    <input type="radio" [(ngModel)]="pg.foodAvailable" name="foodAvailable" [value]="true" /> Yes
+                    <input type="radio" [(ngModel)]="pg.Foodavailable" name="Foodavailable" [value]="true" /> Yes
                 </label>
                 <label>
-                    <input type="radio" [(ngModel)]="pg.foodAvailable" name="foodAvailable" [value]="false" /> No
+                    <input type="radio" [(ngModel)]="pg.Foodavailable" name="Foodavailable" [value]="false" /> No
                 </label>
             </div>
         </div>
 
         <!-- Meals -->
         <div class="form-group">
-            <label for="meals">Meals (Comma Separated)</label>
-            <input type="text" id="meals" class="form-control" [(ngModel)]="pg.meals" name="meals" />
-        </div>
-
-        <div class="form-group">
-            <label for="meals">Status</label>
-            <input type="text" id="status" class="form-control" [(ngModel)]="pg.status" name="status" />
+            <label for="Meals">Meals (Comma Separated)</label>
+            <input type="text" id="Meals" class="form-control" [(ngModel)]="pg.Meal" name="Meals" />
         </div>
 
         <!-- Rules -->
         <div class="form-group">
-            <label for="rules">Rules</label>
-            <textarea id="rules" class="form-control" [(ngModel)]="pg.rules" name="rules" rows="3"></textarea>
+            <label for="Meals">Rules</label>
+            <textarea id="Rules" class="form-control" [(ngModel)]="pg.Rules" name="Meals" rows="3"></textarea>
         </div>
 
         <!-- Submit Button -->
