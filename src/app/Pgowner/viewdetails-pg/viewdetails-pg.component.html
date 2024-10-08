@@ -1,27 +1,30 @@
-<!-- view-pg.component.html -->
 <div class="container">
-    <h2>View PG Details</h2>
-    <div class="pg-details" *ngIf="pg">
-        <div class="pg-card">
-            <div class="pg-info">
-                <h3 class="pg-name">{{ pg.Pgname }}</h3>
-                <p><strong>Description:</strong> {{ pg.Description }}</p>
-                <p><strong>Address:</strong> {{ pg.Address }}</p>
-                <p><strong>District:</strong> {{ pg.District }}</p>
-                <p><strong>City:</strong> {{ pg.City }}</p>
-                <p><strong>Latitude:</strong> {{ pg.Latitude }}</p>
-                <p><strong>Longitude:</strong> {{ pg.Longitude }}</p>
-                <p><strong>Pin:</strong> {{ pg.Pin }}</p>
-                <p><strong>Gender Preference:</strong> {{ pg.Gender_perference }}</p>
-                <p><strong>Amenities:</strong> {{ pg.Amentities }}</p>
-                <p><strong>Food Available:</strong> {{ pg.Foodavailable ? 'Yes' : 'No' }}</p>
-                <p><strong>Meals:</strong> {{ pg.Meal }}</p>
-                <p><strong>Status:</strong>{{ pg.Status }}</p>
-                <p><strong>Rules:</strong> {{ pg.Rules }}</p>
-            </div>
-            <button class="add-member-btn btn btn-primary" (click)="editPg()">Edit</button>
-            <button class="add-member-btn btn btn-danger" (click)="deletePg()">Delete</button>
-        </div>
-    </div>
+  <h2>View PG Details</h2>
+
+  <!-- Display the selected PG details -->
+  <div class="pg-details" *ngIf="pgDetails">
+      <div class="card pg-card">
+          <div class="card-body pg-info">
+              <h3 class="pg-name">{{ pgDetails.pgname }}</h3>
+              <p><strong>Description:</strong> {{ pgDetails.description }}</p>
+              <p><strong>Address:</strong> {{ pgDetails.address }}</p>
+              <p><strong>District:</strong> {{ pgDetails.district }}</p>
+              <p><strong>City:</strong> {{ pgDetails.city }}</p>
+              <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
+              <p><strong>Gender Preference:</strong> {{ pgDetails.gender_perference }}</p>
+              <p><strong>Amenities:</strong> {{ pgDetails.amentities }}</p>
+              <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
+              <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
+              <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
+          </div>
+
+          <!-- Action buttons for Edit and Delete -->
+          <div class="card-footer">
+              <button class="btn btn-primary me-2" (click)="editPg()">Edit</button>
+              <button class="btn btn-danger" (click)="deletePg()">Delete</button>
+          </div>
+      </div>
+  </div>
 </div>
+
 <router-outlet></router-outlet>

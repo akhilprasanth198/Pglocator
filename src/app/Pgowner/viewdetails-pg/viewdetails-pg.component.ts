@@ -1,75 +1,72 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { PG } from '../../Models/pglist';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
-import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { PG } from '../../Models/pglist';
+import { NgIf } from '@angular/common';
+import { pgs } from '../../Models/pgs';
 
 @Component({
   selector: 'app-viewdetails-pg',
   standalone: true,
   imports: [NgIf, RouterOutlet],
   templateUrl: './viewdetails-pg.component.html',
-  styleUrls: ['./viewdetails-pg.component.css'] // Corrected typo from styleUrl to styleUrls
+  styleUrls: ['./viewdetails-pg.component.css'] 
 })
 export class ViewdetailsPgComponent implements OnInit {
-  pg: PG | null = null;
   router = inject(Router);
   route = inject(ActivatedRoute);
   pgownerservice = inject(PgownerService);
-  authservice = inject(AuthService); 
+  authservice = inject(AuthService);
+  pgDetails: pgs | null = null;
+  pgId: number | null = null;
 
   ngOnInit(): void {
-    this.loadPgDetails(); // Load PG details on component initialization
+    this.route.params.subscribe(params => {
+      this.pgId = Number(params['pgId']);  // Use Number() to ensure it's converted to a number
+      console.log('Received PG ID:', this.pgId);  // Log the received PG ID
+      if (!isNaN(this.pgId)) {
+        this.loadPgDetails(this.pgId);  // Proceed if it's a valid number
+      } else {
+        console.error('Invalid PG ID');
+      }
+    });
   }
+  
 
   // Fetch PG details by ID
-  loadPgDetails(): void {
-    const pgId = this.route.snapshot.paramMap.get('id'); // Get the PG ID from the route parameters
-    if (pgId) {
-      this.pgownerservice.getPGDetails(+pgId).subscribe(
-        (data: PG) => {
-          this.pg = data; // Set the PG details to the pg variable
-        },
-        (error) => {
-          console.error('Error fetching PG details', error);
-          alert('Could not load PG details. Please try again later.'); // Notify the user
-        }
-      );
-    } else {
-      console.error('No PG ID found in route parameters.');
-      alert('Invalid PG ID.'); // Notify the user
-    }
-  }
-  editPg(): void {
-    if (this.pg) {
-      this.router.navigate(['/edit-pg', this.pg.Uid]); // Adjust the route to your edit PG component
-    } else {
-      console.error('No PG selected for editing.');
-      alert('No PG selected to edit.'); // Notify the user
-    }
+  loadPgDetails(pgId: number): void {
+    this.pgownerservice.getPgById(pgId).subscribe(
+      data => {
+        this.pgDetails = data as unknown as pgs;        console.log('Fetched PG details:', data);
+      },
+      error => {
+        console.error(`Error fetching PG details: ${error.status} - ${error.message}`);
+        alert('Failed to load PG details. Please try again later.');
+      }
+    );
   }
 
- // Delete the PG
- deletePg(): void {
-  if (this.pg && this.pg.Uid) {
-    const confirmDelete = confirm(`Are you sure you want to delete "${this.pg.Pgname}"?`);
-    if (confirmDelete) {
-      this.pgownerservice.deletePG(this.pg.Uid).subscribe(
-        () => {
-          console.log('PG deleted successfully');
-          alert('PG deleted successfully.'); // Notify the user
-          this.router.navigate(['/view-pgs']); // Navigate back to the PG list or appropriate page
+  // Method for edit button
+  editPg(): void {
+    console.log('Editing PG with ID:', this.pgId);
+    this.router.navigate(['/edit-pg', this.pgId]); // Navigate to the edit page
+  }
+
+  // Method for delete button
+  deletePg(): void {
+    if (this.pgId) {
+      this.pgownerservice.deletePG(this.pgId).subscribe(
+        response => {
+          console.log('PG deleted successfully:', response);
+          alert('PG deleted successfully');
+          this.router.navigate(['/pgowner-navbar/view-pg']); // Navigate back to PG list after deletion
         },
-        (error) => {
-          console.error('Error deleting PG', error);
-          alert('Could not delete PG. Please try again later.'); // Notify the user
+        error => {
+          console.error('Error deleting PG:', error);
+          alert('Failed to delete PG. Please try again later.');
         }
       );
     }
-  } else {
-    console.error('No PG selected for deletion.');
-    alert('No PG selected to delete.'); // Notify the user
   }
-}
 }

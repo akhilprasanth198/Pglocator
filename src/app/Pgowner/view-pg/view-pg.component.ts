@@ -52,13 +52,13 @@ export class ViewPgComponent implements OnInit {
   }
 
   // View the details of a specific PG
-  viewPGDetails(pgId: number | null): void {
+  viewPGDetails(pgId: number): void {
     console.log('Navigating to PG details for ID:', pgId);
-    // Ensure pgId is not null before navigating
-    if (pgId !== null && !isNaN(pgId)) {
+    if (!isNaN(pgId)) {
       this.router.navigate(['/viewdetails-pg', pgId]);
     } else {
       console.error('Invalid PG ID:', pgId);
     }
   }
+  
 }

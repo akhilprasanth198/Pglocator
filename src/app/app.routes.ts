@@ -70,7 +70,7 @@ export const routes: Routes = [
             // Add PG owner-specific routes here when needed
         ]
     },
-    {path:'viewdetails-pg/:pgid',component:ViewdetailsPgComponent},
+    {path:'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     // User routes
     {path:'user-dashboard',component:UserDashboardComponent,
