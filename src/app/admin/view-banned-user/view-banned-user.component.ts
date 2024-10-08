@@ -18,10 +18,10 @@ export class ViewBannedUserComponent implements OnInit {
   constructor(private pgService: PgService) {} // Inject PgService
 
   ngOnInit() {
-    this.fetchbanneduser(); // Fetch requests on component initialization
+    this.fetchactiveuser(); // Fetch requests on component initialization
   }
 
-  fetchbanneduser() {
+  fetchactiveuser() {
     this.pgService.fetchbanneduser().subscribe(
         data => {
             console.log('Fetched pending requests:', data); // Log fetched data
@@ -43,16 +43,16 @@ export class ViewBannedUserComponent implements OnInit {
 
 
   //working code
-  ban(id: number) {
+  unban(id: number) {
     this.pgService.approveRequest(id).subscribe(
         response => {
             console.log(`Approved request with ID: ${id}`);
-            this.fetchbanneduser(); // Refresh the list
+            this.fetchactiveuser(); // Refresh the list
         },
         error => {
             console.error('Error approving request:', error);
             alert(`approved`);
-            this.fetchbanneduser(); 
+            this.fetchactiveuser(); 
             
         }
     );

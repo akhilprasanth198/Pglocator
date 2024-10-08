@@ -42,6 +42,7 @@ export const routes: Routes = [
     {path:'view-approved',component:ViewApprovedOwnerComponent},
     {path:'view-banned-user',component:ViewBannedUserComponent},
     {path:'view-active-user',component:ViewActiveUserComponent},
+    
 
     {path:'registration',component:RegistrationComponent},
     {path:'policies',component:PoliciesComponent,
@@ -60,8 +61,6 @@ export const routes: Routes = [
                     {path:'pg-search',component:PgsearchComponent},
                     {path:'owner-action',component:OwnerActionComponent},
                     {path:'view-approved',component:ViewApprovedOwnerComponent},
-                    {path:'view-banned-user',component:ViewBannedUserComponent},
-                    {path:'view-active-user',component:ViewActiveUserComponent},
                 
                 ]
             }
