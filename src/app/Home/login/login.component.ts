@@ -26,16 +26,21 @@ export class LoginComponent {
   onSubmit() {
     this.userService.onLoginSubmit(this.userobject).subscribe(
       (result: any) => {
-        console.log(result);
-        // If login is successful
+        console.log("Login result:", result);
+        if (result.role === 'admin') {
+          console.log("Navigating to admin-navbar");
+          this.router.navigateByUrl('/admin-navbar');
+        }
         if (result && result.message === 'Login successful') {
           this.authservice.setUserId(result.userId)
+          console.log("User Role:", result.role);
+          
           // Handle redirection based on the user's role
-          if (result.role === 'Admin') {
-            this.router.navigateByUrl('/admin-navbar');
-          } else if (result.role === 'pgowner') {
+          if (result.role === 'pgowner') {
+            console.log("Navigating to pgowner-navbar");
             this.router.navigateByUrl('/pgowner-navbar');
-          } else if(result.role === 'user'){
+          } else if (result.role === 'user') {
+            console.log("Navigating to user-dashboard");
             this.router.navigateByUrl('/user-dashboard');
           }
         }
@@ -47,6 +52,7 @@ export class LoginComponent {
     );
   }
 
+  
   // Navigate to register component
   navigateToRegister() {
     this.router.navigate(['/registration']);

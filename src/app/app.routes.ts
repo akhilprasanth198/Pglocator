@@ -16,7 +16,6 @@ import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.component';
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
 import { PoliciesComponent } from './Home/policies/policies.component';
@@ -28,7 +27,7 @@ import { ViewActiveUserComponent } from './admin/view-active-user/view-active-us
 
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
-
+import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -36,12 +35,14 @@ export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
+    {path:'pgsearch-dash',component:PgsearchDashboardComponent},
     {path:'view-owner',component:ViewOwnerComponent},
     {path:'view-user',component:ViewUsersComponent},
     {path:'owner-action',component:OwnerActionComponent},
     {path:'view-approved',component:ViewApprovedOwnerComponent},
     {path:'view-banned-user',component:ViewBannedUserComponent},
     {path:'view-active-user',component:ViewActiveUserComponent},
+    
 
     {path:'registration',component:RegistrationComponent},
     {path:'policies',component:PoliciesComponent,
@@ -51,21 +52,15 @@ export const routes: Routes = [
         ]
     },
     // Admin routes
-    {path:'admin-dashboard',component:AdminDashboardComponent,
-        children:[
-            {path:'admin-navbar',component:AdminNavbarComponent,
+    {path:'admin-navbar',component:AdminNavbarComponent,
                 children:[
                     
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
                     {path:'owner-action',component:OwnerActionComponent},
                     {path:'view-approved',component:ViewApprovedOwnerComponent},
-                    {path:'view-banned-user',component:ViewBannedUserComponent},
-                    {path:'view-active-user',component:ViewActiveUserComponent},
                 
                 ]
-            }
-        ]
     },
     // PG Owner routes
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,

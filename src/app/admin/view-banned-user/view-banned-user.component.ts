@@ -18,11 +18,11 @@ export class ViewBannedUserComponent implements OnInit {
   constructor(private pgService: PgService) {} // Inject PgService
 
   ngOnInit() {
-    this.fetchbanneduser(); // Fetch requests on component initialization
+    this.fetchactiveuser(); // Fetch requests on component initialization
   }
 
-  fetchbanneduser() {
-    this.pgService.fetchbanneduser().subscribe(
+  fetchactiveuser() {
+    this.pgService.fetchactiveuser().subscribe(
         data => {
             console.log('Fetched pending requests:', data); // Log fetched data
             this.pendingRequests = data;
@@ -41,22 +41,41 @@ export class ViewBannedUserComponent implements OnInit {
     );
   }
 
-
-  //working code
-  ban(id: number) {
-    this.pgService.approveRequest(id).subscribe(
+  unban(id: number) {
+    this.pgService.unban(id).subscribe(
         response => {
-            console.log(`Approved request with ID: ${id}`);
-            this.fetchbanneduser(); // Refresh the list
+            console.log(`Approved request with ID: ${id}`, response);
+            
+            alert('unbaan request successful');
+            this.fetchactiveuser(); // Refresh the list
         },
         error => {
             console.error('Error approving request:', error);
-            alert(`approved`);
-            this.fetchbanneduser(); 
-            
+            // More detailed error handling
+            if (error.error && error.error.message) {
+                alert(`Error: ${error.error.message}`);
+            } else {
+                alert('An unexpected error occurred while banning the user.');
+            }
+            this.fetchactiveuser(); 
         }
     );
 }
+//   //working code
+//   unban(id: number) {
+//     this.pgService.unban(id).subscribe(
+//         response => {
+//             console.log(`Approved request with ID: ${id}`);
+//             this.fetchactiveuser(); // Refresh the list
+//         },
+//         error => {
+//             console.error('Error approving request:', error);
+//             alert(`unbanned`);
+//             this.fetchactiveuser(); 
+            
+//         }
+//     );
+// }
 
 
 }

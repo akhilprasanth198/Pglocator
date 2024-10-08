@@ -1,30 +1,18 @@
 <div class="search-container">
   <div class="search-box">
-      <input type="text" [(ngModel)]="searchModel.district" placeholder="Enter District" name="district" class="input-field"/>
-      <input type="text" [(ngModel)]="searchModel.city" placeholder="Enter City" name="city" class="input-field"/>
-      <button class="search-button" (click)="searchPgs()">Search</button>
+      <input type="text" [(ngModel)]="searchModel.district" placeholder="Enter District" name="district" class="input-field" required/>
+      <input type="text" [(ngModel)]="searchModel.city" placeholder="Enter City" name="city" class="input-field" required/>
+      <button class="search-button" (click)="navigateToPgdash()" [disabled]="!searchModel.district && !searchModel.city">Search</button>
   </div>
 </div>
 
-<div *ngIf="pgs.length > 0" class="results-table">
-  <table>
-      <thead>
-          <tr>
-              <th>PG Name</th>
-              <th>Address</th>
-              <!-- Add more table headers if needed -->
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let pg of pgs">
-              <td>{{ pg.pgname }}</td>
-              <td>{{ pg.address }}</td>
-              <!-- Add other fields as necessary -->
-          </tr>
-      </tbody>
-  </table>
-</div>
 
-<div *ngIf="pgs.length === 0 && searchModel.district && searchModel.city" class="no-results">
-  <p>No PGs found. Please refine your search.</p>
-</div>
+<!-- <div class="search-container">
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchModel.district" placeholder="Enter District" name="district" class="input-field" required/>
+    <input type="text" [(ngModel)]="searchModel.city" placeholder="Enter City" name="city" class="input-field" required/>
+    <button class="search-button" (click)="navigateToPgdash()" [disabled]="!searchModel.district || !searchModel.city">
+      search
+    </button>
+  </div>
+</div> -->

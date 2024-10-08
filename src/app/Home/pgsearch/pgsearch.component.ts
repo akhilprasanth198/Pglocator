@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PgService } from '../../services/pg.service';
 import { CommonModule, NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pgsearch',
@@ -16,7 +17,7 @@ export class PgsearchComponent implements OnInit {
     city: ''
   };
   pgs: any[] = [];
-
+  router = inject(Router);
   constructor(private pgService: PgService) { }
 
   ngOnInit(): void { }
@@ -39,5 +40,8 @@ export class PgsearchComponent implements OnInit {
           this.pgs = []; // Clear previous search results on error
         }
       );
+  }
+  navigateToPgdash() {
+    this.router.navigate(['/pgsearch-dash'], { queryParams: { district: this.searchModel.district, city: this.searchModel.city } });
   }
 }

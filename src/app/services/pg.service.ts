@@ -43,12 +43,19 @@ rejectRequest(userId: number): Observable<any> {
   
 }
   // Fetch pending requests
+   fetchbanneduser(): Observable<any[]> {
+    return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchactiveuser`);
+  }
   fetchactiveuser(): Observable<any[]> {
-    return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchaction`);
+    return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchbanneduser`); 
   }
-  fetchbanneduser(): Observable<any[]> {
-    return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchaction`); 
-  }
+
+  banrequest(userId: number): Observable<any> {
+    return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=ban`, {});
+}
+unban(userId: number): Observable<any> {
+  return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=unban`, {});
+}
 
 //   approveRequest(userId: number): Observable<any> {
 //     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner`, { userId, action: 'approve' });
@@ -57,6 +64,15 @@ rejectRequest(userId: number): Observable<any> {
 // rejectRequest(userId: number): Observable<any> {
 //     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner`, { userId, action: 'reject' });
 // }
+// searchActiveUser(email: string): Observable<any[]> {
+//   return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchactiveuser?email=${email}`);
+// }
 
-  
+// userAction(userId: number, action: string): Observable<any> {
+//   return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=ban`, {});
+
+
+  getPgs(district: string, city: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}?district=${district}&city=${city}`);
+  }
 }

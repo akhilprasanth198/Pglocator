@@ -78,7 +78,6 @@ export class OwnerActionComponent implements OnInit {
         error => {
             console.error('Error approving request:', error);
             alert(`approved`);
-            this.fetchPendingRequests(); 
             
         }
     );
