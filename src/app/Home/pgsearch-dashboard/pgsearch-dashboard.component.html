@@ -1,0 +1,27 @@
+    <app-navbar></app-navbar>
+    <div *ngIf="pgs.length > 0" class="pg-list">
+        <div *ngFor="let pg of pgs" class="pg-card">
+            <div class="pg-image">
+            <!-- Use placeholder or dynamic image -->
+            <img [src]="pg.imageUrl || 'https://via.placeholder.com/150'" alt="PG Image"> 
+            <!-- <img src="icon.jpg"> -->
+            </div>
+            <div class="pg-details">
+                <h2>{{ pg.pgname }}</h2>
+                <p>{{ pg.address }}</p>
+                <p>Price :  &#8377;{{ pg.price }}</p>
+                <p>{{ pg.description }} | {{pg.gender_perference }} | Food Available:{{ pg.foodavailable }}
+                <p>{{ pg.city }}| Pin:{{pg.pin}}</p>
+                    <div class="pg-buttons">
+                        <!-- Alert on click -->
+                        <button class="view-details" (click)="showLoginAlert()">View Details</button>
+                        <button class="contact-owner" (click)="showLoginAlert()">Contact Owner</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- Show no PGs found -->
+    <div *ngIf="pgs.length === 0 && (searchModel?.district || searchModel?.city)" class="no-results">
+        <p>No PGs found. Please refine your search.</p>
+    </div>
+    

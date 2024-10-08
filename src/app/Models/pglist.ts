@@ -1,5 +1,6 @@
 // pg.model.ts
 export interface PG {
+    Uid: number | null;
     Pgname: string;
     Description: string;
     Address: string;
@@ -7,7 +8,7 @@ export interface PG {
     City: string;
     Latitude: string;
     Longitude: string;
-    Pin: string;
+    Pin: number;
     Gender_perference: string;
     Amentities: string;
     Foodavailable: boolean;

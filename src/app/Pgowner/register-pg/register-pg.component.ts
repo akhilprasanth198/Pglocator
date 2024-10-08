@@ -3,6 +3,7 @@ import { PgownerService } from '../../services/pgowner.service';
 import { Router } from '@angular/router';
 import { PG } from '../../Models/pglist';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register-pg',
@@ -13,14 +14,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterPgComponent {
   pg: PG = {
-    Pgname: 'asdfg',
+    Uid: null,
+    Pgname: '',
     Description: '',
     Address: '',
     District: '',
     City: '',
     Latitude: '',
     Longitude: '',
-    Pin: '',
+    Pin:670,
     Gender_perference: 'Both',  // Default value
     Amentities: '',  // String
     Foodavailable: false,
@@ -31,82 +33,35 @@ export class RegisterPgComponent {
 
   pgownerservice = inject(PgownerService);
   router = inject(Router);
+authservice=inject(AuthService)
+ 
 
-  // Validation to check for missing fields
-  validateFields(): string[] {
-    const missingFields = [];
-    if (!this.pg.Pgname) {
-      missingFields.push('PG Name');
-    
-    }
-    if (!this.pg.Description) {
-      missingFields.push('Description');
-    }
-    if(!this.pg.Address)
-      {
-        missingFields.push('Address');
-      }
-    if(!this.pg.District)
-      {
-        missingFields.push('District');
-      }
-    if(!this.pg.City)
-      {
-        missingFields.push('City');
-      }
-    if(!this.pg.Latitude)
-      {
-        missingFields.push('Latitude');
-      }
-    if(!this.pg.Longitude)
-      {
-        missingFields.push('Longitu');
-      }
-          
-    if(!this.pg.Pin)
-        {
-          missingFields.push('Pin');
-        }
-    if (!this.pg.Amentities) {
-      missingFields.push('Amenities');
-    }
-    if (!this.pg.Meal) {
-      missingFields.push('Meals');
-    }
-    if (!this.pg.Gender_perference) {
-      missingFields.push('Gender Preference');
-    }
-    if (!this.pg.Rules) {
-      missingFields.push('Rules');
-    }
-    if(!this.pg.Foodavailable)
-      {
-        missingFields.push('Food Available');
-      }
-
-    return missingFields;
+ngOnInit() {
+  // Retrieve the logged-in user's ID from AuthService and assign it to the PG's Uid
+  const userId = this.authservice.getUserId();
+  if (userId) {
+    this.pg.Uid = userId;
+  } else {
+    // Handle the case where the user is not logged in
+    console.error('User not logged in');
+    this.router.navigate(['/login']); // Redirect to login if not logged in
   }
+}
 
-  onSubmit(): void {
-    // Validate the form
-    const missingFields = this.validateFields();
-    if (missingFields.length > 0) {
-      alert(`Please fill all the required fields: ${missingFields.join(', ')}.`);
-      return;
-    }
-
-    // Send the request
+onSubmit() {
+  // Send the PG registration data
+  if (this.pg.Uid) {
     this.pgownerservice.registerPG(this.pg).subscribe(
-      response => {
-        alert('PG registered successfully. Awaiting admin approval.');
-        this.router.navigate(['/pgowner-navbar/view-pg']);
+      (response) => {
+        console.log('PG registered successfully', response);
+        this.router.navigate(['/pgowner-navbar']); // Adjust this route as needed
       },
-      error => {
-        console.error('Registration failed:', error);
-        if (error.status === 400 && error.error.errors) {
-          console.log('Validation errors:', error.error.errors);
-        }
+      (error) => {
+        console.error('Error registering PG', error);
       }
     );
+  } else {
+    console.error('User ID is missing, cannot register PG');
   }
+}
 }

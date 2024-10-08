@@ -6,6 +6,7 @@
     height: 100vh;
     width: 100%;
     padding: 1px;
+    margin-top: -20px;
 }
 .main-body{
     color: aliceblue;

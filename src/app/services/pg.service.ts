@@ -49,6 +49,7 @@ rejectRequest(userId: number): Observable<any> {
   fetchactiveuser(): Observable<any[]> {
     return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchbanneduser`); 
   }
+
   banrequest(userId: number): Observable<any> {
     return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=ban`, {});
 }
@@ -70,5 +71,8 @@ unban(userId: number): Observable<any> {
 // userAction(userId: number, action: string): Observable<any> {
 //   return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=ban`, {});
 
-  
+
+  getPgs(district: string, city: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}?district=${district}&city=${city}`);
+  }
 }

@@ -1,3 +1,4 @@
+<!-- register-pg.component.html -->
 <div class="container">
     <h2 class="text-center">Register PG</h2>
     <form (ngSubmit)="onSubmit()">
@@ -19,16 +20,18 @@
             <input type="text" id="Address" class="form-control" [(ngModel)]="pg.Address" name="Address" required />
         </div>
 
-        <!-- District -->
+        <!-- District, City, Pin -->
         <div class="form-group">
             <label for="District">District</label>
             <input type="text" id="District" class="form-control" [(ngModel)]="pg.District" name="District" required />
         </div>
-
-        <!-- City -->
         <div class="form-group">
             <label for="City">City</label>
             <input type="text" id="City" class="form-control" [(ngModel)]="pg.City" name="City" required />
+        </div>
+        <div class="form-group">
+            <label for="Pin">Pin Code</label>
+            <input type="text" id="Pin" class="form-control" [(ngModel)]="pg.Pin" name="Pin" required />
         </div>
 
         <!-- Latitude & Longitude -->
@@ -43,12 +46,6 @@
             </div>
         </div>
 
-        <!-- Pin Code -->
-        <div class="form-group">
-            <label for="Pin">Pin Code</label>
-            <input type="text" id="Pin" class="form-control" [(ngModel)]="pg.Pin" name="Pin" required />
-        </div>
-
         <!-- Gender Preference -->
         <div class="form-group">
             <label for="Gender_preference">Gender Preference</label>
@@ -59,13 +56,11 @@
             </select>
         </div>
 
-        <!-- Amenities -->
+        <!-- Amenities, Food Available, Meals -->
         <div class="form-group">
             <label for="Amenities">Amenities (Comma Separated)</label>
             <input type="text" id="Amenities" class="form-control" [(ngModel)]="pg.Amentities" name="Amenities" required />
         </div>
-
-        <!-- Food Available -->
         <div class="form-group">
             <label for="Foodavailable">Food Available</label>
             <div>
@@ -77,8 +72,6 @@
                 </label>
             </div>
         </div>
-
-        <!-- Meals -->
         <div class="form-group">
             <label for="Meals">Meals (Comma Separated)</label>
             <input type="text" id="Meals" class="form-control" [(ngModel)]="pg.Meal" name="Meals" />
@@ -86,8 +79,8 @@
 
         <!-- Rules -->
         <div class="form-group">
-            <label for="Meals">Rules</label>
-            <textarea id="Rules" class="form-control" [(ngModel)]="pg.Rules" name="Meals" rows="3"></textarea>
+            <label for="Rules">Rules</label>
+            <textarea id="Rules" class="form-control" [(ngModel)]="pg.Rules" name="Rules" rows="3"></textarea>
         </div>
 
         <!-- Submit Button -->

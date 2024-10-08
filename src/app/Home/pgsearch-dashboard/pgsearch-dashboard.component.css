@@ -1,0 +1,76 @@
+    .pg-list {
+
+        display:flex;
+        flex-direction: column; /* Arrange items in a vertical stack */
+        gap: 10px; /* Add spacing between each card */
+        padding: 20px;
+        position:relative;
+    }
+    
+    .pg-card {
+
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        display: flex;
+        padding: 10px;
+        flex-direction: row; /* Ensure image and details are side by side */
+    }
+    
+    .pg-image {
+        flex-shrink: 0;
+        margin-right: 45px;
+    }
+    
+    .pg-image img {
+        
+        width: 200px;
+        height: 220px;
+        object-fit: cover;
+    }
+    
+    .pg-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .pg-buttons {
+        display: inline-flex;
+        gap: 20px;
+    }
+    
+    .pg-buttons button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    
+    .view-details {
+        background-color: #449ee3;
+        color: white;
+    }
+    
+    .contact-owner {
+        background-color: #f26629;
+        color: white;
+    }
+    
+    .no-results {
+        text-align: center;
+        margin-top: 40px;
+        color: #030303;
+        font-size: 16px;
+    }
+    .pg-details{
+        color:#323c4d;
+        font-family: poppins;
+    }
+    .pg-details h2{
+        font-weight: 700;
+    }
+    .pg-details p{
+        font-weight: 400;
+    }
