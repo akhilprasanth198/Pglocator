@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-admin-topbar',
@@ -9,7 +9,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './admin-topbar.component.css'
 })
 export class AdminTopbarComponent {
-onLogout(){
-  
-}
+  constructor (private router: Router) {}
+  onLogout() {
+    console.log('User logged out');
+    this.router.navigate(['/']);
+  }
 }

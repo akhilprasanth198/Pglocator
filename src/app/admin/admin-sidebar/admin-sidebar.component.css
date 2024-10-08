@@ -32,26 +32,30 @@
 }
 
 .sidebar-nav li {
-  padding: 10px 20px;
+  padding: 10px 0; /* Remove horizontal padding for left alignment */
 }
 
 .sidebar-nav li a {
   color: #2f92d4; /* Blue color similar to the site name in the navbar */
-  text-align: center;
+  text-align: left; /* Align text to the left */
   text-decoration: none;
   display: block;
   font-weight: bold;
+  padding: 10px 20px; /* Add padding for better click area */
 }
 
 .sidebar-nav li a:hover {
   background-color: #d5dfe4; /* Matches the hover background color from the dropdown */
-  height: 37px;
-  margin: 10px;
-  width: 190px;
-  border-radius: 10px;
+  border-radius: 10px; /* Keep rounded corners */
   color: #2f92d4; /* Keeps the same blue on hover */
 }
 
+/* Change Admin text color specifically */
+.sidebar-nav li.admin a {
+  color: #2f92d4; /* Site name color for Admin link */
+}
+
+/* H3 styles */
 h3 {
   padding-top: 10px;
   text-align: center;
@@ -88,7 +92,7 @@ h3 {
   }
 
   .sidebar-nav li {
-    padding: 8px 15px;
+    padding: 8px 0; /* Remove horizontal padding */
   }
 
   .sidebar-nav li a {
@@ -96,7 +100,7 @@ h3 {
   }
 
   .sidebar-nav li a:hover {
-    width: 170px; /* Slightly smaller hover effect */
+    width: auto; /* Remove width restriction for hover effect */
   }
 }
 
@@ -116,6 +120,6 @@ h3 {
   }
 
   .sidebar-nav li a:hover {
-    width: 150px; /* Adjusted hover width */
+    width: auto; /* Remove width restriction for hover effect */
   } 
 }

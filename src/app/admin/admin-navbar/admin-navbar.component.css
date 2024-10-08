@@ -1,29 +1,3 @@
-/* General layout for topbar, sidebar, and content */
-
-/* Topbar styles */
-app-admin-topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 65px; /* Adjust based on your topbar height */
-  background-color: #f2f7fa; /* Blue background */
-  z-index: 1000; /* Ensure the topbar is above other elements */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-}
-
-/* Sidebar styles */
-app-admin-sidebar {
-  position: fixed;
-  top: 65px; /* Start the sidebar just below the topbar */
-  left: 0;
-  width: 250px; /* Sidebar width */
-  height: calc(100vh - 65px); /* Full height minus topbar height */
-  background-color: #f2f7fa; /* Sidebar background */
-  z-index: 999; /* Ensure the sidebar is above the content but below the topbar */
-  padding-top: 20px; /* Optional padding for the sidebar */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-}
 
 /* Content styles */
 .content {
