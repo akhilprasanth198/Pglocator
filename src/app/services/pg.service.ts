@@ -56,6 +56,9 @@ rejectRequest(userId: number): Observable<any> {
 unban(userId: number): Observable<any> {
   return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=unban`, {});
 }
+fetchPendingpgss(): Observable<any[]> {
+  return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchactiveuser`);
+}
 
 //   approveRequest(userId: number): Observable<any> {
 //     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner`, { userId, action: 'approve' });
