@@ -57,7 +57,7 @@ export class ViewBannedUserComponent implements OnInit {
             } else {
                 alert('An unexpected error occurred while banning the user.');
             }
-            this.fetchactiveuser(); 
+            
         }
     );
 }
