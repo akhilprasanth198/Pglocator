@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Media } from '../Models/media';
+import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +21,12 @@ export class MediaService {
 
   // Method to fetch media by PG ID
   getMediaByPgId(pgId: number): Observable<Media[]> {
-    return this.http.get<Media[]>(`${this.apiUrl}/ByPgId/${pgId}`);
-  }
+    return this.http.get<Media[]>(`${this.apiUrl}/ByPgId/${pgId}`).pipe(
+      tap((media) => {
+        console.log('Fetched Media:', media);
+      })
+    );
+  }  
 
   // Method to delete media by media ID
   deleteMedia(mid: number): Observable<void> {

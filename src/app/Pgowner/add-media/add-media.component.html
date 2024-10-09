@@ -1,6 +1,6 @@
 <div class="container">
   <h3>PG Media</h3>
-
+  
   <!-- File Input for Uploading Media -->
   <div class="mb-3">
     <label for="fileInput" class="form-label">Upload Media</label>
@@ -12,7 +12,6 @@
   <h4>Uploaded Media</h4>
   <div class="row">
     <div class="col-4" *ngFor="let media of mediaList">
-      
       <!-- Show image if media type is image -->
       <img *ngIf="media.Type === 'image'" [src]="'data:image/jpeg;base64,' + media.FileData" class="img-fluid" alt="Media">
       
