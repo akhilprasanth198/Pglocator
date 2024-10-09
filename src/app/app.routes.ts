@@ -28,6 +28,7 @@ import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-appr
 import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
+import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -42,6 +43,7 @@ export const routes: Routes = [
     {path:'view-approved',component:ViewApprovedOwnerComponent},
     {path:'view-banned-user',component:ViewBannedUserComponent},
     {path:'view-active-user',component:ViewActiveUserComponent},
+    {path:'view-pending-pg',component:ViewPendingPgComponent},
     
 
     {path:'registration',component:RegistrationComponent},
