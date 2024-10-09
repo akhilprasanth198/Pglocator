@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PG } from '../Models/pglist';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +32,7 @@ export class PgownerService {
 
   // Delete PG by ID
   deletePG(pgId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Pg/delete/${pgId}`);
+    return this.http.delete(`${this.baseUrl}/Pg/${pgId}`);
   }
+
 }

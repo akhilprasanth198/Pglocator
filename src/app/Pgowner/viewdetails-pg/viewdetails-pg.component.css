@@ -1,40 +1,115 @@
-.pg-details {
-    display: contents;
+/* Overall container styling */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 15px;
+  }
+  
+  /* Styling for page title */
+  .page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Container for the PG details */
+  .pg-details {
+    display: block;
+    justify-content: center;
     align-items: center;
-    flex-direction: column; /* Align cards vertically */
-    gap: 20px; /* Space between cards */
-}
-
-.pg-card {
-    background-color: #ffffff;
+    flex-direction: column;
+    gap: 20px; /* Space between sections */
+  }
+  
+  /* Card container for PG details */
+  .pg-card {
+    background-color: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
-    margin-left: 10px; /* Space between info and actions */
-}
-
-.pg-info {
-    flex: 1; /* Take up remaining space */
-}
-
-.pg-actions {
-    display: flex;
-    flex-direction: column; /* Align buttons vertically */
-    justify-content: center; /* Center the buttons */
-}
-
-.add-member-btn {
-    margin-top: 10px; /* Space between buttons */
-    width: 90px; /* Width of buttons */
-    height: 35px;
+  }
+  
+  /* Info section inside the PG card */
+  .pg-info {
+    flex: 1;
+    max-width: 60%;
+  }
+  
+  /* Actions section inside the PG card */
+  .pg-actions {
+    flex: 1;
+    max-width: 35%;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+  }
+  
+  /* Styling for the PG name */
+  .pg-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* General paragraph styling */
+  p {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Button styling */
+  .btn {
+    padding: 10px 20px;
     border-radius: 5px;
-    margin-left:15px;
-    
-}
-p,h3{
-    padding: 5px 0px 0px 0px ;
-    margin:0px 0px 10px 50px;
-}
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .pg-card {
+      flex-direction: column;
+    }
+  
+    .pg-info {
+      max-width: 100%;
+    }
+  
+    .pg-actions {
+        flex: 1;
+    max-width: 20%;
+    display: block;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  }
+  
