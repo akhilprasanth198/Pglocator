@@ -60,5 +60,13 @@ export class ViewPgComponent implements OnInit {
       console.error('Invalid PG ID:', pgId);
     }
   }
-  
+  UploadPg(pgId:number):void{
+    console.log('Navigating to PG details for ID:', pgId);
+    if (!isNaN(pgId)) {
+      this.router.navigate(['/add-media', pgId]);
+    } else {
+      console.error('Invalid PG ID:', pgId);
+
+  }
+}
 }

@@ -1,8 +1,12 @@
-<div class="card-container">
-    <div class="card-header">
-        <h2>PG List</h2>
-        <button class="add-member-btn" (click)="addPG()">Add PG</button>
+<div class="container">
+    <h2>Pending Requests</h2>
+
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search by pgname" class="input-field">
+        <button class="search-button" (click)="onSearch()">Search</button>
     </div>
+
+
 
     <div class="card-body">
         <div *ngFor="let pg of pgs" class="pg-card">
@@ -15,9 +19,7 @@
             </div>
             <div class="pg-actions">
                 <!-- Ensure pg.Uid is passed correctly -->
-                <button class="view-details-btn" (click)="viewPGDetails(pg.pgid)">View Details</button>
-                <button class="view-details-btn" (click)="UploadPg(pg.pgid)">Media Details</button>
-
+                <!-- <button class="view-details-btn" (click)="viewPGDetails(pg.pgid)">View Details</button> -->
             </div>
         </div>
     </div>

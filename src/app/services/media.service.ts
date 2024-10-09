@@ -1,34 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Media } from '../Models/media';
 @Injectable({
   providedIn: 'root'
 })
 export class MediaService {
-  private apiUrl = 'https://localhost:7152/api/Media';
+  private apiUrl = 'https://localhost:7152/api/Media';  // Adjust this URL to match your backend
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  // Upload media
-  uploadMedia(file: File, pgId: number): Observable<any> {
+  // Method to upload media file as byte array
+  uploadMedia(pgId: number, file: File): Observable<Media> {
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('pgId', pgId.toString());
+    formData.append('file', file, file.name);
 
-    return this.http.post(`${this.apiUrl}/upload`, formData);
+    return this.http.post<Media>(`${this.apiUrl}/UploadMedia?pgId=${pgId}`, formData);
   }
 
-  // Get media by PG
-  getMediaByPg(pgId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/${pgId}`);
+  // Method to fetch media by PG ID
+  getMediaByPgId(pgId: number): Observable<Media[]> {
+    return this.http.get<Media[]>(`${this.apiUrl}/ByPgId/${pgId}`);
   }
 
-  // Delete media
-  deleteMedia(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-
-  getPgId(): Observable<number> {
-    return this.http.get<number>(`${this.apiUrl}/getPgId`);  // Adjust this endpoint according to your backend
+  // Method to delete media by media ID
+  deleteMedia(mid: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${mid}`);
   }
 }

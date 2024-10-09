@@ -1,6 +1,4 @@
-// pg.model.ts
 export interface pgs {
-    uid: number | null;
     pgname: string;
     description: string;
     address: string;
@@ -12,7 +10,6 @@ export interface pgs {
     gender_perference: string;
     amentities: string;
     foodavailable: boolean;
-    status:string;
     meal: string;
     rules: string;
 }

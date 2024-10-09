@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PgMediaComponent } from './add-media.component';
+import { ViewPendingPgComponent } from './view-pending-pg.component';
 
-describe('AddMediaComponent', () => {
-  let component: PgMediaComponent;
-  let fixture: ComponentFixture<PgMediaComponent>;
+describe('ViewPendingPgComponent', () => {
+  let component: ViewPendingPgComponent;
+  let fixture: ComponentFixture<ViewPendingPgComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PgMediaComponent]
+      imports: [ViewPendingPgComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PgMediaComponent);
+    fixture = TestBed.createComponent(ViewPendingPgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

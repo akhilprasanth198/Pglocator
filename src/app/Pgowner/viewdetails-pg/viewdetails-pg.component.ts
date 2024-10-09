@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
-import { PG } from '../../Models/pglist';
 import { NgIf } from '@angular/common';
 import { pgs } from '../../Models/pgs';
 
@@ -42,7 +41,6 @@ export class ViewdetailsPgComponent implements OnInit {
       },
       error => {
         console.error(`Error fetching PG details: ${error.status} - ${error.message}`);
-        alert('Failed to load PG details. Please try again later.');
       }
     );
   }

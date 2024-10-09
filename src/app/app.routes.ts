@@ -25,9 +25,14 @@ import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-us
 import { ViewActiveUserComponent } from './admin/view-active-user/view-active-user.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
-import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
+<<<<<<< HEAD
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
+=======
+import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
+import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
+import { PgMediaComponent } from './Pgowner/add-media/add-media.component';
+>>>>>>> 44d1aabea970f4bde5506944b8efce17afa6b501
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -42,7 +47,11 @@ export const routes: Routes = [
     {path:'view-approved',component:ViewApprovedOwnerComponent},
     {path:'view-banned-user',component:ViewBannedUserComponent},
     {path:'view-active-user',component:ViewActiveUserComponent},
+<<<<<<< HEAD
   {path :'view-userpglist',component:UserpglistComponent},
+=======
+    {path:'view-pending-pg',component:ViewPendingPgComponent},
+>>>>>>> 44d1aabea970f4bde5506944b8efce17afa6b501
     
 
     {path:'registration',component:RegistrationComponent},
@@ -67,10 +76,12 @@ export const routes: Routes = [
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
             {path:'view-pg',component:ViewPgComponent},
-            {path:'add-media',component:AddMediaComponent},
             // Add PG owner-specific routes here when needed
         ]
     },
+    {path:'add-media/:pgId',component:PgMediaComponent},
+
+    {path:'edit-pg/:id',component:EditPgComponent},
     {path:'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     // User routes
