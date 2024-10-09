@@ -1,0 +1,225 @@
+/* Container for the search box */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+    padding: 0 15px; /* Added padding for small screens */
+}
+
+/* Styling for the search box */
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Input fields styling */
+.input-field {
+    padding: 14px 20px;
+    width: 80%;
+    max-width: 250px;
+    border-radius: 30px;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #383434;
+    font-size: 16px;
+    font-family: 'Poppins';
+    margin-left:-55px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* On focus, change border and shadow for inputs */
+.input-field:focus {
+    border-color: #718eb0;
+    box-shadow: 0 6px 12px rgba(74, 144, 226, 0.2);
+}
+
+/* Styling for the search button */
+.search-button {
+    padding: 14px 30px;
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* On hover, change background and lift button */
+.search-button:hover {
+    background-color: #1457b0;
+}
+
+/* Results table styling */
+.results-table {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 15px; /* Added padding for small screens */
+}
+
+table {
+    width: 90%; /* Ensure table takes up most of the width */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    color: #383434;
+}
+
+thead {
+    background-color: #1457b0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform:capitalize;
+}
+
+
+tr:hover {
+    background-color: #e5f1fd; /* Light blue for hover effect */
+}
+
+.no-results {
+    text-align: center;
+    color: #383434;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column; /* Stack inputs vertically */
+        gap: 10px;
+    }
+
+    .input-field {
+        width: 100%; /* Take full width */
+        max-width: none; /* Disable max-width on mobile */
+    }
+
+    .search-button {
+        width: 100%; /* Button takes full width */
+    }
+
+    table {
+        width: 100%; /* Table takes full width on mobile */
+    }
+
+    th, td {
+        padding: 12px; /* Adjust padding for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        margin-top: 80px; /* Reduce top margin for very small screens */
+    }
+
+    th, td {
+        font-size: 14px; /* Smaller font size for very small screens */
+    }
+
+    thead {
+        font-size: 16px; /* Adjust header font size */
+    }
+
+    .input-field {
+        padding: 12px 16px; /* Smaller padding for inputs on very small screens */
+    }
+
+    .search-button {
+        padding: 12px 16px; /* Adjust button padding */
+    }
+}
+.pg-list {
+
+    display:flex;
+    flex-direction: column; /* Arrange items in a vertical stack */
+    gap: 10px; /* Add spacing between each card */
+    padding: 20px;
+    position:relative;
+}
+
+.pg-card {
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    padding: 10px;
+    flex-direction: row; /* Ensure image and details are side by side */
+}
+
+.pg-image {
+    flex-shrink: 0;
+    margin-right: 45px;
+}
+
+.pg-image img {
+    
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.pg-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pg-buttons {
+    display: inline-flex;
+    gap: 20px;
+}
+
+.pg-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.view-details {
+    background-color: #449ee3;
+    color: white;
+}
+
+.contact-owner {
+    background-color: #f26629;
+    color: white;
+}
+
+.no-results {
+    text-align: center;
+    margin-top: 40px;
+    color: #030303;
+    font-size: 16px;
+}
+.pg-details{
+    color:#323c4d;
+    font-family: poppins;
+}
+.pg-details h2{
+    font-weight: 700;
+}
+.pg-details p{
+    font-weight: 400;
+}

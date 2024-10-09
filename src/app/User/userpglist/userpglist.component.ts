@@ -1,17 +1,19 @@
-import { Component, OnInit,inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PgService } from '../../services/pg.service';
-import { CommonModule, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 
 @Component({
-  selector: 'app-pgsearch',
+  selector: 'app-userpglist',
   standalone: true,
-  imports: [FormsModule, NgFor, CommonModule],
-  templateUrl: './pgsearch.component.html',
-  styleUrls: ['./pgsearch.component.css']
+  imports: [NgFor,CommonModule,FormsModule],
+  templateUrl: './userpglist.component.html',
+  styleUrl: './userpglist.component.css'
 })
-export class PgsearchComponent implements OnInit {
+export class UserpglistComponent implements OnInit {
   searchModel = {
     
     district: '',
@@ -23,7 +25,7 @@ export class PgsearchComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  searchPgs(): void {
+  onSearch(): void {
     this.pgService.searchPgs(this.searchModel.district, this.searchModel.city)
       .subscribe(
         (result: any[]) => {
@@ -41,8 +43,5 @@ export class PgsearchComponent implements OnInit {
           this.pgs = []; // Clear previous search results on error
         }
       );
-  }
-  navigateToPgdash() {
-    this.router.navigate(['/pgsearch-dash'], { queryParams: { district: this.searchModel.district, city: this.searchModel.city } });
   }
 }
