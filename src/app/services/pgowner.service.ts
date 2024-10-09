@@ -27,7 +27,7 @@ export class PgownerService {
 
   // Update PG details by ID
   updatePG(pgId: number, pg: PG): Observable<any> {
-    return this.http.put(`${this.baseUrl}/Pg/update/${pgId}`, pg);
+    return this.http.put(`${this.baseUrl}/Pg/edit/${pgId}`, pg);
   }
 
   // Delete PG by ID

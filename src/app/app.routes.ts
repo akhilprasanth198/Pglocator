@@ -28,6 +28,7 @@ import { ViewActiveUserComponent } from './admin/view-active-user/view-active-us
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
+import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -70,6 +71,7 @@ export const routes: Routes = [
             // Add PG owner-specific routes here when needed
         ]
     },
+    {path:'edit-pg/:id',component:EditPgComponent},
     {path:'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     // User routes

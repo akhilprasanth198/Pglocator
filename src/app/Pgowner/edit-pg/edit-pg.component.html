@@ -1,1 +1,79 @@
-<p>edit-pg works!</p>
+<div class="container">
+  <h2>Edit PG Details</h2>
+
+  <form *ngIf="pgDetails" (ngSubmit)="onSubmit()">
+    <!-- PG Name -->
+    <div class="form-group">
+      <label for="pgname">PG Name:</label>
+      <input type="text" id="pgname" [(ngModel)]="pgDetails.Pgname" name="pgname" class="form-control" required>
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" [(ngModel)]="pgDetails.Description" name="description" class="form-control" required></textarea>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input type="text" id="address" [(ngModel)]="pgDetails.Address" name="address" class="form-control" required>
+    </div>
+
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" id="city" [(ngModel)]="pgDetails.City" name="city" class="form-control" required>
+    </div>
+
+    <!-- District -->
+    <div class="form-group">
+      <label for="district">District:</label>
+      <input type="text" id="district" [(ngModel)]="pgDetails.District" name="district" class="form-control" required>
+    </div>
+
+    <!-- Pin -->
+    <div class="form-group">
+      <label for="pin">Pin:</label>
+      <input type="number" id="pin" [(ngModel)]="pgDetails.Pin" name="pin" class="form-control" required>
+    </div>
+
+    <!-- Gender Preference -->
+    <div class="form-group">
+      <label for="gender_perference">Gender Preference:</label>
+      <select id="gender_perference" [(ngModel)]="pgDetails.Gender_perference" name="gender_perference" class="form-control" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Both">Both</option>
+      </select>
+    </div>
+
+    <!-- Amenities -->
+    <div class="form-group">
+      <label for="amentities">Amenities:</label>
+      <textarea id="amentities" [(ngModel)]="pgDetails.Amentities" name="amentities" class="form-control"></textarea>
+    </div>
+
+    <!-- Food Available -->
+    <div class="form-group">
+      <label for="foodavailable">Food Available:</label>
+      <input type="checkbox" id="foodavailable" [(ngModel)]="pgDetails.Foodavailable" name="foodavailable">
+    </div>
+
+    <!-- Meal -->
+    <div class="form-group">
+      <label for="meal">Meal:</label>
+      <input type="text" id="meal" [(ngModel)]="pgDetails.Meal" name="meal" class="form-control">
+    </div>
+
+    <!-- Rules -->
+    <div class="form-group">
+      <label for="rules">Rules:</label>
+      <textarea id="rules" [(ngModel)]="pgDetails.Rules" name="rules" class="form-control"></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+    <button type="button" class="btn btn-secondary mt-3" (click)="cancel()">Cancel</button>
+  </form>
+</div>
