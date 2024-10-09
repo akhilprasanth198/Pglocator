@@ -23,7 +23,7 @@ import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-user.component';
 import { ViewActiveUserComponent } from './admin/view-active-user/view-active-user.component';
-
+import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
