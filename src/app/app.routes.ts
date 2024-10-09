@@ -25,10 +25,10 @@ import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-us
 import { ViewActiveUserComponent } from './admin/view-active-user/view-active-user.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
-import { AddMediaComponent } from './Pgowner/add-media/add-media.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
 import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
+import { PgMediaComponent } from './Pgowner/add-media/add-media.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -68,10 +68,11 @@ export const routes: Routes = [
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
             {path:'view-pg',component:ViewPgComponent},
-            {path:'add-media',component:AddMediaComponent},
             // Add PG owner-specific routes here when needed
         ]
     },
+    {path:'add-media/:pgId',component:PgMediaComponent},
+
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
     {path:'add-pg',component:RegisterPgComponent},

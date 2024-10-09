@@ -1,30 +1,28 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PgownerService } from '../../services/pgowner.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pg } from '../../Models/Pg';
-import { PG } from '../../Models/pglist';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-pg',
   standalone: true,
-  imports: [NgIf,FormsModule],
+  imports: [NgIf, FormsModule],
   templateUrl: './edit-pg.component.html',
-  styleUrl: './edit-pg.component.css'
+  styleUrls: ['./edit-pg.component.css']
 })
 export class EditPgComponent implements OnInit {
   pgId: number | null = null;
-  pgDetails: PG | null = null;
+  pgDetails: any = {}; 
   pgownerService = inject(PgownerService);
   router = inject(Router);
   route = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.pgId = Number(params['pgId']); // Get the PG ID from route params
+      this.pgId = Number(params['pgId']); 
       if (!isNaN(this.pgId)) {
-        this.loadPgDetails(this.pgId);
+        this.loadPgDetails(this.pgId); 
       }
     });
   }
@@ -33,13 +31,20 @@ export class EditPgComponent implements OnInit {
   loadPgDetails(pgId: number): void {
     this.pgownerService.getPgById(pgId).subscribe(
       data => {
-        this.pgDetails = data;
+        console.log("Fetched PG Data:", data); // Check the response structure
+        if (data) {
+          this.pgDetails = data;
+          console.log("pgDetails populated:", this.pgDetails); // Log the pgDetails to confirm
+        } else {
+          console.error("No data returned for PG with ID:", pgId);
+        }
       },
       error => {
-        console.error(`Error fetching PG details: ${error}`);
+        console.error(`Error fetching PG details for ID ${pgId}:`, error);
       }
     );
   }
+  
 
   // Submit the updated PG details
   onSubmit(): void {
@@ -47,7 +52,7 @@ export class EditPgComponent implements OnInit {
       this.pgownerService.updatePG(this.pgId, this.pgDetails).subscribe(
         response => {
           console.log('PG updated successfully:', response);
-          this.router.navigate(['/pg-list']); // Navigate back to the PG list after update
+          this.router.navigate(['/viewdetails-pg']); 
         },
         error => {
           console.error('Error updating PG:', error);
@@ -58,6 +63,6 @@ export class EditPgComponent implements OnInit {
 
   // Cancel editing and navigate back to the PG list
   cancel(): void {
-    this.router.navigate(['/pg-list']);
+    this.router.navigate(['/view-pg']);
   }
 }

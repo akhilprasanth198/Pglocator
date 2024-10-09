@@ -1,32 +1,29 @@
-<div class="media-container">
-  <h2>Media Management</h2>
+<div class="container">
+  <h3>PG Media</h3>
 
-  <!-- Media Upload Form -->
-  <form (submit)="onUploadMedia()">
-    <label for="file">Upload Media:</label>
-    <input type="file" id="file" (change)="onFileSelected($event)" />
-    <button type="submit" [disabled]="!selectedFile">Upload</button>
-  </form>
+  <!-- File Input for Uploading Media -->
+  <div class="mb-3">
+    <label for="fileInput" class="form-label">Upload Media</label>
+    <input type="file" id="fileInput" (change)="onFileSelect($event)" class="form-control">
+    <button (click)="uploadMedia()" class="btn btn-primary mt-2">Upload</button>
+  </div>
 
-  <hr />
-
-  <!-- Media Gallery -->
-  <h3>Media List</h3>
-  <div *ngIf="mediaList && mediaList.length > 0">
-    <div *ngFor="let media of mediaList" class="media-item">
-      <img *ngIf="media.type.startsWith('image')" [src]="media.url" alt="Media" class="media-thumbnail" />
-      <video *ngIf="media.type.startsWith('video')" controls>
-        <source [src]="media.url" type="media.type" />
+  <!-- Display Uploaded Media -->
+  <h4>Uploaded Media</h4>
+  <div class="row">
+    <div class="col-4" *ngFor="let media of mediaList">
+      
+      <!-- Show image if media type is image -->
+      <img *ngIf="media.Type === 'image'" [src]="'data:image/jpeg;base64,' + media.FileData" class="img-fluid" alt="Media">
+      
+      <!-- Show video if media type is video -->
+      <video *ngIf="media.Type === 'video'" controls class="img-fluid">
+        <source [src]="'data:video/mp4;base64,' + media.FileData" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <div class="media-info">
-        <p>{{ media.type }}</p>
-        <button (click)="onEditMedia(media)">Edit</button>
-        <button (click)="onDeleteMedia(media.mid)">Delete</button>
-      </div>
+
+      <!-- Delete Button -->
+      <button (click)="deleteMedia(media.Mid)" class="btn btn-danger mt-2">Delete</button>
     </div>
-  </div>
-  <div *ngIf="!mediaList || mediaList.length === 0">
-    <p>No media found for this PG.</p>
   </div>
 </div>
