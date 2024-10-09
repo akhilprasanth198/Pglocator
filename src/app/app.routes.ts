@@ -20,7 +20,6 @@ import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.componen
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
 import { PoliciesComponent } from './Home/policies/policies.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
-import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-user.component';
 import { ViewActiveUserComponent } from './admin/view-active-user/view-active-user.component';
