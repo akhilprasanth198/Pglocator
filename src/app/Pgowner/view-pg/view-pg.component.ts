@@ -55,7 +55,7 @@ export class ViewPgComponent implements OnInit {
   viewPGDetails(pgId: number): void {
     console.log('Navigating to PG details for ID:', pgId);
     if (!isNaN(pgId)) {
-      this.router.navigate(['/viewdetails-pg', pgId]);
+      this.router.navigate(['/pending-pg-deatils', pgId]);
     } else {
       console.error('Invalid PG ID:', pgId);
     }
