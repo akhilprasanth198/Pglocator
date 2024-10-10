@@ -40,10 +40,10 @@ export const routes: Routes = [
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
     {path:'pgsearch-dash',component:PgsearchDashboardComponent},
-    {path:'view-owner',component:ViewOwnerComponent},
+    
     {path:'view-user',component:ViewUsersComponent},
-    {path:'owner-action',component:OwnerActionComponent},
-    {path:'view-approved',component:ViewApprovedOwnerComponent},
+ 
+    
     {path:'view-banned-user',component:ViewBannedUserComponent},
     {path:'view-active-user',component:ViewActiveUserComponent},
     {path :'view-userpglist',component:UserpglistComponent},
@@ -62,10 +62,9 @@ export const routes: Routes = [
     // Admin routes
     {path:'admin-navbar',component:AdminNavbarComponent,
                 children:[
-                    
+                    {path:'owner-action',component:OwnerActionComponent},
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
-                    {path:'owner-action',component:OwnerActionComponent},
                     {path:'view-approved',component:ViewApprovedOwnerComponent},
                 
                 ]
