@@ -32,6 +32,7 @@ import { UserpglistComponent } from './User/userpglist/userpglist.component';
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
 import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
 import { PgMediaComponent } from './Pgowner/add-media/add-media.component';
+import { PendingPgDetailsComponent } from './admin/pending-pg-details/pending-pg-details.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -40,7 +41,7 @@ export const routes: Routes = [
     {path:'about',component:AboutComponent},
     {path:'contact',component:ContactComponent},
     {path:'pgsearch-dash',component:PgsearchDashboardComponent},
-    
+    {path:'pending-pg-deatils',component:PendingPgDetailsComponent},
     {path:'view-user',component:ViewUsersComponent},
 
     {path :'view-userpglist',component:UserpglistComponent},
@@ -61,6 +62,7 @@ export const routes: Routes = [
                     {path:'view-banned-user',component:ViewBannedUserComponent},
                     {path:'view-active-user',component:ViewActiveUserComponent},
                     {path:'view-pending-pg',component:ViewPendingPgComponent},
+                    
                 
                 ]
     },

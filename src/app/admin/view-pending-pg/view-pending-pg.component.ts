@@ -3,6 +3,7 @@ import { CommonModule, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PgService } from '../../services/pg.service';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
