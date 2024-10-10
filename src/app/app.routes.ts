@@ -26,13 +26,12 @@ import { ViewActiveUserComponent } from './admin/view-active-user/view-active-us
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
-
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
-
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
 import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
 import { PgMediaComponent } from './Pgowner/add-media/add-media.component';
 import { PendingPgDetailsComponent } from './admin/pending-pg-details/pending-pg-details.component';
+import { ViewApprovedpgComponent } from './admin/view-approvedpg/view-approvedpg.component';
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -62,6 +61,7 @@ export const routes: Routes = [
                     {path:'view-banned-user',component:ViewBannedUserComponent},
                     {path:'view-active-user',component:ViewActiveUserComponent},
                     {path:'view-pending-pg',component:ViewPendingPgComponent},
+                    {path:'approved-pg',component:ViewApprovedpgComponent},
                     
                 
                 ]
