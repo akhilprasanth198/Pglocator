@@ -58,7 +58,7 @@ unban(userId: number): Observable<any> {
   return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=unban`, {});
 }
 fetchPendingpgss(): Observable<any[]> {
-  return this.http.get<any[]>('https://localhost:7152/api/Admin/viewpgdetails');
+  return this.http.get<any[]>('https://localhost:7152/api/Admin/viewpendingpgd');
 }
 // getOwnerById(uid: number): Observable<any> {
 //   return this.http.get<any>(`https://localhost:7152/api/User/GetUser/${uid}`); // Fetch owner by UID  https://localhost:7152/api/User/GetUser/6

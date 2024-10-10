@@ -42,16 +42,8 @@ export const routes: Routes = [
     {path:'pgsearch-dash',component:PgsearchDashboardComponent},
     
     {path:'view-user',component:ViewUsersComponent},
- 
-    
-    {path:'view-banned-user',component:ViewBannedUserComponent},
-    {path:'view-active-user',component:ViewActiveUserComponent},
+
     {path :'view-userpglist',component:UserpglistComponent},
-
-    {path:'view-pending-pg',component:ViewPendingPgComponent},
-
-    
-
     {path:'registration',component:RegistrationComponent},
     {path:'policies',component:PoliciesComponent,
         children:[
@@ -66,6 +58,9 @@ export const routes: Routes = [
                     {path:'view-owner',component:ViewOwnerComponent},
                     {path:'pg-search',component:PgsearchComponent},
                     {path:'view-approved',component:ViewApprovedOwnerComponent},
+                    {path:'view-banned-user',component:ViewBannedUserComponent},
+                    {path:'view-active-user',component:ViewActiveUserComponent},
+                    {path:'view-pending-pg',component:ViewPendingPgComponent},
                 
                 ]
     },
