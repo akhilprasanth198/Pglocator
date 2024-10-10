@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class PgService {
   
   private apiUrl = 'https://localhost:7152/api/Pg/search'; // Change the URL as needed
+  private apiurlowner='https://localhost:7152/api/Admin/approvedOwners';
  
 
   constructor(private http: HttpClient) { }
@@ -27,7 +28,7 @@ export class PgService {
   }
  
   fetchApprovedRequests(): Observable<any[]> {
-    return this.http.get<any[]>(`https://localhost:7152/api/Admin/approvedOwners`); // Call to your API
+    return this.http.get<any[]>(`${this.apiurlowner}`); // Call to your API
   }
 
   // Fetch pending requests
@@ -57,8 +58,11 @@ unban(userId: number): Observable<any> {
   return this.http.post<any>(`https://localhost:7152/api/Admin/useraction?userId=${userId}&action=unban`, {});
 }
 fetchPendingpgss(): Observable<any[]> {
-  return this.http.get<any[]>(`https://localhost:7152/api/Admin/searchactiveuser`);
+  return this.http.get<any[]>('https://localhost:7152/api/Admin/viewpgdetails');
 }
+// getOwnerById(uid: number): Observable<any> {
+//   return this.http.get<any>(`https://localhost:7152/api/User/GetUser/${uid}`); // Fetch owner by UID  https://localhost:7152/api/User/GetUser/6
+// }
 
 //   approveRequest(userId: number): Observable<any> {
 //     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPgOwner`, { userId, action: 'approve' });
