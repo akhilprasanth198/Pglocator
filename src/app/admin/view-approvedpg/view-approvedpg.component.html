@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h2>Approved PG's</h2>
+
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search by pgname" class="input-field">
+        <button class="search-button" (click)="onSearch()">Search</button>
+    </div>
+
+
+
+    <div class="card-body">
+        <div *ngFor="let pg of pgs" class="pg-card"  >
+            <div class="pg-info">
+                <h3>{{ pg.pgname }}</h3>
+                <h3>{{pg.userEmail}}</h3>
+                <p><strong>Address:</strong> {{pg.address}}</p>
+                <p><strong>District:</strong> {{ pg.district }}</p>
+                <p><strong>City:</strong> {{ pg.city }}</p>
+                <p><strong>Pin:</strong> {{ pg.pin }}</p>
+            </div>
+            <div class="pg-actions">
+                 <button class="view-details-btn" (click)="viewPGDetails(pg.pgid)" >View Details</button> 
+                 
+            </div>
+        </div>
+    </div>
+</div>

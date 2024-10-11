@@ -1,0 +1,84 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+h1 {
+    color: hsl(189, 64%, 2%);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full screen height */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(70, 160, 250, 0.416);
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 250%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid hsl(24, 45%, 2%);
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border: 2px solid  hsl(235, 100%, 72%);
+    outline: none;
+}
+
+/* Button Styling */
+.btn {
+    background-color: hsl(235, 100%, 72%);
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(33, 138, 250);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+}

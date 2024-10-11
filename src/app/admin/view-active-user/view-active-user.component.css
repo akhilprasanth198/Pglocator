@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.add-member-btn {
+    float: right;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 20px;
+    width: 90px; 
+    height: 35px; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #f1f1f1;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+td {
+    padding: 15px 10px;
+    vertical-align: middle;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+}
+
+.info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.role {
+    color: gray;
+    font-size: 12px;
+}
+
+.progress-bar {
+    width: 100px;
+    background-color: #f1f1f1;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 8px;
+    background-color: #4caf50;
+}
+
+.progress-text {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.in-progress {
+    background-color: #ffeb3b;
+    color: #333;
+}
+
+.pending {
+    background-color: #f44336;
+    color: white;
+}
+
+.completed {
+    background-color: #4caf50;
+    color: white;
+}
+.search-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left */
+    align-items: center; /* Aligns vertically centered */
+    margin: 20px 0;
+}
+
+.input-field {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.input-field:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+
+}
+.ban {
+    width: 60px; 
+    height: 35px; 
+    padding: 8px 16px; 
+    font-size: 13px; 
+    background-color: rgb(246, 57, 57); 
+    color: white; 
+    border-radius: 7px; 
+    border: none;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, font-size 0.3s ease; 
+}
+
+.ban:hover {
+    background-color: red; 
+    font-size: 15px; 
+}

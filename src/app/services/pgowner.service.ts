@@ -6,32 +6,33 @@ import { PG } from '../Models/pglist';
   providedIn: 'root'
 })
 export class PgownerService {
-  private apiUrl = 'https://localhost:7152/api/Pg'; // Replace with your actual API URL
+  private baseUrl = 'https://localhost:7152/api'; // Base API URL
 
   constructor(private http: HttpClient) {}
 
-  // Get all PGs by owner
-  getPGsByOwner(ownerId: number): Observable<PG[]> {
-      return this.http.get<PG[]>(`${this.apiUrl}/owner/${ownerId}`);
+  // Register a new PG
+  registerPG(pgData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/Pg/register`, pgData);
   }
 
-  // Get a single PG by ID
-  getPG(id: number): Observable<PG> {
-      return this.http.get<PG>(`${this.apiUrl}/${id}`);
+  // Get approved PGs for a specific owner
+  getApprovedPGs(ownerId: number): Observable<PG[]> {
+    return this.http.get<PG[]>(`${this.baseUrl}/Pg/owner/${ownerId}/approved`);
   }
 
-  // Add a new PG
-  addPG(pg: PG): Observable<PG> {
-      return this.http.post<PG>(this.apiUrl, pg);
+  // Get PG details by ID
+  getPgById(pgId: number): Observable<PG> {
+    return this.http.get<PG>(`${this.baseUrl}/Pg/${pgId}`);
   }
 
-  // Update an existing PG
-  updatePG(pg: PG): Observable<PG> {
-      return this.http.put<PG>(`${this.apiUrl}/${pg.id}`, pg);
+  // Update PG details by ID
+  updatePG(pgId: number, pg: PG): Observable<any> {
+    return this.http.put(`${this.baseUrl}/Pg/edit/${pgId}`, pg);
   }
 
-  // Delete a PG
-  deletePG(id: number): Observable<void> {
-      return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  // Delete PG by ID
+  deletePG(pgId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/Pg/${pgId}`);
   }
+
 }

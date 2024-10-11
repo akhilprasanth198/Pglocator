@@ -19,7 +19,7 @@
                     <th>WhatsApp</th>
                     <th>Chat Link</th>
                     <th>Address</th>
-                    <th>Actions</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -34,8 +34,8 @@
                     <td><a [href]="request.chatLink">Chat</a></td>
                     <td>{{ request.address }}</td>
                     <td>
-                        <button (click)="approveRequest(request.uid)">Approve</button>
-                        <button (click)="rejectRequest(request.uid)">Reject</button>
+                        <button class="approve" (click)="approveRequest(request.uid)">Approve</button>
+                        <button class="reject" (click)="rejectRequest(request.uid)">Reject</button>
                         
                     </td>
                 </tr>

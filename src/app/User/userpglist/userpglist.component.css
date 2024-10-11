@@ -1,0 +1,142 @@
+    /* Container for the search and filters */
+    .search-container {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    
+    .search-box {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .input-field {
+        width: 48%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    .search-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .search-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    
+    .filter-container {
+        padding: 10px;
+        border-top: 1px solid #eee;
+    }
+    
+    .filter-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .filter-options label {
+        font-weight: bold;
+    }
+    
+    .filter-options input,
+    .filter-options select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    
+    .apply-filters {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    /* PG Listings */
+    .pg-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .pg-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+    
+    .pg-card:hover {
+        transform: scale(1.02);
+    }
+    
+    .pg-image img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .pg-details {
+        padding: 10px;
+    }
+    
+    .pg-details h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .pg-details p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    
+    .pg-buttons {
+        margin-top: 10px;
+    }
+    
+    .pg-buttons button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    
+    .pg-buttons button:hover {
+        background-color: #0056b3;
+    }
+    
+    /* No results found */
+    .no-results {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .no-results p {
+        font-size: 18px;
+        color: #666;
+    }
+    

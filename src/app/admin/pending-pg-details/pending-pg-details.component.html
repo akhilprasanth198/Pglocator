@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>View PG Details</h2>
+
+    <!-- Display the selected PG details -->
+    <div class="pg-details" *ngIf="pgDetails">
+        <div class="card pg-card">
+            <div class="card-body pg-info">
+                <h3 class="pg-name">{{ pgDetails.pgname }}</h3>
+                <p><strong>Description:</strong> {{ pgDetails.description }}</p>
+                <p><strong>Address:</strong> {{ pgDetails.address }}</p>
+                <p><strong>District:</strong> {{ pgDetails.district }}</p>
+                <p><strong>City:</strong> {{ pgDetails.city }}</p>
+                <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
+                <p><strong>Gender Preference:</strong> {{ pgDetails.gender_perference }}</p>
+                <p><strong>Amenities:</strong> {{ pgDetails.amentities }}</p>
+                <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
+                <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
+                <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
+            </div>
+
+            <!-- Action buttons for Edit and Delete -->
+            <div class="card-footer">
+                <!-- <button class="btn btn-primary me-2" (click)="editPg()">Edit</button>
+                <button class="btn btn-danger" (click)="deletePg()">Delete</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+

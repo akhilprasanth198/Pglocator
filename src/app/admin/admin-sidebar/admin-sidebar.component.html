@@ -1,30 +1,34 @@
     <div class="sidebar">
     <!-- Admin Profile -->
     <div class="profile">
-        <img src="/portrait.jpg" alt="Profile Picture" class="profile-pic" />
-        <h1>Admin</h1>
+        <img src="/admincover.png" alt="Profile Picture" class="profile-pic" />
+        <h4>Admin</h4>
     </div>
 
-    <h3>MENU</h3>
+    <h3>Services</h3>
     <!-- Sidebar Navigation -->
     <ul class="sidebar-nav">
         <li>
             <a routerLink="/admin-navbar/owner-action">Manage PG Owner</a>
         </li>
         <li>
-            <a routerLink="/admin-navbar/view-owner">View PG Owner</a>
+            <a routerLink="/admin-navbar/view-approved">View PG Owner</a>
         </li>
         <li>
-            <a routerLink="/admin-navbar/user-search">Manage User</a>
+            <a routerLink="/admin-navbar/view-active-user">Active User</a>
+        </li>
+        <li>
+            <a routerLink="/admin-navbar/view-banned-user">Banned User</a>
         </li>
         <li>
             <a routerLink="/admin-navbar/user-profile">View Review</a>
         </li>
         <li>
-            <a routerLink="/admin-navbar/pgowner-search">Manage PG</a>
+            <a routerLink="/admin-navbar/view-pending-pg">Manage PG</a>
         </li>
         <li>
-            <a routerLink="/admin-navbar/pgowner-search">View PG</a>
+            <a routerLink="/admin-navbar/approved-pg">View PG</a>
         </li>
     </ul>
     </div>
+<!-- <router-outlet></router-outlet> -->

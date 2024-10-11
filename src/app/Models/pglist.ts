@@ -1,18 +1,18 @@
 // pg.model.ts
 export interface PG {
-    id: number; // Assuming each PG has a unique ID
-    name: string;
-    description: string;
-    address: string;
-    district: string;
-    city: string;
-    latitude: number;
-    longitude: number;
-    pin: string;
-    genderPreference: string;
-    amenities: string[];
-    foodAvailable: boolean;
-    status:string;
-    meals: string[];
-    rules: string;
+    Uid: number | null;
+    Pgname: string;
+    Description: string;
+    Address: string;
+    District: string;
+    City: string;
+    Latitude: string;
+    Longitude: string;
+    Pin: number;
+    Gender_perference: string;
+    Amentities: string;
+    Foodavailable: boolean;
+    Status:string;
+    Meal: string;
+    Rules: string;
 }

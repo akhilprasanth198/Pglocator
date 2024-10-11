@@ -73,18 +73,19 @@
 
 /* PG Actions section (View details button) */
 .pg-actions {
-    display: flex;
+    display: inline-grid;
     align-items: center;
 }
 
 .view-details-btn {
     background-color: #2f92d4;
     color: white;
-    padding: 10px 20px;
+    padding: 9px 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .view-details-btn:hover {

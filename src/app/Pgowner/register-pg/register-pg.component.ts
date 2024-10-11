@@ -3,6 +3,8 @@ import { PgownerService } from '../../services/pgowner.service';
 import { Router } from '@angular/router';
 import { PG } from '../../Models/pglist';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-register-pg',
   standalone: true,
@@ -12,42 +14,54 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterPgComponent {
   pg: PG = {
-    id: 1,
-    name: '',
-    description: '',
-    address: '',
-    district: '',
-    city: '',
-    latitude: 0,
-    longitude: 0,
-    pin: '',
-    genderPreference: 'Both',
-    amenities: [],
-    foodAvailable: false,
-    status: 'Pending',
-    meals: [],
-    rules: ''
+    Uid: null,
+    Pgname: '',
+    Description: '',
+    Address: '',
+    District: '',
+    City: '',
+    Latitude: '',
+    Longitude: '',
+    Pin:670,
+    Gender_perference: 'Both',  // Default value
+    Amentities: '',  // String
+    Foodavailable: false,
+    Status: 'pending',
+    Meal: '',  // String
+    Rules: ''
   };
-  amenitiesString: string = '';
-  mealsString: string = '';
 
-  pgownerservice=inject(PgownerService)
-  router=inject(Router)
+  pgownerservice = inject(PgownerService);
+  router = inject(Router);
+authservice=inject(AuthService)
+ 
 
-  onSubmit(): void {
-    // Convert amenities and meals from comma-separated string to array
-    this.pg.amenities = this.amenitiesString.split(',').map(item => item.trim());
-    this.pg.meals = this.mealsString.split(',').map(item => item.trim());
+ngOnInit() {
+  // Retrieve the logged-in user's ID from AuthService and assign it to the PG's Uid
+  const userId = this.authservice.getUserId();
+  if (userId) {
+    this.pg.Uid = userId;
+  } else {
+    // Handle the case where the user is not logged in
+    console.error('User not logged in');
+    this.router.navigate(['/login']); // Redirect to login if not logged in
+  }
+}
 
-    this.pgownerservice.addPG(this.pg).subscribe(
+onSubmit() {
+  // Send the PG registration data
+  if (this.pg.Uid) {
+    this.pgownerservice.registerPG(this.pg).subscribe(
       (response) => {
-        alert('PG registered successfully!');
-        this.router.navigate(['/pg-list']); // Navigate to PG list after registration
+        console.log('PG registered successfully', response);
+        this.router.navigate(['/pgowner-navbar']); // Adjust this route as needed
       },
       (error) => {
-        console.error('Error registering PG:', error);
-        alert('Failed to register PG. Please try again.');
+        console.error('Error registering PG', error);
       }
     );
+  } else {
+    console.error('User ID is missing, cannot register PG');
   }
+}
 }
