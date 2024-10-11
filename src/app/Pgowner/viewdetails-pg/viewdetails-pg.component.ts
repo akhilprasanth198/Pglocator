@@ -37,7 +37,8 @@ export class ViewdetailsPgComponent implements OnInit {
   loadPgDetails(pgId: number): void {
     this.pgownerservice.getPgById(pgId).subscribe(
       data => {
-        this.pgDetails = data as unknown as pgs;        console.log('Fetched PG details:', data);
+        this.pgDetails = data as unknown as pgs;        
+        console.log('Fetched PG details:', data);
       },
       error => {
         console.error(`Error fetching PG details: ${error.status} - ${error.message}`);

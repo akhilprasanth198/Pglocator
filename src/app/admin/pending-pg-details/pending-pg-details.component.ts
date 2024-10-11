@@ -37,7 +37,7 @@ export class PendingPgDetailsComponent implements OnInit {
     this.pgownerservice.getPgById(pgId).subscribe(
       data => {
         this.pgDetails = data as unknown as pgs;       
-         console.log('Fetched PG details:', data);
+          console.log('Fetched PG details:', data);
       },
       error => {
         console.error(`Error fetching PG details: ${error.status} - ${error.message}`);

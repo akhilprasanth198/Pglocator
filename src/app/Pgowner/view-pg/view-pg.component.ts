@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
 
 import { NgFor, NgIf } from '@angular/common';
@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-view-pg',
   standalone: true,
-  imports: [NgFor,NgIf],
+  imports: [NgFor,NgIf,RouterOutlet,RouterLink],
   templateUrl: './view-pg.component.html',
   styleUrls: ['./view-pg.component.css'] // Fixing typo from styleUrl to styleUrls
 })
@@ -36,7 +36,7 @@ export class ViewPgComponent implements OnInit {
     this.pgownerservice.getApprovedPGs(ownerId).subscribe(
       data => {
         this.pgs = data;
-       console.log('Fetched PGs:', data);
+        console.log('Fetched PGs:', data);
         
       },
       error=> {
@@ -55,7 +55,7 @@ export class ViewPgComponent implements OnInit {
   viewPGDetails(pgId: number): void {
     console.log('Navigating to PG details for ID:', pgId);
     if (!isNaN(pgId)) {
-      this.router.navigate(['/pending-pg-deatils', pgId]);
+      this.router.navigate(['viewdetails-pg', pgId]);
     } else {
       console.error('Invalid PG ID:', pgId);
     }
