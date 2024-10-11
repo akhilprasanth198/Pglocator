@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin-topbar',
@@ -9,9 +10,10 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './admin-topbar.component.css'
 })
 export class AdminTopbarComponent {
+  authservice=inject(AuthService)
   constructor (private router: Router) {}
   onLogout() {
-    console.log('User logged out');
+    this.authservice.llogout()
     this.router.navigate(['/']);
   }
 }
