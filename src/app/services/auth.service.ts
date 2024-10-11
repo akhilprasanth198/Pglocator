@@ -13,10 +13,18 @@ private userId:number |null=null;
   getUserId():number |null{
     return this.userId;
   }
-  getPgid():number|null{
+  setPgid(id: number): void {
+    this.pgid = id;
+  }
+
+  // Get the PG owner ID
+  getPgid(): number | null {
     return this.pgid;
   }
-  clearUser(){
-    this.userId=null;
+
+  // Clear the user ID (for logout)
+  clearUser(): void {
+    this.userId = null;
+    this.pgid = null;
   }
 }
