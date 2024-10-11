@@ -75,12 +75,11 @@ export const routes: Routes = [
                     {path:'view-active-user',component:ViewActiveUserComponent},
                     {path:'view-banned-user',component:ViewBannedUserComponent},
                     {path:'view-owner',component:ViewOwnerComponent},
-                    {path:'view-pending-pg',component:ViewPendingPgComponent,
-                    },
+                    {path:'view-pending-pg',component:ViewPendingPgComponent},
                     {path:'approved-pg',component:ViewApprovedpgComponent},
                 ]
     },
-    
+    {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
     {path:'view-user',component:ViewUsersComponent},
 
 
@@ -88,19 +87,18 @@ export const routes: Routes = [
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
             {path:'view-pg',component:ViewPgComponent,
-                // children: [
-                //     {
-                //         path: 'viewdetails-pg/:pgId',component: ViewdetailsPgComponent
-                //     }
-                // ]
+                children: [
+                    {
+                        path: 'viewdetails-pg/:pgId',component: ViewdetailsPgComponent
+                    },
+                ]
             },            
         ]
     },
-    {path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
+    //{path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
     {path:'add-media/:pgId',component:PgMediaComponent},
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
-    {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
 
 
     // User routes
