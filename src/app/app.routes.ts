@@ -37,14 +37,11 @@ import { PgownerTopbarComponent } from './Pgowner/pgowner-topbar/pgowner-topbar.
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
-
-
-import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
 import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
-import { UserSidebarComponent } from './User/user-sidebar/user-sidebar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
+import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 
 
 
@@ -75,11 +72,12 @@ export const routes: Routes = [
                     {path:'view-active-user',component:ViewActiveUserComponent},
                     {path:'view-banned-user',component:ViewBannedUserComponent},
                     {path:'view-owner',component:ViewOwnerComponent},
-                    {path:'view-pending-pg',component:ViewPendingPgComponent},
+                    {path:'view-pending-pg',component:ViewPendingPgComponent,
+                    },
                     {path:'approved-pg',component:ViewApprovedpgComponent},
                 ]
     },
-    {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
+    
     {path:'view-user',component:ViewUsersComponent},
 
 
@@ -87,32 +85,30 @@ export const routes: Routes = [
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
             {path:'view-pg',component:ViewPgComponent,
-                children: [
-                    {
-                        path: 'viewdetails-pg/:pgId',component: ViewdetailsPgComponent
-                    },
-                ]
+                // children: [
+                //     {
+                //         path: 'viewdetails-pg/:pgId',component: ViewdetailsPgComponent
+                //     }
+                // ]
             },            
         ]
     },
-    //{path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
+    {path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
     {path:'add-media/:pgId',component:PgMediaComponent},
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
+    {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
 
 
     // User routes
-    {path:'user-dashboard',component:UserDashboardComponent,
-        children:[
             {
                 path: 'user-navbar', component: UserNavbarComponent,
                 children: [
                     { path: 'user-profile', component: UserProfileComponent },
                 ]
-            }
-        ]
-    },
-    
+            },
+    {path:'viewdetailPg/:pgid',component:ViewDetailsPgUserComponent},
+    {path:'userpglist',component:UserpglistComponent},
 ];
 
 @NgModule({
