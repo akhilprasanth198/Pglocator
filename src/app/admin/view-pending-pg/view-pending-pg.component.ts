@@ -48,7 +48,7 @@ export class ViewPendingPgComponent implements OnInit {
   viewPGDetails(pgId: number): void {
     console.log('Navigating to PG details for ID:', pgId);
     if (!isNaN(pgId)) {
-      this.router.navigate(['pending-pg-details',pgId])
+      this.router.navigate(['pending-pg-details', pgId]);
     } else {
       console.error('Invalid PG ID:', pgId);
     }
