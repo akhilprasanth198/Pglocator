@@ -1,84 +1,94 @@
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-}
-
-h1 {
-    color: hsl(189, 64%, 2%);
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-}
-
-/* Contact Section */
+/* General styles */
 .contact-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full screen height */
+    background: #f8f9fa;
+    padding: 50px 0;
+    font-family: 'Arial', sans-serif;
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: rgba(70, 160, 250, 0.416);
-    padding: 15px;
-    border-radius: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.contact-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
 }
 
-/* Form Styling */
-form {
-    margin-top: 20px;
+/* Center form and make it more modern */
+.contact-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #ddd;
 }
 
-input[type="text"], input[type="email"], textarea {
-    width: 250%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 2px solid hsl(24, 45%, 2%);
-    border-radius: 5px;
-    font-size: 1.1rem;
-    transition: border 0.3s ease;
+.contact-card:hover {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-    border: 2px solid  hsl(235, 100%, 72%);
+/* Modern input field styles */
+.modern-input {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 14px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.modern-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
     outline: none;
 }
 
-/* Button Styling */
-.btn {
-    background-color: hsl(235, 100%, 72%);
+/* Modern button styles */
+.modern-btn {
+    background-color: #007bff;
     border: none;
-    color: white;
-    padding: 15px 20px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: rgb(33, 138, 250);
+.modern-btn:hover {
+    background-color: #0056b3;
 }
 
-/* Responsive Styling */
+/* Social media icons */
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icons .icon-link {
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icons .icon-link:hover {
+    color: #007bff;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 30px 20px;
+    .contact-card {
+        padding: 30px;
     }
 
-    h1 {
+    .contact-heading {
         font-size: 2rem;
     }
 
-    .btn {
+    .modern-input, .modern-btn {
+        font-size: 14px;
         padding: 12px;
-        font-size: 1.1rem;
+    }
+
+    .social-icons .icon-link {
+        margin: 0 10px;
     }
 }

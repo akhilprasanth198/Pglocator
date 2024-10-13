@@ -84,13 +84,7 @@ export const routes: Routes = [
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
-            {path:'view-pg',component:ViewPgComponent,
-                // children: [
-                //     {
-                //         path: 'viewdetails-pg/:pgId',component: ViewdetailsPgComponent
-                //     }
-                // ]
-            },            
+            {path:'view-pg/:pgId',component:ViewPgComponent},            
         ]
     },
     {path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
@@ -98,7 +92,7 @@ export const routes: Routes = [
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
-
+    { path: 'add-room/:pgid', component: AddRoomComponent },
 
     // User routes
             {
