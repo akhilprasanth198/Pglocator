@@ -1,9 +1,11 @@
 export interface Review {
+    comment: any;
+    name: any;
     Rid: number;          
     Pid: number;          
     Uid: number;          
     Rating: string;       
-    Reviewtext: string;   
+      
     Reviewdate: string;   
   }
   
