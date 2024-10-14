@@ -46,6 +46,7 @@ export class ViewBannedUserComponent implements OnInit {
         response => {
             console.log(`Approved request with ID: ${id}`, response);
             
+            
             alert('unbaan request successful');
             this.fetchactiveuser(); // Refresh the list
         },

@@ -28,7 +28,7 @@
                     <p>{{ pg.city }}| Pin:{{pg.pin}}</p>
                         <div class="pg-buttons">
                             <!-- Alert on click -->
-                            <button class="view-details" >View Details</button>
+                            <button class="view-details" (click)="viewPGDetails(pg.pgid)" >View Details</button>
                             <button class="contact-owner" >Contact Owner</button>
                         </div>
                 </div>

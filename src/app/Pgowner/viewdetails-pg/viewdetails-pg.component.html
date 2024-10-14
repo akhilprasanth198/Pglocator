@@ -24,7 +24,29 @@
                 <button class="btn btn-danger" (click)="deletePg()">Delete</button>
             </div>
         </div>
-    </div>
-    </div>
+        <hr>
 
+        <h3>Rooms</h3>
+        <div *ngIf="rooms.length > 0; else noRooms">
+            <ul>
+            <li *ngFor="let room of rooms">
+                <p><strong>Price:</strong> {{ room.price }}</p>
+                <p><strong>Deposit:</strong> {{ room.deposit }}</p>
+                <p><strong>Room Type:</strong> {{ room.roomtype }}</p>
+                <p><strong>Facility:</strong> {{ room.facility }}</p>
+                <p><strong>Total Rooms:</strong> {{ room.totalroom }}</p>
+                <p><strong>Availability:</strong> {{ room.availability }}</p>
+            </li>
+            </ul>
+        </div>
+        <ng-template #noRooms>
+            <p>No rooms available for this PG.</p>
+        </ng-template>
+        </div>
+
+        <!-- Error or empty state handling -->
+        <div *ngIf="!pgDetails">
+        <p>No PG details available.</p>
+        </div>
+    </div>
 

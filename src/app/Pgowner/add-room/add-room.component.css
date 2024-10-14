@@ -1,0 +1,33 @@
+    .add-room-form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    
+    .add-room-form div {
+        margin-bottom: 15px;
+    }
+    
+    .add-room-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .add-room-form input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    
+    .add-room-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    

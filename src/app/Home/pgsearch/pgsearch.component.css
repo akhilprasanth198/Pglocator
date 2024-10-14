@@ -46,7 +46,7 @@
     border: none;
     border-radius: 30px;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;

@@ -33,13 +33,22 @@ import { PgownerTopbarComponent } from './Pgowner/pgowner-topbar/pgowner-topbar.
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
+<<<<<<< HEAD
 import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
+=======
+>>>>>>> cac3d8dd6bc5b1e5da482ae4a98329c4a64b2477
 import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
-import { UserSidebarComponent } from './User/user-sidebar/user-sidebar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
+<<<<<<< HEAD
 import { ReviewComponent } from './review/review.component';
+=======
+import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
+
+
+
+>>>>>>> cac3d8dd6bc5b1e5da482ae4a98329c4a64b2477
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -79,13 +88,7 @@ export const routes: Routes = [
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
-            {path:'view-pg',component:ViewPgComponent,
-                // children: [
-                //     {
-                //         path: 'viewdetails-pg/:pgId',component: ViewdetailsPgComponent
-                //     }
-                // ]
-            },            
+            {path:'view-pg/:pgId',component:ViewPgComponent},            
         ]
     },
     {path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
@@ -93,20 +96,17 @@ export const routes: Routes = [
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
-
+    { path: 'add-room/:pgid', component: AddRoomComponent },
 
     // User routes
-    {path:'user-dashboard',component:UserDashboardComponent,
-        children:[
             {
                 path: 'user-navbar', component: UserNavbarComponent,
                 children: [
                     { path: 'user-profile', component: UserProfileComponent },
                 ]
-            }
-        ]
-    },
-    
+            },
+    {path:'viewdetailPg/:pgid',component:ViewDetailsPgUserComponent},
+    {path:'userpglist',component:UserpglistComponent},
 ];
 
 @NgModule({

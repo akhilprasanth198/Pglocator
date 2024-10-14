@@ -19,7 +19,7 @@
                     <th>WhatsApp</th>
                     <th>Chat Link</th>
                     <th>Address</th>
-                    <th>Actions</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +34,8 @@
                     <td><a [href]="request.chatLink">Chat</a></td>
                     <td>{{ request.address }}</td>
                     <td>
-                        <button (click)="banrequest(request.uid)">Ban</button>
+                        <button class="ban">Ban</button>
+
                     
                         
                     </td>

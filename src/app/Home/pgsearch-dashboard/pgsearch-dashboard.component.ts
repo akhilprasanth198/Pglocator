@@ -1,13 +1,16 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,inject,OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PgService } from '../../services/pg.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserNavbarComponent } from "../../User/user-navbar/user-navbar.component";
+import { AuthService } from '../../services/auth.service';
+import { PgsearchComponent } from "../pgsearch/pgsearch.component";
 @Component({
   selector: 'app-pgsearch-dashboard',
   standalone: true,
-  imports: [NavbarComponent,FormsModule,CommonModule,],
+  imports: [NavbarComponent, FormsModule, CommonModule, UserNavbarComponent, PgsearchComponent],
   templateUrl: './pgsearch-dashboard.component.html',
   styleUrl: './pgsearch-dashboard.component.css'
 })
@@ -18,6 +21,8 @@ export class PgsearchDashboardComponent implements OnInit {
     city: '' 
   };
 
+  authservice=inject(AuthService)
+  router=inject(Router);
   constructor(private route: ActivatedRoute, private pgService: PgService) {}
 
   ngOnInit() {
@@ -42,7 +47,27 @@ export class PgsearchDashboardComponent implements OnInit {
       console.error('No PG found:', error);
   });
   }
+  viewPGDetails(pgId: number): void {
+    if (!this.authservice.isLoggedIn()) {
+      // If not logged in, show alert or redirect to login
+      console.log('User is not logged in, redirecting to login.');
+      this.router.navigate(['/login'], { queryParams: { returnUrl: `/viewdetailPg/${pgId}` } });
+    } else {
+      // If logged in, navigate to the PG details page
+      console.log('Navigating to PG details for ID:', pgId);
+      if (!isNaN(pgId)) {
+        this.router.navigate(['/viewdetailPg', pgId]);
+      } else {
+        console.error('Invalid PG ID:', pgId);
+      }
+    }
+  }
+
   showLoginAlert(): void {
-    alert('Please Login to View more Details or Contact the Owner.');
+    if (!this.authservice.isLoggedIn()) {
+      alert('You must be logged in to perform this action.');
+    } else {
+      console.log('Action allowed for logged-in user.');
+    }
   }
 }

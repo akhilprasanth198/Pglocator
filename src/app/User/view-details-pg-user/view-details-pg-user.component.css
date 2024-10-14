@@ -1,0 +1,97 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .breadcrumbs {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .breadcrumbs a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .pg-details {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .pg-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .pg-info {
+    flex-grow: 1;
+  }
+  
+  .pg-info h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .pg-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .pg-info .whatsapp-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .pg-features, .tariff-breakdown, .cancellation-policy, .location, .reviews {
+    margin-bottom: 20px;
+  }
+  
+  .feature-list, .amenities {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .amenities li {
+    margin: 5px 0;
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+    color: #333;
+  }
+  
+  .amenities li i {
+    margin-right: 5px;
+    color: #007bff;
+  }
+  
+  .tariff-breakdown p, .cancellation-policy p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .location iframe {
+    border: 0;
+  }
+  
+  .reviews .review-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

@@ -17,6 +17,12 @@ export class LoginComponent {
     email: "", 
     password: "",
   };
+  searchModel = {
+    
+    district: '',
+    city: ''
+  };
+
 
   userService = inject(UserService);
   router = inject(Router);
@@ -27,32 +33,33 @@ export class LoginComponent {
     this.userService.onLoginSubmit(this.userobject).subscribe(
       (result: any) => {
         console.log("Login result:", result);
-        if (result.role === 'admin') {
-          console.log("Navigating to admin-navbar");
-          this.router.navigateByUrl('/admin-navbar');
-        }
+        
         if (result && result.message === 'Login successful') {
-          this.authservice.setUserId(result.userId)
+          this.authservice.setUserId(result.userId);
           console.log("User Role:", result.role);
-          
-          // Handle redirection based on the user's role
-          if (result.role === 'pgowner') {
+
+          // Role-based redirection
+          if (result.role === 'admin') {
+            console.log("Navigating to admin-navbar");
+            this.router.navigateByUrl('/admin-navbar');
+          } else if (result.role === 'pgowner') {
             console.log("Navigating to pgowner-navbar");
             this.router.navigateByUrl('/pgowner-navbar');
           } else if (result.role === 'user') {
-            console.log("Navigating to user-dashboard");
-            this.router.navigateByUrl('/user-dashboard');
-          }
+            console.log("Navigating to pgsearch-dashboard");
+            const returnUrl = this.router.routerState.snapshot.root.queryParams['returnUrl'] || '/pgsearch-dash';
+            this.router.navigateByUrl(returnUrl);          }
+        } else {
+          alert('Invalid username or password');
         }
       },
       (error: any) => {
         alert('Invalid username or password');
-        console.log(error);
+        console.error(error);
       }
     );
   }
 
-  
   // Navigate to register component
   navigateToRegister() {
     this.router.navigate(['/registration']);

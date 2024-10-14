@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PgService } from '../../services/pg.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { PgownerService } from '../../services/pgowner.service';
 
 
 @Component({
@@ -17,87 +20,27 @@ export class UserpglistComponent {
     district: '',
     city: ''
   };
-
-  filters = {
-    price: 10000,
-    foodavailable: '',
-    rating: 1,
-    roomtype: '',
-    amenities: '',
-    gender_preference: ''
-  };
-
   pgs:any[] = []; 
+  router=inject(Router)
+  authservice=inject(AuthService);
 
   constructor(private pgService: PgService) {}
-}
-//   // Method to search PGs based on district and city
-//   onSearch() {
-//     const searchParams = {
-//       district: this.searchModel.district,
-//       city: this.searchModel.city
-//     };
 
-//     // Call the service to fetch PGs based on district and city
-//     this.pgService.searchPGs(searchParams).subscribe(data => {
-//       this.pgs = data;
-//     });
-//   }
-
-//   // Method to apply filters and get filtered PGs
-//   applyFilters() {
-//     const searchParams = {
-//       district: this.searchModel.district,
-//       city: this.searchModel.city,
-//       price: this.filters.price,
-//       foodavailable: this.filters.foodavailable,
-//       rating: this.filters.rating,
-//       roomtype: this.filters.roomtype,
-//       amenities: this.filters.amenities,
-//       gender_preference: this.filters.gender_preference
-//     };
-
-//     // Call the service to fetch filtered PGs
-//     this.pgService.getFilteredPGs(searchParams).subscribe(
-//       data => {
-//         this.pgs = data; // Update the PG listings with the filtered data
-//       },
-//       error => {
-//         console.error('Error fetching filtered PGs:', error);
-//       }
-//     );
-//   }
-// }
-
-// // export class UserpglistComponent implements OnInit {
-// //   searchModel = {
+  viewPGDetails(pgId: number): void {
+    console.log('Navigating to PG details for ID:', pgId);
     
-// //     district: '',
-// //     city: ''
-// //   };
-// //   pgs: any[] = [];
-// //   router = inject(Router);
-// //   constructor(private pgService: PgService) { }
-
-// //   ngOnInit(): void { }
-
-// //   onSearch(): void {
-// //     this.pgService.searchPgs(this.searchModel.district, this.searchModel.city)
-// //       .subscribe(
-// //         (result: any[]) => {
-// //           if (result.length === 0) {
-// //             alert('No PGs found');
-// //             this.pgs = []; // Clear previous search results
-// //           } else {
-// //             console.log(result);
-// //             this.pgs = result; // Display new search results
-// //           }
-// //         },
-// //         (error: any) => {
-// //           alert('An error occurred while searching for PGs.');
-// //           console.log(error);
-// //           this.pgs = []; // Clear previous search results on error
-// //         }
-// //       );
-// //   }
-// // }
+    // Check if the user is logged in
+    if (!this.authservice.getUserId()) {
+      // If user is not logged in, redirect to the login page
+      console.log('User is not logged in, redirecting to login page.');
+      this.router.navigate(['/login'], { queryParams: { returnUrl: `/viewdetailPg/${pgId}` } });
+    } else {
+      // If user is logged in, navigate to the PG details page
+      if (!isNaN(pgId)) {
+        this.router.navigate(['/viewdetailPg', pgId]);
+      } else {
+        console.error('Invalid PG ID:', pgId);
+      }
+    }
+  }
+}
