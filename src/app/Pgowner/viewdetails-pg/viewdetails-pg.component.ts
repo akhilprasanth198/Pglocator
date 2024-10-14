@@ -2,13 +2,15 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { pgs } from '../../Models/pgs';
+import { data, error } from 'jquery';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-viewdetails-pg',
   standalone: true,
-  imports: [NgIf, RouterOutlet],
+  imports: [ RouterOutlet,FormsModule,CommonModule],
   templateUrl: './viewdetails-pg.component.html',
   styleUrls: ['./viewdetails-pg.component.css'] 
 })
@@ -19,6 +21,7 @@ export class ViewdetailsPgComponent implements OnInit {
   authservice = inject(AuthService);
   pgDetails: pgs | null = null;
   pgId: number | null = null;
+  rooms : any[] = [];
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -26,6 +29,7 @@ export class ViewdetailsPgComponent implements OnInit {
       console.log('Received PG ID:', this.pgId);  // Log the received PG ID
       if (!isNaN(this.pgId)) {
         this.loadPgDetails(this.pgId);  // Proceed if it's a valid number
+        this.loadRoomDetails(this.pgId); // Fetch room for this pg
       } else {
         console.error('Invalid PG ID');
       }
@@ -46,6 +50,17 @@ export class ViewdetailsPgComponent implements OnInit {
     );
   }
 
+  //Fetch room details
+  loadRoomDetails(pgId:number):void{
+      this.pgownerservice.getRoomsByPgId(pgId).subscribe(data => {
+        this.rooms = data;
+        console.log("Fetched rooms:",data);
+      },
+      error =>{
+        console.error(`Error fetching rooms: ${error.status} - ${error.message}`);
+      }
+    );
+  }
   // Method for edit button
   editPg(): void {
     console.log('Editing PG with ID:', this.pgId);

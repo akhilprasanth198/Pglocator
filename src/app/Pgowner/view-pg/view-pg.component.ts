@@ -72,13 +72,23 @@ export class ViewPgComponent implements OnInit {
   }
 }
 
-// View the rooms of a specific PG
-viewRooms(pgId: number): void {
-  console.log('Navigating to view rooms for PG ID:', pgId);
+addRoom(pgId: number): void {
+  console.log('Navigating to add room for PG ID:', pgId);
   if (!isNaN(pgId)) {
-    this.router.navigate(['view-rooms', pgId]); // Add a route to view rooms
+    this.router.navigate(['add-room', pgId]);
   } else {
     console.error('Invalid PG ID:', pgId);
   }
 }
+
+
+// View the rooms of a specific PG
+// viewRooms(pgId: number): void {
+//   console.log('Navigating to view rooms for PG ID:', pgId);
+//   if (!isNaN(pgId)) {
+//     this.router.navigate(['view-rooms', pgId]); // Add a route to view rooms
+//   } else {
+//     console.error('Invalid PG ID:', pgId);
+//   }
+// }
 }

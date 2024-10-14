@@ -1,1 +1,58 @@
-<p>view-details-pg-user works!</p>
+<div class="container">
+  <div class="breadcrumbs">
+    <a routerLink="/">Home</a> > 
+    <a routerLink="/pg-list">PG List</a> > 
+    <a routerLink="/pg-details">{{pgDetails.pgname}}</a>
+  </div>
+
+  <div class="pg-details">
+    <div class="pg-image">
+      <img src="assets/images/pg-image.jpg" alt="PG Image">
+    </div>
+
+    <div class="pg-info">
+      <h2>{{pgDetails.pgname}}</h2>
+      <p><strong>{{pgDetails.gender_preference}}</strong></p>
+      <p>nhikkidangara, Kakkanad, Ernakulam, Kochi - 682021</p>
+      <a href="#" class="whatsapp-link"><i class="fas fa-phone"></i> Contact via WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="pg-features">
+    <h3>Features</h3>
+    <div class="feature-list">
+      <strong>Room Type Facilities:</strong>
+      <p>3-Share Non-AC Facilities</p>
+    </div>
+
+    <h3>Amenities</h3>
+    <ul class="amenities">
+      <li><i class="fas fa-bed"></i> Bed & Mattress</li>
+      <li><i class="fas fa-fan"></i> Non-AC</li>
+      <li><i class="fas fa-water"></i> Mineral Water</li>
+      <li><i class="fas fa-parking"></i> Parking</li>
+      <!-- Add more amenities as needed -->
+    </ul>
+  </div>
+
+  <div class="tariff-breakdown">
+    <h3>Tariff Breakdown</h3>
+    <p><strong>Monthly:</strong> ₹3000</p>
+  </div>
+
+  <div class="cancellation-policy">
+    <h3>Cancellation Policy</h3>
+    <p>Guests are not allowed. KEEP ROOMS CLEAN</p>
+  </div>
+
+  <div class="location">
+    <h3>Location</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_URL" width="100%" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </div>
+
+  <div class="reviews">
+    <h3>Guest Reviews</h3>
+    <p>Be the first to review</p>
+    <button class="review-btn">Review</button>
+  </div>
+</div>

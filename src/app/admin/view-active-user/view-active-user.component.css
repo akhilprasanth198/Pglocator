@@ -128,3 +128,55 @@ td {
     background-color: #4caf50;
     color: white;
 }
+.search-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns to the left */
+    align-items: center; /* Aligns vertically centered */
+    margin: 20px 0;
+}
+
+.input-field {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.input-field:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+
+}
+.ban {
+    width: 60px; 
+    height: 35px; 
+    padding: 8px 16px; 
+    font-size: 13px; 
+    background-color: rgb(246, 57, 57); 
+    color: white; 
+    border-radius: 7px; 
+    border: none;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, font-size 0.3s ease; 
+}
+
+.ban:hover {
+    background-color: red; 
+    font-size: 15px; 
+}

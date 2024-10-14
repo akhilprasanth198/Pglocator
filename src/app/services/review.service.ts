@@ -7,6 +7,12 @@ import { Review } from '../Models/review';
   providedIn: 'root'
 })
 export class ReviewService {
+  submitReview(review: Review) {
+    throw new Error('Method not implemented.');
+  }
+  getReviews(): never[] {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl = 'https://localhost:7152/api/Review';
   constructor(private http: HttpClient) {} // Add a review

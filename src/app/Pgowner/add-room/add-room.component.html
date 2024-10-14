@@ -1,1 +1,35 @@
-
+    <div class="add-room-form">
+        <h2>Add Room for PG ID: {{ pgid }}</h2>
+        <form (ngSubmit)="onSubmit()" #roomForm="ngForm">
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" required [(ngModel)]="room.price" name="price" />
+        </div>
+        <div>
+            <label for="deposit">Deposit:</label>
+            <input type="number" id="deposit" required [(ngModel)]="room.deposit" name="deposit" />
+        </div>
+        <div>
+            <label for="services">Services:</label>
+            <input type="text" id="services" [(ngModel)]="room.services" name="services" />
+        </div>
+        <div>
+            <label for="roomtype">Room Type:</label>
+            <input type="text" id="roomtype" [(ngModel)]="room.roomtype" name="roomtype" />
+        </div>
+        <div>
+            <label for="facility">Facility:</label>
+            <input type="text" id="facility" [(ngModel)]="room.facility" name="facility" />
+        </div>
+        <div>
+            <label for="totalroom">Total Rooms:</label>
+            <input type="number" id="totalroom" required [(ngModel)]="room.totalroom" name="totalroom" />
+        </div>
+        <div>
+            <label for="availability">Availability:</label>
+            <input type="number" id="availability" required [(ngModel)]="room.availability" name="availability" />
+        </div>
+        <button type="submit">Add Room</button>
+        </form>
+    </div>
+    
