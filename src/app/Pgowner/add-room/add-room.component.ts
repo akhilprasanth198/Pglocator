@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-room',
-  standalone:true,
-  imports:[FormsModule,CommonModule,RouterOutlet],
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterOutlet],
   templateUrl: './add-room.component.html',
   styleUrls: ['./add-room.component.css']
 })
@@ -45,11 +45,13 @@ export class AddRoomComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // Post the room data to the API
     this.http.post('https://localhost:7152/api/Rooms', this.room)
       .subscribe(
         response => {
           console.log('Room added successfully!', response);
           alert('Room added successfully!');
+          // Navigate back to the PG view after adding the room
           this.router.navigate(['/pgowner-navbar/view-pg', this.pgid]);
         },
         error => {

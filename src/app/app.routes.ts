@@ -101,7 +101,7 @@ export const routes: Routes = [
                     { path: 'user-profile', component: UserProfileComponent },
                 ]
             },
-    {path:'viewdetailPg/:pgid',component:ViewDetailsPgUserComponent},
+    {path:'view-details-pg-user/:pgId',component:ViewDetailsPgUserComponent},
     {path:'userpglist',component:UserpglistComponent},
 ];
 

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { ContactService } from '../../contact.service';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',

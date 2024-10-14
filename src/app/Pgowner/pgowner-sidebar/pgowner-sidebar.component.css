@@ -39,7 +39,8 @@
 /* Sidebar navigation styles */
 .sidebar-nav {
     list-style-type: none;
-    padding: 0;
+    padding-top: 0;
+    
 }
 
 .sidebar-nav li {
@@ -50,7 +51,7 @@
     color: #2f92d4;
     text-decoration: none;
     display: block;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .sidebar-nav li a:hover {
@@ -59,6 +60,7 @@
 }
 
 h3 {
+    font-family: poppins;
     padding-top: 10px;
     text-align: center;
     color: #2f92d4;
@@ -66,6 +68,7 @@ h3 {
 
 /* Divider between menu items */
 hr {
+    
     border: none;
     height: 1px;
     background-color: #e0e0e0;
