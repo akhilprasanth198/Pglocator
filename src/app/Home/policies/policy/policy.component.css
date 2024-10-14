@@ -1,39 +1,39 @@
 
-        /* Basic styling for the guest policies page */
-        body {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            background-color: #e9edf3;
-            color: #333;
-            margin-top: -20px;
-            padding: 10px;
-        }
-        .policy-container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .policy-container h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 600;
-            color: #2f92d4;
-        }
-        .policy-container h2 {
-            font-size: 1.8rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #0056b3;
-        }
-        .policy-container ul {
-            list-style: disc;
-            margin-left: 20px;
-        }
-        .policy-container ul li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
+/* Basic styling for the guest policies page */
+.policy-section{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-color: #e9edf3;
+    color: #333;
+    margin-top: -20px;
+    padding: 30px 0px 60px 0px;
+}
+.policy-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.policy-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #2f92d4;
+}
+.policy-container h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #0056b3;
+}
+.policy-container ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+.policy-container ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
