@@ -33,6 +33,17 @@ export class PgownerService {
   // Delete PG by ID
   deletePG(pgId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/Pg/${pgId}`);
-  }
+ }
+//   approveRequest(Pgid: number): Observable<any> {
+//     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${Pgid}&action=approve`, {});
+// }
+approveRequest(pgId: number): Observable<any> {
+  return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${pgId}&action=approve`, {});
+}
+
+rejectRequest(pgId: number): Observable<any> {
+  return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${pgId}&action=reject`, {});
+}
+
 
 }
