@@ -13,8 +13,6 @@ import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-us
 import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
 import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
-
-
 import { AboutComponent } from './Home/about/about.component';
 import { ContactComponent } from './Home/contact/contact.component';
 import { HomepageComponent } from './Home/homepage/homepage.component';
@@ -26,8 +24,6 @@ import { PoliciesComponent } from './Home/policies/policies.component';
 import { PolicyComponent } from './Home/policies/policy/policy.component';
 import { PrivacyComponent } from './Home/policies/privacy/privacy.component';
 import { RegistrationComponent } from './Home/registration/registration.component';
-
-
 import { PgMediaComponent } from './Pgowner/add-media/add-media.component';
 import { AddRoomComponent } from './Pgowner/add-room/add-room.component';
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
@@ -37,14 +33,22 @@ import { PgownerTopbarComponent } from './Pgowner/pgowner-topbar/pgowner-topbar.
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
+<<<<<<< HEAD
+import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
+=======
+>>>>>>> cac3d8dd6bc5b1e5da482ae4a98329c4a64b2477
 import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
+<<<<<<< HEAD
+import { ReviewComponent } from './review/review.component';
+=======
 import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 
 
 
+>>>>>>> cac3d8dd6bc5b1e5da482ae4a98329c4a64b2477
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -79,7 +83,7 @@ export const routes: Routes = [
     },
     
     {path:'view-user',component:ViewUsersComponent},
-
+{path:'review',component:ReviewComponent},
 
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,

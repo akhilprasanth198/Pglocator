@@ -33,8 +33,24 @@ export class PgownerService {
   // Delete PG by ID
   deletePG(pgId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/Pg/${pgId}`);
+
+ }
+//   approveRequest(Pgid: number): Observable<any> {
+//     return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${Pgid}&action=approve`, {});
+// }
+approveRequest(pgId: number): Observable<any> {
+  return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${pgId}&action=approve`, {});
+}
+
+rejectRequest(pgId: number): Observable<any> {
+  return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${pgId}&action=reject`, {});
+}
+
+
+z
   }
   getRoomsByPgId(pgId: number): Observable<any[]> {
     return this.http.get<any[]>(`https://localhost:7152/api/Rooms/pg/${pgId}`);
   }
+>>>>>>> f43df4c7b85079d1cb210d0574057658ae3b0314
 }
