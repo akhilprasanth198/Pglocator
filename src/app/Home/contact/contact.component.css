@@ -1,94 +1,75 @@
-/* General styles */
 .contact-section {
-    background: #f8f9fa;
-    padding: 50px 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins';
+    font-size: 16px;
+    padding: 60px 0px 140px 0px;
+    text-align: center;
+    background: #e9edf3;
+    margin-top: -20px;
+    
 }
 
 .contact-heading {
     font-size: 2.5rem;
-    font-weight: bold;
+    text-align: center;
     margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+    font-weight: 600;
+    color: #2f92d4;
 }
 
-/* Center form and make it more modern */
-.contact-card {
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
     background: #fff;
-    padding: 40px;
     border-radius: 15px;
-    transition: box-shadow 0.3s ease;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+}
+
+.form-control {
     border: 1px solid #ddd;
-}
-
-.contact-card:hover {
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Modern input field styles */
-.modern-input {
     border-radius: 10px;
-    border: 1px solid #ddd;
-    padding: 14px;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-.modern-input:focus {
+.form-control:focus {
     border-color: #007bff;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Modern button styles */
-.modern-btn {
-    background-color: #007bff;
+.btn.modern-btn {
+    background: #007bff;
     border: none;
-    font-size: 18px;
-    padding: 14px;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 12px;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
+    cursor: pointer;
 }
 
-.modern-btn:hover {
-    background-color: #0056b3;
+.btn.modern-btn:hover {
+    background: #0056b3;
 }
 
-/* Social media icons */
 .social-icons {
-    text-align: center;
     margin-top: 20px;
 }
 
-.social-icons .icon-link {
-    display: inline-block;
-    margin: 0 15px;
-    font-size: 24px;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.social-icons .icon-link:hover {
+.icon-link {
+    margin: 0 10px;
+    font-size: 1.5rem;
     color: #007bff;
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-card {
-        padding: 30px;
-    }
-
-    .contact-heading {
-        font-size: 2rem;
-    }
-
-    .modern-input, .modern-btn {
-        font-size: 14px;
-        padding: 12px;
-    }
-
-    .social-icons .icon-link {
-        margin: 0 10px;
-    }
+.icon-link:hover {
+    color: #0056b3;
 }

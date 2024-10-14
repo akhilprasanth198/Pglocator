@@ -34,5 +34,7 @@ export class PgownerService {
   deletePG(pgId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/Pg/${pgId}`);
   }
-
+  getRoomsByPgId(pgId: number): Observable<any[]> {
+    return this.http.get<any[]>(`https://localhost:7152/api/Rooms/pg/${pgId}`);
+  }
 }
