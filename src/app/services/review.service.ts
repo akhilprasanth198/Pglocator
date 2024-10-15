@@ -22,9 +22,9 @@ export class ReviewService {
   }
 
   // Edit an existing review
-  editReview(pgId: number, review: Review): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${pgId}/review/${review.id}`, review);
-  }
+  // editReview(pgId: number, review: Review): Observable<void> {
+  //   return this.http.put<void>(`${this.apiUrl}/${pgId}/review/${review.id}`, review);
+  // }
 
   // Delete a review by ID
   deleteReview(pgId: number, reviewId: number): Observable<void> {

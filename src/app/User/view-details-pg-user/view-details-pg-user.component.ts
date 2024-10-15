@@ -7,12 +7,11 @@ import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
 import { MediaService } from '../../services/media.service';
 import { RoomService } from '../../room.service';
-import { CommonModule, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-view-details-pg-user',
   standalone: true,
-  imports: [CommonModule,NgFor,],
+  imports: [],
   templateUrl: './view-details-pg-user.component.html',
   styleUrl: './view-details-pg-user.component.css'
 })
@@ -56,45 +55,10 @@ export class ViewDetailsPgUserComponent implements OnInit {
     );
   }
   // Fetch media details related to the PG
-<<<<<<< HEAD
-loadMediaDetails(pgid: number): void {
-  this.mediaservice.getMediaByPgId(pgid).subscribe(
-    (data) => {
-      this.media = data;  // Store media details
-    },
-    (error) => {
-      console.error('Failed to load media details:', error);
-    }
-  );
-}
-review(pgid: number): void {
-  console.log('Review PG ID:', pgid); // Debug log to check pgid value
-
- 
-    // If logged in, navigate to the review page
-    this.router.navigate(['/review', pgid]); // Adjust as necessary
-  
-}
-
-
-// review(PgId:number) :void{
-//   if (!this.authservice.isLoggedIn()) {
-//     // If not logged in, show alert or redirect to login
-//     console.log('User is not logged in, redirecting to login.');
-//     this.router.navigate(['/login'], { queryParams: { returnUrl: `/viewdetailPg/${PgId}` } });
-//   } 
-// }
-// Fetch room details related to the PG
-// loadRoomDetails(pgid: number): void {
-//   this.roomservice.getRoomsByPgId(pgid).subscribe(
-//     (data) => {
-//       this.room = data;  // Store room details
-=======
 // loadMediaDetails(pgid: number): void {
 //   this.mediaservice.getMedia   (pgid).subscribe(
 //     (data:any) => {
 //       this.media = data;  // Store media details
->>>>>>> 397f705d8e8b7f531d23a476fbef6d45f897a339
 //     },
 //     (error) => {
 //       console.error('Failed to load media details:', error);

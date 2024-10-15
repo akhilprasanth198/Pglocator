@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { Review } from '../Models/review';
+import { Review } from '../Models/review';  // Adjust the path to your model
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReviewService } from '../review.service';// Ensure correct path to ReviewService
+import { ReviewService } from '../services/review.service';  // Ensure correct path to ReviewService
 
 @Component({
   selector: 'app-review',
@@ -25,28 +25,27 @@ export class ReviewComponent {
   submittedReviews: Review[] = [];
 
   constructor(private reviewService: ReviewService) { }
-  submitReview() {
-    
-  }
-  // submitReview() {
-  //   // The reviewService.submitReview should return an Observable. Ensure this in review.service.ts
-  //   this.reviewService.submitReview(this.review).subscribe(
-  //     (response: any) => {  // Fix the 'any' type for response
-  //       console.log('Review submitted successfully', response);
 
-  //       // Push the submitted review into the submittedReviews array
-  //       this.submittedReviews.push({ ...this.review });
+//   submitReview() {
+//     // The reviewService.submitReview should return an Observable. Ensure this in review.service.ts
+//     this.reviewService.submitReview(this.review).subscribe(
+//       (response: any) => {  // Fix the 'any' type for response
+//         console.log('Review submitted successfully', response);
 
-  //       // Clear the form
-  //       this.review.comment = '';
-  //       this.review.Rating = '';
+//         // Push the submitted review into the submittedReviews array
+//         this.submittedReviews.push({ ...this.review });
 
-  //       // Show success alert
-  //       alert('Review submitted successfully!');
-  //     },
-  //     (error: any) => {  // Fix the 'any' type for error
-  //       console.error('Error submitting review', error);
-  //     }
-  //   );
-  // }
+//         // Clear the form
+//         this.review.comment = '';
+//         this.review.Rating = '';
+
+//         // Show success alert
+//         alert('Review submitted successfully!');
+//       },
+//       (error: any) => {  // Fix the 'any' type for error
+//         console.error('Error submitting review', error);
+//       }
+//     );
+//   }
+// }
 }
