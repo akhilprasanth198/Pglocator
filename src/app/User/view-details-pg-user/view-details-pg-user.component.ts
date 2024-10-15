@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PgService } from '../../services/pg.service';
 import { pgs } from '../../Models/pgs';
+import { HttpClient } from '@angular/common/http';
 import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
 import { MediaService } from '../../services/media.service';
@@ -23,6 +24,7 @@ export class ViewDetailsPgUserComponent implements OnInit {
   roomservice=inject(RoomService)
   authservice=inject(AuthService)
   route=inject(ActivatedRoute)
+  http=inject(HttpClient)
   pgDetails:any={};  
   media:any={};
   room:any={};
@@ -34,7 +36,7 @@ export class ViewDetailsPgUserComponent implements OnInit {
 
     if (pgid) {
       this.loadPgDetails(Number(pgid));
-      this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
+      // this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
     // this.loadRoomDetails(Number(pgid)); 
     } else {
       console.error('PG ID not provided in the route!');
@@ -45,7 +47,8 @@ export class ViewDetailsPgUserComponent implements OnInit {
   loadPgDetails(pgid: number): void {
     this.pgownerservice.getPgById(pgid).subscribe(
       (data) => {
-        this.pgDetails = data;  // Set the fetched PG details into the object
+        this.pgDetails = data; 
+        console.log("Fetched PG Details:", this.pgDetails); // Set the fetched PG details into the object
       },
       (error) => {
         console.error('Failed to load PG details:', error);
@@ -53,6 +56,7 @@ export class ViewDetailsPgUserComponent implements OnInit {
     );
   }
   // Fetch media details related to the PG
+<<<<<<< HEAD
 loadMediaDetails(pgid: number): void {
   this.mediaservice.getMediaByPgId(pgid).subscribe(
     (data) => {
@@ -85,11 +89,39 @@ review(pgid: number): void {
 //   this.roomservice.getRoomsByPgId(pgid).subscribe(
 //     (data) => {
 //       this.room = data;  // Store room details
+=======
+// loadMediaDetails(pgid: number): void {
+//   this.mediaservice.getMedia   (pgid).subscribe(
+//     (data:any) => {
+//       this.media = data;  // Store media details
+>>>>>>> 397f705d8e8b7f531d23a476fbef6d45f897a339
 //     },
 //     (error) => {
-//       console.error('Failed to load room details:', error);
+//       console.error('Failed to load media details:', error);
 //     }
 //   );
 // }
+
+//Fetch room details related to the PG
+loadRoomDetails(pgid: number): void {
+  this.http.get('https://localhost:7152/api/Rooms?pgid=${pgid}')
+  .subscribe(
+    (data) => {
+      this.room = data;  // Store room details
+      console.log("Fetched room details:", this.room);
+    },
+    (error) => {
+      console.error('Failed to load room details:', error);
+    }
+  );
+}
+goBack(): void {
+  this.router.navigate(['pgsearch-dash']);
+}
+
+goToReview(): void {
+  const pgid = this.route.snapshot.paramMap.get('pgid'); 
+  this.router.navigate(['/review', pgid]); 
+}
 
 }

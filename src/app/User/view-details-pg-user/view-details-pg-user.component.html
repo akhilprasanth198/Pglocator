@@ -4,6 +4,8 @@
     <a routerLink="/pg-list">PG List</a> > 
     <a routerLink="/pg-details">{{pgDetails.pgname}}</a>
   </div>
+   <!-- Back Button -->
+   <button (click)="goBack()" class="back-button">Back</button>
 
   <div class="pg-details">
     <div class="pg-image">
@@ -11,9 +13,10 @@
     </div>
 
     <div class="pg-info">
-      <h2>{{pgDetails.pgname}}</h2>
+      <h1>{{pgDetails.pgname}}</h1>
+      <h3>{{pgDetails.description}}</h3>
       <p><strong>{{pgDetails.gender_preference}}</strong></p>
-      <p>nhikkidangara, Kakkanad, Ernakulam, Kochi - 682021</p>
+      <p>{{pgDetails.address}}{{pgDetails.city}}-{{pgDetails.pin}}</p>
       <a href="#" class="whatsapp-link"><i class="fas fa-phone"></i> Contact via WhatsApp</a>
     </div>
   </div>
@@ -25,14 +28,19 @@
       <p>3-Share Non-AC Facilities</p>
     </div>
 
-    <h3>Amenities</h3>
+    <!-- <h3>Amenities</h3>
     <ul class="amenities">
-      <li><i class="fas fa-bed"></i> Bed & Mattress</li>
-      <li><i class="fas fa-fan"></i> Non-AC</li>
+      <li>{{pgDetails.amentities}}</li>
+      <!-- <li><i class="fas fa-fan"></i> Non-AC</li>
       <li><i class="fas fa-water"></i> Mineral Water</li>
       <li><i class="fas fa-parking"></i> Parking</li>
-      <!-- Add more amenities as needed -->
-    </ul>
+      Add more amenities as needed -->
+    <!-- </ul>
+  </div> --> -->
+
+  <div class="tariff-breakdown">
+    <h3>Amenities</h3>
+    <p>{{pgDetails.amentities}}</p>
   </div>
 
   <div class="tariff-breakdown">
@@ -41,8 +49,18 @@
   </div>
 
   <div class="cancellation-policy">
-    <h3>Cancellation Policy</h3>
-    <p>Guests are not allowed. KEEP ROOMS CLEAN</p>
+    <h3>Rules</h3>
+    <p>{{pgDetails.rules}}</p>
+  </div>
+
+  <div class="cancellation-policy">
+    <h3>Food Available</h3>
+    <p>{{pgDetails.foodavailable}}</p>
+  </div>
+
+  <div class="cancellation-policy">
+    <h3>Meals</h3>
+    <p>{{pgDetails.meal}}</p>
   </div>
 
   <div class="location">
@@ -53,6 +71,11 @@
   <div class="reviews">
     <h3>Guest Reviews</h3>
     <p>Be the first to review</p>
+<<<<<<< HEAD
     <button class="review-btn" (click)="review(pgDetails.pgid)">Review</button>
   </div>
+=======
+    <button (click)="goToReview()" class="review-btn">Review</button>
+  </div>  
+>>>>>>> 397f705d8e8b7f531d23a476fbef6d45f897a339
 </div>
