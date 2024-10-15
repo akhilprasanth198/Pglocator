@@ -95,3 +95,17 @@
     cursor: pointer;
   }
   
+  .back-button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Space below the button */
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  

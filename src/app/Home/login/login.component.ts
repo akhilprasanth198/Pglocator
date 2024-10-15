@@ -47,9 +47,10 @@ export class LoginComponent {
             this.router.navigateByUrl('/pgowner-navbar');
           } else if (result.role === 'user') {
             console.log("Navigating to pgsearch-dashboard");
-            const returnUrl = this.router.routerState.snapshot.root.queryParams['returnUrl'] || '/pgsearch-dash';
-            this.router.navigateByUrl(returnUrl);          }
-        } else {
+            this.router.navigateByUrl('/pgsearch-dash');
+          }
+         }
+          else {
           alert('Invalid username or password');
         }
       },
