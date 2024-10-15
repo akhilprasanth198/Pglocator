@@ -31,6 +31,7 @@ export class RegistrationComponent {
   successMessage: string | undefined;
   errorMessage: string | undefined;
   userService=inject(UserService)
+  router=inject(Router)
 
 
   onSubmit() {
@@ -67,6 +68,8 @@ export class RegistrationComponent {
 
         // Log the registration success response
         console.log('Registration Success:', this.successMessage);
+        alert("Registered Successfully")
+        this.router.navigate(['/login']);
         // Here you can also navigate to a different page or perform other actions
       },
       (error) => {
