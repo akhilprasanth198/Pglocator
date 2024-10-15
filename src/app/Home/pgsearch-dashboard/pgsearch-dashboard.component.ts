@@ -56,7 +56,7 @@ export class PgsearchDashboardComponent implements OnInit {
       // If logged in, navigate to the PG details page
       console.log('Navigating to PG details for ID:', pgId);
       if (!isNaN(pgId)) {
-        this.router.navigate(['/viewdetailPg', pgId]);
+        this.router.navigate(['/view-details-pg-user', pgId]);
       } else {
         console.error('Invalid PG ID:', pgId);
       }

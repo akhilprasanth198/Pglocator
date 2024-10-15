@@ -1,4 +1,4 @@
-<div class="review-form">
+div class="review-form">
   <form (ngSubmit)="submitReview()">
     <label for="comment">Comment:</label>
     <textarea [(ngModel)]="review.comment" name="comment" id="comment" required></textarea>
@@ -12,10 +12,8 @@
       <option value="4">4</option>
       <option value="5">5</option>
     </select>
+</form>
 
-    <button type="submit">Submit Review</button>
-  </form>
-</div>
 
 <!-- Display the submitted reviews below the form -->
 <div class="submitted-reviews" *ngIf="submittedReviews.length > 0">
