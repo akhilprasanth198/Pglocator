@@ -1,115 +1,17 @@
-/* Overall container styling */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 15px;
-  }
-  
-  /* Styling for page title */
-  .page-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Container for the PG details */
-  .pg-details {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px; /* Space between sections */
-  }
-  
-  /* Card container for PG details */
-  .pg-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-  }
-  
-  /* Info section inside the PG card */
-  .pg-info {
-    flex: 1;
-    max-width: 60%;
-  }
-  
-  /* Actions section inside the PG card */
-  .pg-actions {
-    flex: 1;
-    max-width: 35%;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px; /* Space between buttons */
-  }
-  
-  /* Styling for the PG name */
-  .pg-name {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  /* General paragraph styling */
-  p {
-    margin: 5px 0;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  /* Button styling */
-  .btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-  }
-  
-  .btn-danger:hover {
-    background-color: #c82333;
-  }
-  
-  /* Responsive layout */
-  @media (max-width: 768px) {
-    .pg-card {
-      flex-direction: column;
+    h2, h3 {
+        color: #333;
     }
-  
-    .pg-info {
-      max-width: 100%;
+    
+    .image-gallery {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
     }
-  
-    .pg-actions {
-        flex: 1;
-    max-width: 20%;
-    display: block;
-      max-width: 100%;
-      margin-top: 20px;
+    
+    .image-gallery img {
+        width: 150px;
+        height: auto;
+        border-radius: 5px;
+        object-fit: cover;
     }
-  }
-  
+    

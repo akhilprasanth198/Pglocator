@@ -1,52 +1,38 @@
-    <div class="container">
-    <h2>View PG Details</h2>
-
-    <!-- Display the selected PG details -->
-    <div class="pg-details" *ngIf="pgDetails">
-        <div class="card pg-card">
-            <div class="card-body pg-info">
-                <h3 class="pg-name">{{ pgDetails.pgname }}</h3>
-                <p><strong>Description:</strong> {{ pgDetails.description }}</p>
-                <p><strong>Address:</strong> {{ pgDetails.address }}</p>
-                <p><strong>District:</strong> {{ pgDetails.district }}</p>
-                <p><strong>City:</strong> {{ pgDetails.city }}</p>
-                <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
-                <p><strong>Gender Preference:</strong> {{ pgDetails.gender_perference }}</p>
-                <p><strong>Amenities:</strong> {{ pgDetails.amentities }}</p>
-                <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
-                <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
-                <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
-            </div>
-
-            <!-- Action buttons for Edit and Delete -->
-            <div class="card-footer">
-                <button class="btn btn-primary me-2" (click)="editPg()">Edit</button>
-                <button class="btn btn-danger" (click)="deletePg()">Delete</button>
-            </div>
-        </div>
-        <hr>
-
+    <div *ngIf="pgDetails">
+        <h3 class="pg-name">{{ pgDetails.pgname }}</h3>
+        <p><strong>Description:</strong> {{ pgDetails.description }}</p>
+        <p><strong>Address:</strong> {{ pgDetails.address }}</p>
+        <p><strong>District:</strong> {{ pgDetails.district }}</p>
+        <p><strong>City:</strong> {{ pgDetails.city }}</p>
+        <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
+        <p><strong>Gender Preference:</strong> {{ pgDetails.gender_perference }}</p>
+        <p><strong>Amenities:</strong> {{ pgDetails.amentities }}</p>
+        <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
+        <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
+        <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
+    </div>
+    
+    <div *ngIf="roomDetails.length > 0">
         <h3>Rooms</h3>
-        <div *ngIf="rooms.length > 0; else noRooms">
-            <ul>
-            <li *ngFor="let room of rooms">
-                <p><strong>Price:</strong> {{ room.price }}</p>
-                <p><strong>Deposit:</strong> {{ room.deposit }}</p>
-                <p><strong>Room Type:</strong> {{ room.roomtype }}</p>
-                <p><strong>Facility:</strong> {{ room.facility }}</p>
-                <p><strong>Total Rooms:</strong> {{ room.totalroom }}</p>
-                <p><strong>Availability:</strong> {{ room.availability }}</p>
-            </li>
-            </ul>
-        </div>
-        <ng-template #noRooms>
-            <p>No rooms available for this PG.</p>
-        </ng-template>
-        </div>
-
-        <!-- Error or empty state handling -->
-        <div *ngIf="!pgDetails">
-        <p>No PG details available.</p>
+        <ul>
+        <li *ngFor="let room of roomDetails">
+            <p><strong>Rent:</strong> {{ room.price }}</p>
+            <p><strong>Deposit:</strong> {{ room.deposit }}</p>
+            <p><strong>Room Type:</strong> {{ room.roomtype }}</p>
+            <p><strong>Facility:</strong> {{ room.facility }}</p>
+            <p><strong>Total Rooms:</strong> {{ room.totalroom }}</p>
+            <p><strong>Availability:</strong> {{ room.availability ? 'Yes' : 'No'}}</p>
+        </li>
+        </ul>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary me-2" (click)="editPg()">Edit</button>
+        <button class="btn btn-danger" (click)="deletePg()">Delete</button>
+    </div>
+    <div *ngIf="pgImages.length > 0">
+        <h3>Uploaded Images</h3>
+        <div class="image-gallery">
+        <img *ngFor="let image of pgImages" [src]="image.url" [alt]="pgDetails.name" />
         </div>
     </div>
-
+    

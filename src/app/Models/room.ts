@@ -1,7 +1,11 @@
 export interface Room {
-    rid: number;
-    roomName: string;
-    capacity: number;
-    price: number;
-    // Add other room properties as per your requirements
+    Rid: number;
+    Pgid: number;
+    Price: number;
+    Deposit: number;
+    Services: string;
+    Roomtype: string;
+    Facility: string;
+    Totalroom: number;
+    Availability: number;
 }

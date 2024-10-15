@@ -33,22 +33,16 @@ import { PgownerTopbarComponent } from './Pgowner/pgowner-topbar/pgowner-topbar.
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
-<<<<<<< HEAD
-import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
-=======
->>>>>>> cac3d8dd6bc5b1e5da482ae4a98329c4a64b2477
 import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
-<<<<<<< HEAD
-import { ReviewComponent } from './review/review.component';
-=======
-import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
+
+// import { ReviewComponent } from './review/review.component';
+
+// import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 
 
-
->>>>>>> cac3d8dd6bc5b1e5da482ae4a98329c4a64b2477
 export const routes: Routes = [
     {path:'',redirectTo: 'home', pathMatch: 'full'},
     {path:'home',component:HomepageComponent},
@@ -83,7 +77,7 @@ export const routes: Routes = [
     },
     
     {path:'view-user',component:ViewUsersComponent},
-{path:'review',component:ReviewComponent},
+// {path:'review',component:ReviewComponent},
 
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
@@ -91,7 +85,7 @@ export const routes: Routes = [
             {path:'view-pg/:pgId',component:ViewPgComponent},            
         ]
     },
-    {path : 'viewdetails-pg/:pgId',component:ViewdetailsPgComponent},
+    { path: 'viewdetails-pg/:pgId', component: ViewdetailsPgComponent }, 
     {path:'add-media/:pgId',component:PgMediaComponent},
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
@@ -105,7 +99,7 @@ export const routes: Routes = [
                     { path: 'user-profile', component: UserProfileComponent },
                 ]
             },
-    {path:'view-details-pg-user/:pgId',component:ViewDetailsPgUserComponent},
+    // {path:'view-details-pg-user/:pgId',component:ViewDetailsPgUserComponent},
     {path:'userpglist',component:UserpglistComponent},
 ];
 
