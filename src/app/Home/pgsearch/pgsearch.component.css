@@ -10,6 +10,7 @@
 .search-box {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
     gap: 15px;
     width: 100%;
     max-width: 700px;
@@ -18,7 +19,7 @@
 /* Input fields styling */
 .input-field {
     padding: 14px 20px;
-    width: 80%;
+    width: 100%; /* Full width by default */
     max-width: 250px;
     border-radius: 30px;
     background-color: #f3f4f6;
@@ -26,7 +27,6 @@
     color: #383434;
     font-size: 16px;
     font-family: 'Poppins';
-    margin-left:-55px;
     outline: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: border 0.3s, box-shadow 0.3s;
@@ -67,7 +67,8 @@
 }
 
 table {
-    width: 90%; /* Ensure table takes up most of the width */
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 1000px; /* Limit max width */
     border-collapse: collapse;
     background-color: #fff;
     border-radius: 10px;
@@ -86,9 +87,8 @@ thead {
     color: #fff;
     font-size: 18px;
     font-weight: 400;
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
-
 
 tr:hover {
     background-color: #e5f1fd; /* Light blue for hover effect */
@@ -105,23 +105,22 @@ tr:hover {
 @media (max-width: 768px) {
     .search-box {
         flex-direction: column; /* Stack inputs vertically */
+        align-items: center;
         gap: 10px;
     }
 
-    .input-field {
-        width: 100%; /* Take full width */
-        max-width: none; /* Disable max-width on mobile */
-    }
-
+    .input-field,
     .search-button {
-        width: 100%; /* Button takes full width */
+        width: 100%; /* Full width for inputs and button */
+        max-width: none; /* Remove max-width for mobile */
     }
 
     table {
         width: 100%; /* Table takes full width on mobile */
     }
 
-    th, td {
+    th,
+    td {
         padding: 12px; /* Adjust padding for small screens */
     }
 }
@@ -131,7 +130,8 @@ tr:hover {
         margin-top: 80px; /* Reduce top margin for very small screens */
     }
 
-    th, td {
+    th,
+    td {
         font-size: 14px; /* Smaller font size for very small screens */
     }
 

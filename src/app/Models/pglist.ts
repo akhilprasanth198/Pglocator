@@ -1,4 +1,3 @@
-// pg.model.ts
 export interface PG {
     Uid: number | null;
     Pgname: string;

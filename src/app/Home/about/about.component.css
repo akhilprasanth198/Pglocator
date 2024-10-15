@@ -5,13 +5,13 @@
     background-color: #e9edf3;
     color: #333;
     margin-top: -20px;
-    padding: 50px 0px 60px 0px;
+    padding: 60px 0px 60px 0px;
 }
 .container {
     max-width: 1000px; 
     margin: 0 auto; 
     background-color: #fff; 
-    padding: 30px; 
+    padding: 40px; 
     border-radius: 10px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
@@ -44,7 +44,7 @@ strong {
     font-weight: 600;
 }
 ul li:hover strong{
-    color: #1e9c78; 
+    color: #eb650b; 
     text-decoration: underline; 
     transition: color 0.3s ease, text-decoration 0.3s ease; 
 }

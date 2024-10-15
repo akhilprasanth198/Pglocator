@@ -1,9 +1,9 @@
 .contact-section {
     font-family: 'Poppins';
     font-size: 16px;
-    padding: 60px 0px 140px 0px;
+    padding: 60px 0px 20px 0px;
     text-align: center;
-    background: #e9edf3;
+    background: #ffffffa7;
     margin-top: -20px;
     
 }
@@ -19,7 +19,7 @@
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    background: #fff;
+    background: #e9edf3;
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@
 .form-control {
     border: 1px solid #ddd;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 15px;
     margin-bottom: 15px;
 }
@@ -56,20 +56,4 @@
 
 .btn.modern-btn:hover {
     background: #0056b3;
-}
-
-.social-icons {
-    margin-top: 20px;
-}
-
-.icon-link {
-    margin: 0 10px;
-    font-size: 1.5rem;
-    color: #007bff;
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
-
-.icon-link:hover {
-    color: #0056b3;
 }
