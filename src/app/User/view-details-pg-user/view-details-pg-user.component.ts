@@ -5,7 +5,7 @@ import { pgs } from '../../Models/pgs';
 import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
 import { MediaService } from '../../services/media.service';
-import { RoomService } from '../../room.service';
+import { RoomService } from '../../services/room.service';
 
 @Component({
   selector: 'app-view-details-pg-user',

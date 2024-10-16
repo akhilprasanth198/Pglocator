@@ -1,38 +1,59 @@
-    <div *ngIf="pgDetails">
-        <h3 class="pg-name">{{ pgDetails.pgname }}</h3>
-        <p><strong>Description:</strong> {{ pgDetails.description }}</p>
-        <p><strong>Address:</strong> {{ pgDetails.address }}</p>
-        <p><strong>District:</strong> {{ pgDetails.district }}</p>
-        <p><strong>City:</strong> {{ pgDetails.city }}</p>
-        <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
-        <p><strong>Gender Preference:</strong> {{ pgDetails.gender_perference }}</p>
-        <p><strong>Amenities:</strong> {{ pgDetails.amentities }}</p>
-        <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
-        <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
-        <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
-    </div>
-    
-    <div *ngIf="roomDetails.length > 0">
-        <h3>Rooms</h3>
-        <ul>
-        <li *ngFor="let room of roomDetails">
-            <p><strong>Rent:</strong> {{ room.price }}</p>
-            <p><strong>Deposit:</strong> {{ room.deposit }}</p>
-            <p><strong>Room Type:</strong> {{ room.roomtype }}</p>
-            <p><strong>Facility:</strong> {{ room.facility }}</p>
-            <p><strong>Total Rooms:</strong> {{ room.totalroom }}</p>
-            <p><strong>Availability:</strong> {{ room.availability ? 'Yes' : 'No'}}</p>
-        </li>
-        </ul>
-    </div>
-    <div class="card-footer">
-        <button class="btn btn-primary me-2" (click)="editPg()">Edit</button>
-        <button class="btn btn-danger" (click)="deletePg()">Delete</button>
-    </div>
-    <div *ngIf="pgImages.length > 0">
-        <h3>Uploaded Images</h3>
-        <div class="image-gallery">
-        <img *ngFor="let image of pgImages" [src]="image.url" [alt]="pgDetails.name" />
+<div class="container">
+    <div class="pg-card">
+        <div *ngIf="pgDetails" class="pg-details">
+            <h3 class="pg-name">{{ pgDetails.pgname |uppercase }}</h3>
+            <p><strong>Description:</strong> {{ pgDetails.description }}</p>
+            <p><strong>Address:</strong> {{ pgDetails.address }}</p>
+            <p><strong>District:</strong> {{ pgDetails.district }}</p>
+            <p><strong>City:</strong> {{ pgDetails.city }}</p>
+            <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
+            <p><strong>Gender Preference:</strong> {{ pgDetails.gender_preference }}</p>
+            <p><strong>Amenities:</strong> {{ pgDetails.amenities }}</p>
+            <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
+            <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
+            <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
+            <div class="card-footer">
+                <button class="btn btn-primary me-2" (click)="editPg()">Edit</button>
+                <button class="btn btn-danger" (click)="deletePg()">Delete</button>
+            </div>
         </div>
+        <div class="rooms-section" *ngIf="roomDetails && roomDetails.length > 0">
+            <h3>Rooms</h3>
+            <table class="rooms-table">
+                <thead>
+                    <tr>
+                        <th>Rent</th>
+                        <th>Deposit</th>
+                        <th>Room Type</th>
+                        <th>Services</th>
+                        <th>Facility</th>
+                        <th>Total Rooms</th>
+                        <th>Availability</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let room of roomDetails">
+                        <td>{{ room.price }}</td>
+                        <td>{{ room.deposit }}</td>
+                        <td>{{ room.roomtype }}</td>
+                        <td>{{ room.services }}</td>
+                        <td>{{ room.facility }}</td>
+                        <td>{{ room.totalroom }}</td>
+                        <td>{{ room.availability ? 'Yes' : 'No' }}</td>
+                        <td>
+                            <button class="btn btn-primary me-2" (click)="editroom(room.rid)">Edit</button>
+                            <button class="btn btn-danger" (click)="deleteroom(room.rid)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div *ngIf="pgImages.length > 0" class="images-section">
+            <h3>Uploaded Images</h3>
+            <div class="image-gallery">
+                <img *ngFor="let image of pgImages" [src]="image.url" [alt]="pgDetails.name" />
+            </div>
+        </div> -->
     </div>
-    
+</div>
