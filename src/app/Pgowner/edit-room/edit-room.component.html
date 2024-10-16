@@ -1,0 +1,62 @@
+    <form [formGroup]="roomForm" (ngSubmit)="saveRoom()">
+        <div class="form-group">
+            <label for="price">Rent:</label>
+            <input id="price" formControlName="price" type="number" class="form-control" required />
+            <div *ngIf="roomForm.get('price')?.invalid && roomForm.get('price')?.touched" class="text-danger">
+                Rent is required.
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="deposit">Deposit:</label>
+            <input id="deposit" formControlName="deposit" type="number" class="form-control" required />
+            <div *ngIf="roomForm.get('deposit')?.invalid && roomForm.get('deposit')?.touched" class="text-danger">
+                Deposit is required.
+            </div>
+        </div>
+    
+        <div class="form-group">
+        <label for="services">Services:</label>
+        <input id="services" formControlName="services" type="text" class="form-control" required />
+        <div *ngIf="roomForm.get('services')?.invalid && roomForm.get('services')?.touched" class="text-danger">
+            Services is required.
+        </div>
+        
+        <div class="form-group">
+            <label for="roomType">Room Type:</label>
+            <input id="roomType" formControlName="roomType" type="text" class="form-control" required />
+            <div *ngIf="roomForm.get('roomType')?.invalid && roomForm.get('roomType')?.touched" class="text-danger">
+                Room Type is required.
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="facility">Facility:</label>
+            <input id="facility" formControlName="facility" type="text" class="form-control" required />
+            <div *ngIf="roomForm.get('facility')?.invalid && roomForm.get('facility')?.touched" class="text-danger">
+                Facility is required.
+            </div>
+        </div>
+    
+        <div class="form-group">
+        <label for="totalRoom">Total Rooms:</label>
+        <input id="totalRoom" formControlName="totalRoom" type="number" class="form-control" required />
+        <div *ngIf="roomForm.get('totalRoom')?.invalid && roomForm.get('totalRoom')?.touched" class="text-danger">
+            Total Rooms is required.
+        </div>
+        </div>
+    
+        <div class="form-group">
+        <label for="availability">Availability:</label>
+        <select id="availability" formControlName="availability" class="form-control" required>
+            <option [ngValue]=1>Yes</option>
+            <option [ngValue]=0>No</option>
+        </select>
+        <div *ngIf="roomForm.get('availability')?.invalid && roomForm.get('availability')?.touched" class="text-danger">
+            Availability is required.
+        </div>
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="roomForm.invalid">Update Room</button>
+    </div>
+    </form>

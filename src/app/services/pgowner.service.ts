@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PG } from '../Models/pglist';
+import { Room } from '../Models/room';
 @Injectable({
   providedIn: 'root'
 })
@@ -45,10 +46,24 @@ approveRequest(pgId: number): Observable<any> {
 rejectRequest(pgId: number): Observable<any> {
   return this.http.post<any>(`https://localhost:7152/api/Admin/ApproveRejectPg?pgId=${pgId}&action=reject`, {});
 }
-
+//Method to get room details for a specific PG by PG ID
 getRoomDetails(pgId: number): Observable<any[]> {
   return this.http.get<any[]>(`${this.baseUrl}/Rooms?pgid=${pgId}`);
 }
+    // Get room details by ID
+    getRoomDetailsById(roomId: number): Observable<any> {
+      return this.http.get<any>(`${this.baseUrl}/Rooms/${roomId}`);
+    }
+  
+  // Method to delete a room by room ID
+  deleteRoom(roomId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/Rooms/${roomId}`);
+  }
+  // Update room details
+  updateRoom(id: number, roomData: Room): Observable<any> {
+    return this.http.put(`${this.baseUrl}/Rooms/${id}`, roomData); 
+}
+
 
 // Fetch uploaded PG images
 getPgImages(pgId: number): Observable<any[]> {

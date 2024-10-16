@@ -37,10 +37,11 @@ import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
-
+import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
+import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
 import { ReviewComponent } from './review/review.component';
 
-import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
+
 
 
 export const routes: Routes = [
@@ -90,6 +91,7 @@ export const routes: Routes = [
     {path:'add-pg',component:RegisterPgComponent},
     {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},
     { path: 'add-room/:pgid', component: AddRoomComponent },
+    {path: 'edit-room/:roomId',component: EditRoomComponent},
 
     // User routes
             {
