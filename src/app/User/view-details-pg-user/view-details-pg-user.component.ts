@@ -85,7 +85,12 @@ goBack(): void {
 
 goToReview(): void {
   const pgid = this.route.snapshot.paramMap.get('pgid'); 
-  this.router.navigate(['/review', pgid]); 
+  if (pgid) {
+    this.router.navigate(['/review', pgid]); 
+  } else {
+    console.error('PG ID is null, cannot navigate to review.');
+  }
 }
+
 
 }
