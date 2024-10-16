@@ -66,7 +66,4 @@ goToReview(): void {
     console.error('PG ID is null, cannot navigate to review.');
   }
 }
-
-
->>>>>>> fea02b912eec20dd18dd237bf4822eb612c653a2
 }
