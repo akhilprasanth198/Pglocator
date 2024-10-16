@@ -1,11 +1,9 @@
 export interface Review {
-    comment: any;
-    name: any;
-    Rid: number;          
-    Pid: number;          
-    Uid: number;          
-    Rating: string;       
-      
-    Reviewdate: string;   
+  rid:number;
+    pid: number;          
+    uid: number;          
+    rating: number;       
+    reviewtext:string; 
+    reviewdate: Date;   
   }
   

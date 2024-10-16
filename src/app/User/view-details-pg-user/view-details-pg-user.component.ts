@@ -53,4 +53,20 @@ loadRoomDetails(pgId: number): void {
     }
   );
 }
+
+goBack(): void {
+  this.router.navigate(['pgsearch-dash']);
+}
+
+goToReview(): void {
+  const pgid = this.route.snapshot.paramMap.get('pgid'); 
+  if (pgid) {
+    this.router.navigate(['/review', pgid]); 
+  } else {
+    console.error('PG ID is null, cannot navigate to review.');
+  }
+}
+
+
+>>>>>>> fea02b912eec20dd18dd237bf4822eb612c653a2
 }
