@@ -42,14 +42,15 @@ export class LoginComponent {
           if (result.role === 'admin') {
             console.log("Navigating to admin-navbar");
             this.router.navigateByUrl('/admin-navbar');
-          } else if (result.role === 'pgowner') {
+          } else if (result.role === 'PGOwner') {
             console.log("Navigating to pgowner-navbar");
             this.router.navigateByUrl('/pgowner-navbar');
-          } else if (result.role === 'user') {
+          } else if (result.role === 'User') {
             console.log("Navigating to pgsearch-dashboard");
-            const returnUrl = this.router.routerState.snapshot.root.queryParams['returnUrl'] || '/pgsearch-dash';
-            this.router.navigateByUrl(returnUrl);          }
-        } else {
+            this.router.navigateByUrl('/pgsearch-dash');
+          }
+         }
+          else {
           alert('Invalid username or password');
         }
       },

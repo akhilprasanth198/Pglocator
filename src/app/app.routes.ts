@@ -37,8 +37,15 @@ import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
 import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
+<<<<<<< HEAD
 import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
+=======
+
+import { ReviewComponent } from './review/review.component';
+
+import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
+>>>>>>> b8563a59895ad74e728a88f5814f639722c565e5
 
 
 export const routes: Routes = [
@@ -75,7 +82,6 @@ export const routes: Routes = [
     },
     
     {path:'view-user',component:ViewUsersComponent},
-// {path:'review',component:ReviewComponent},
 
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
@@ -100,6 +106,7 @@ export const routes: Routes = [
             },
     {path:'view-details-pg-user/:pgId',component:ViewDetailsPgUserComponent},
     {path:'userpglist',component:UserpglistComponent},
+    {path:'review/:pgId',component:ReviewComponent},
 ];
 
 @NgModule({

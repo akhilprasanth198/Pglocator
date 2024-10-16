@@ -1,115 +1,87 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Registration Form </title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
-</head>
-<body>
-  <div class="container">
-    <!-- Title section -->
-    <div class="title">Registration Form</div>
+<div class="container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
     <div class="content">
-      <!-- Registration form -->
-      <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
-        <div class="user-details">
-          <!-- Input for First Name -->
-          <div class="input-box">
-            <span class="details">First Name</span>
-            <input type="text" placeholder="Enter your name" ngModel required>
-          </div>
-  
-          <!-- input for Last Name -->
-          <div class="input-box">
-            <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter your name" ngModel required>
-          </div>
-  
-            <!-- Input for Email -->
-            <div class="input-box">
-              <span class="details">Email</span>
-              <input type="email" placeholder="Enter your email" ngModel required>
-            </div>
-  
-            <!-- Input for Phone Number -->
-            <div class="input-box">
-              <span class="details">Phone Number</span>
-              <input type="tel" placeholder="Enter your number" ngModel required>
-            </div>
-  
-            <!-- input for Date of Birth -->
-            <div class="input-box">
-              <span class="details">Date of Birth</span>
-              <input type="date" placeholder="Enter your Date of Birth" ngModel required>
-            </div>
-  
-            <!-- input for Address -->
-            <div class="input-box">
-              <span class="details">Address</span>
-              <input type="text" placeholder="Enter your Address" ngModel required>
-            </div>
-  
-            <!-- input for City -->
-            <div class="input-box">
-              <span class="details">city</span>
-              <input type="text" placeholder="Enter your city" ngModel required>
-            </div>
-  
-            <!-- input for Postal code -->
-            <div class="input-box">
-              <span class="details">Postal code</span>
-              <input type="text" placeholder="Enter your postal code" ngModel required>
-            </div>
-  
-          <!-- Input for Username -->
-          <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" ngModel required>
-          </div>
-        
-          <!-- Input for Password -->
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" ngModel required>
-          </div>
-  
-          <!-- Input for Confirm Password -->
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" ngModel required>
-          </div>
+      <div class="user-details">
+        <div class="input-box">
+          <label for="firstName">First Name:</label>
+          <input id="firstName" [(ngModel)]="user.firstName" name="firstName" required />
+          <div *ngIf="registrationForm.submitted && !user.firstName" class="error">First Name is required.</div>
         </div>
 
-        <!-- input for gender -->
-        <div>
-          <span class="gender-title">Gender:</span>
-          <label>
-            <input type="radio" name="gender" value="male" ngModel required /> Male
-          </label>
-          <label>
-            <input type="radio" name="gender" value="female" ngModel /> Female
-          </label>
-          <label>
-            <input type="radio" name="gender" value="other" ngModel /> Other
-          </label>
+        <div class="input-box">
+          <label for="lastName">Last Name:</label>
+          <input id="lastName" [(ngModel)]="user.lastName" name="lastName" required />
+          <div *ngIf="registrationForm.submitted && !user.lastName" class="error">Last Name is required.</div>
         </div>
 
-        <!-- input for contact -->
-        <div>
-          <span class="contact-title">Preferred Contact Method:</span>
-          <label>
-            <input type="radio" name="contactMethod" value="email" ngModel required /> Email
-          </label>
-          <label>
-            <input type="radio" name="contactMethod" value="phone" ngModel /> Phone
-          </label>
+        <div class="input-box">
+          <label for="email">Email:</label>
+          <input id="email" [(ngModel)]="user.email" name="email" type="email" required />
+          <div *ngIf="registrationForm.submitted && !user.email" class="error">A valid Email is required.</div>
         </div>
 
-        <!-- Submit button -->
-        <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
-      </form>
+        <div class="input-box">
+          <label for="dob">Date of Birth:</label>
+          <input id="dob" [(ngModel)]="user.dob" name="dob" type="date" required />
+          <div *ngIf="registrationForm.submitted && !user.dob" class="error">Date of Birth is required.</div>
+        </div>
+
+        <div class="input-box">
+          <label for="password">Password:</label>
+          <input id="password" [(ngModel)]="user.password" name="password" type="password" required />
+          <div *ngIf="registrationForm.submitted && !user.password" class="error">Password is required.</div>
+        </div>
+
+        <div class="input-box">
+          <label for="role">Role:</label>
+          <select id="role" [(ngModel)]="user.role" name="role" required>
+            <option value="" disabled>Select Role</option>
+            <option value="User">User</option>
+            <option value="PGOwner">PG Owner</option>
+          </select>
+          <div *ngIf="registrationForm.submitted && !user.role" class="error">Role is required.</div>
+        </div>
+      </div>
+
+      <!-- Optional fields for PGOwner -->
+      <div *ngIf="user.role === 'PGOwner'" class="user-details">
+        <div class="input-box">
+          <label for="phone">Phone:</label>
+          <input id="phone" [(ngModel)]="user.phone" name="phone" />
+        </div>
+
+        <div class="input-box">
+          <label for="gender">Gender:</label>
+          <select id="gender" [(ngModel)]="user.gender" name="gender" required>
+            <option value="" disabled>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Both">Both</option>
+          </select>
+        </div>
+
+        <div class="input-box">
+          <label for="whatsapp">WhatsApp:</label>
+          <input id="whatsapp" [(ngModel)]="user.whatsapp" name="whatsapp" />
+        </div>
+
+        <div class="input-box">
+          <label for="chatlink">Chat Link:</label>
+          <input id="chatlink" [(ngModel)]="user.chatlink" name="chatlink" />
+        </div>
+
+        <div class="input-box">
+          <label for="address">Address:</label>
+          <input id="address" [(ngModel)]="user.address" name="address" />
+        </div>
+      </div>
     </div>
-  </div>
-</body>
-</html>
+
+    <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+  </form>
+
+  <!-- Alert Messages -->
+  <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+</div>
