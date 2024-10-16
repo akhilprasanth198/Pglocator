@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PgownerService } from '../../services/pgowner.service';
+import { RoomService } from '../../services/room.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Room } from '../../Models/room'; // Ensure correct import for Room model
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class EditRoomComponent implements OnInit {
   private pgownerService = inject(PgownerService);
+  private roomService = inject(RoomService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
@@ -47,7 +49,7 @@ export class EditRoomComponent implements OnInit {
 
   // Method to load room details for editing
   private loadRoomDetails(roomId: number): void {
-    this.pgownerService.getRoomDetailsById(roomId).subscribe(
+    this.roomService.getRoomDetailsById(roomId).subscribe(
       (room: Room) => {
         this.roomForm.patchValue({
           price: room.Price,
@@ -84,7 +86,7 @@ export class EditRoomComponent implements OnInit {
 
       console.log('Updating room with data:', roomData); // Log the data being sent
 
-      this.pgownerService.updateRoom(this.roomId!, roomData).subscribe(
+      this.roomService.updateRoom(this.roomId!, roomData).subscribe(
         response => {
           console.log('Room updated successfully:', response);
           alert('Room updated successfully');
