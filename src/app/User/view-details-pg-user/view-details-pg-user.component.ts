@@ -1,91 +1,56 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PgService } from '../../services/pg.service';
-import { pgs } from '../../Models/pgs';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
-import { AuthService } from '../../services/auth.service';
-import { MediaService } from '../../services/media.service';
 import { RoomService } from '../../services/room.service';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-view-details-pg-user',
   standalone: true,
-  imports: [],
+  imports: [FormsModule,CommonModule],
   templateUrl: './view-details-pg-user.component.html',
   styleUrl: './view-details-pg-user.component.css'
 })
 export class ViewDetailsPgUserComponent implements OnInit {
+  pgownerservice = inject(PgownerService);
+  roomservice=inject(RoomService);
+  route = inject(ActivatedRoute);
+  router = inject(Router);
+  pgDetails: any;
+  roomDetails: any[] = [];
+  pgImages: any[] = [];
+  pgId: number | null = null;
 
-  router=inject(Router);
-  pgownerservice=inject(PgownerService);
-  mediaservice=inject(MediaService);
-  roomservice=inject(RoomService)
-  authservice=inject(AuthService)
-  route=inject(ActivatedRoute)
-  http=inject(HttpClient)
-  pgDetails:any={};  
-  media:any={};
-  room:any={};
-  uid: number | null=null;
-
-  ngOnInit(): void {
-    const pgid = this.route.snapshot.paramMap.get('pgid');  // Get PG ID from the route
-    this.uid = this.authservice.getUserId();                // Get PG owner ID from AuthService
-
-    if (pgid) {
-      this.loadPgDetails(Number(pgid));
-      // this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
-    // this.loadRoomDetails(Number(pgid)); 
+ngOnInit(): void {
+    // Retrieve the PG ID from the route parameters
+    this.pgId = Number(this.route.snapshot.paramMap.get('pgId'));
+    if (this.pgId) {
+      this.loadPgDetails(this.pgId);
+      this.loadRoomDetails(this.pgId);
+      //this.loadPgImages(this.pgId);
     } else {
-      console.error('PG ID not provided in the route!');
+      console.error('Invalid PG ID');
     }
-  }
+}
 
-  // Call the service to fetch PG details
-  loadPgDetails(pgid: number): void {
-    this.pgownerservice.getPgById(pgid).subscribe(
-      (data) => {
-        this.pgDetails = data; 
-        console.log("Fetched PG Details:", this.pgDetails); // Set the fetched PG details into the object
-      },
-      (error) => {
-        console.error('Failed to load PG details:', error);
-      }
+  // Fetch PG details
+loadPgDetails(pgId: number): void {
+    this.pgownerservice.getPgById(pgId).subscribe(
+      data => this.pgDetails = data,
+      error => console.error(`Error fetching PG details: ${error.message}`)
     );
-  }
-  // Fetch media details related to the PG
-// loadMediaDetails(pgid: number): void {
-//   this.mediaservice.getMedia   (pgid).subscribe(
-//     (data:any) => {
-//       this.media = data;  // Store media details
-//     },
-//     (error) => {
-//       console.error('Failed to load media details:', error);
-//     }
-//   );
-// }
-
-//Fetch room details related to the PG
-loadRoomDetails(pgid: number): void {
-  this.http.get('https://localhost:7152/api/Rooms?pgid=${pgid}')
-  .subscribe(
-    (data) => {
-      this.room = data;  // Store room details
-      console.log("Fetched room details:", this.room);
+}
+// Fetch room details
+loadRoomDetails(pgId: number): void {
+  this.roomservice.getRoomDetails(pgId).subscribe(
+    data => {
+      this.roomDetails = data;
+      console.log('Loaded room details:', this.roomDetails); // Log the roomDetails array
+      this.roomDetails.forEach(room => console.log('Room ID:', room.rid)); // Log each room's ID
     },
-    (error) => {
-      console.error('Failed to load room details:', error);
+    error => {
+      console.error(`Error fetching room details: ${error.message}`);
     }
   );
 }
-goBack(): void {
-  this.router.navigate(['pgsearch-dash']);
-}
-
-goToReview(): void {
-  const pgid = this.route.snapshot.paramMap.get('pgid'); 
-  this.router.navigate(['/review', pgid]); 
-}
-
 }

@@ -1,76 +1,46 @@
 <div class="container">
-  <div class="breadcrumbs">
-    <a routerLink="/">Home</a> > 
-    <a routerLink="/pg-list">PG List</a> > 
-    <a routerLink="/pg-details">{{pgDetails.pgname}}</a>
-  </div>
-   <!-- Back Button -->
-   <button (click)="goBack()" class="back-button">Back</button>
+    <div class="pg-card">
+        <div *ngIf="pgDetails" class="pg-details">
+            <h3 class="pg-name">{{ pgDetails.pgname | titlecase }}</h3>
+            <p><strong>Description:</strong> {{ pgDetails.description }}</p>
+            <p><strong>Address:</strong> {{ pgDetails.address }}</p>
+            <p><strong>District:</strong> {{ pgDetails.district }}</p>
+            <p><strong>City:</strong> {{ pgDetails.city }}</p>
+            <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
+            <p><strong>Gender Preference:</strong> {{ pgDetails.gender_preference }}</p>
+            <p><strong>Amenities:</strong> {{ pgDetails.amenities }}</p>
+            <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
+            <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
+            <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
+        </div>
+      <div class="rooms-section" *ngIf="roomDetails && roomDetails.length > 0">
+            <h3>Rooms</h3>
+            <table class="rooms-table">
+                <thead class="head">
+                    <tr>
+                        <th>Rent</th>
+                        <th>Deposit</th>
+                        <th>Room Type</th>
+                        <th>Services</th>
+                        <th>Facility</th>
+                        <th>Total Rooms</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let room of roomDetails">
+                        <td>{{ room.price }}</td>
+                        <td>{{ room.deposit }}</td>
+                        <td>{{ room.roomtype }}</td>
+                        <td>{{ room.services }}</td>
+                        <td>{{ room.facility }}</td>
+                        <td>{{ room.totalroom }}</td>
+                        <td>{{ room.availability ? 'Yes' : 'No' }}</td>
 
-  <div class="pg-details">
-    <div class="pg-image">
-      <img src="assets/images/pg-image.jpg" alt="PG Image">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
     </div>
-
-    <div class="pg-info">
-      <h1>{{pgDetails.pgname}}</h1>
-      <h3>{{pgDetails.description}}</h3>
-      <p><strong>{{pgDetails.gender_preference}}</strong></p>
-      <p>{{pgDetails.address}}{{pgDetails.city}}-{{pgDetails.pin}}</p>
-      <a href="#" class="whatsapp-link"><i class="fas fa-phone"></i> Contact via WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="pg-features">
-    <h3>Features</h3>
-    <div class="feature-list">
-      <strong>Room Type Facilities:</strong>
-      <p>3-Share Non-AC Facilities</p>
-    </div>
-
-    <!-- <h3>Amenities</h3>
-    <ul class="amenities">
-      <li>{{pgDetails.amentities}}</li>
-      <!-- <li><i class="fas fa-fan"></i> Non-AC</li>
-      <li><i class="fas fa-water"></i> Mineral Water</li>
-      <li><i class="fas fa-parking"></i> Parking</li>
-      Add more amenities as needed -->
-    <!-- </ul>
-  </div> --> -->
-
-  <div class="tariff-breakdown">
-    <h3>Amenities</h3>
-    <p>{{pgDetails.amentities}}</p>
-  </div>
-
-  <div class="tariff-breakdown">
-    <h3>Tariff Breakdown</h3>
-    <p><strong>Monthly:</strong> ₹3000</p>
-  </div>
-
-  <div class="cancellation-policy">
-    <h3>Rules</h3>
-    <p>{{pgDetails.rules}}</p>
-  </div>
-
-  <div class="cancellation-policy">
-    <h3>Food Available</h3>
-    <p>{{pgDetails.foodavailable}}</p>
-  </div>
-
-  <div class="cancellation-policy">
-    <h3>Meals</h3>
-    <p>{{pgDetails.meal}}</p>
-  </div>
-
-  <div class="location">
-    <h3>Location</h3>
-    <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_URL" width="100%" height="300" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-  </div>
-
-  <div class="reviews">
-    <h3>Guest Reviews</h3>
-    <p>Be the first to review</p>
-    <button class="review-btn" (click)="goToReview()">Review</button>
-  </div>
 </div>
