@@ -7,11 +7,12 @@ import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
 import { MediaService } from '../../services/media.service';
 import { RoomService } from '../../services/room.service';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-view-details-pg-user',
   standalone: true,
-  imports: [],
+  imports: [NgFor,NgIf,CommonModule],
   templateUrl: './view-details-pg-user.component.html',
   styleUrl: './view-details-pg-user.component.css'
 })
@@ -26,7 +27,7 @@ export class ViewDetailsPgUserComponent implements OnInit {
   http=inject(HttpClient)
   pgDetails:any={};  
   media:any={};
-  room:any={};
+  roomDetails:any={};
   uid: number | null=null;
 
   ngOnInit(): void {
@@ -36,7 +37,7 @@ export class ViewDetailsPgUserComponent implements OnInit {
     if (pgid) {
       this.loadPgDetails(Number(pgid));
       // this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
-    // this.loadRoomDetails(Number(pgid)); 
+    this.loadRoomDetails(Number(pgid)); 
     } else {
       console.error('PG ID not provided in the route!');
     }
@@ -67,18 +68,20 @@ export class ViewDetailsPgUserComponent implements OnInit {
 // }
 
 //Fetch room details related to the PG
-loadRoomDetails(pgid: number): void {
-  this.http.get('https://localhost:7152/api/Rooms?pgid=${pgid}')
-  .subscribe(
-    (data) => {
-      this.room = data;  // Store room details
-      console.log("Fetched room details:", this.room);
+// Fetch room details
+loadRoomDetails(pgId: number): void {
+  this.roomservice.getRoomDetails(pgId).subscribe(
+    data => {
+      this.roomDetails = data;
+      console.log('Loaded room details:', this.roomDetails); // Log the roomDetails array
+      this.roomDetails.forEach((room: { rid: any; }) => console.log('Room ID:', room.rid)); // Log each room's ID
     },
-    (error) => {
-      console.error('Failed to load room details:', error);
-    }
-  );
+    error => {
+      console.error(`Error fetching room details: ${error.message}`);
+    }
+  );
 }
+
 goBack(): void {
   this.router.navigate(['pgsearch-dash']);
 }

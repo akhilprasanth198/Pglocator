@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PgMediaComponent } from './add-media.component';
+import { ReviewPgownerComponent } from './review-pgowner.component';
 
-describe('AddMediaComponent', () => {
-  let component: PgMediaComponent;
-  let fixture: ComponentFixture<PgMediaComponent>;
+describe('ReviewPgownerComponent', () => {
+  let component: ReviewPgownerComponent;
+  let fixture: ComponentFixture<ReviewPgownerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PgMediaComponent]
+      imports: [ReviewPgownerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PgMediaComponent);
+    fixture = TestBed.createComponent(ReviewPgownerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

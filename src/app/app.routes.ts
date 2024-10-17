@@ -24,7 +24,6 @@ import { PoliciesComponent } from './Home/policies/policies.component';
 import { PolicyComponent } from './Home/policies/policy/policy.component';
 import { PrivacyComponent } from './Home/policies/privacy/privacy.component';
 import { RegistrationComponent } from './Home/registration/registration.component';
-import { PgMediaComponent } from './Pgowner/add-media/add-media.component';
 import { AddRoomComponent } from './Pgowner/add-room/add-room.component';
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
@@ -40,6 +39,7 @@ import { UserpglistComponent } from './User/userpglist/userpglist.component';
 import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
 import { ReviewComponent } from './review/review.component';
+import { MediaPgownerComponent } from './Pgowner/media-pgowner/media-pgowner.component';
 
 
 
@@ -86,7 +86,7 @@ export const routes: Routes = [
         ]
     },
     { path: 'viewdetails-pg/:pgId', component: ViewdetailsPgComponent }, 
-    {path:'add-media/:pgId',component:PgMediaComponent},
+    {path:'media-pgowner/:pgId',component:MediaPgownerComponent},
     {path:'edit-pg/:id',component:EditPgComponent},
     {path:'add-pg',component:RegisterPgComponent},
     {path:'pending-pg-details/:pgId',component:PendingPgDetailsComponent},

@@ -65,7 +65,7 @@ export class ViewPgComponent implements OnInit {
   UploadPg(pgId:number):void{
     console.log('Navigating to PG details for ID:', pgId);
     if (!isNaN(pgId)) {
-      this.router.navigate(['/add-media', pgId]);
+      this.router.navigate(['/media-pgowner', pgId]);
     } else {
       console.error('Invalid PG ID:', pgId);
 

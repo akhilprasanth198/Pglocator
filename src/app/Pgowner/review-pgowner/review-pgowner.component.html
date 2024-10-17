@@ -1,0 +1,14 @@
+<div>
+  <h2>Upload Media</h2>
+  <input type="file" (change)="onFileChange($event)" />
+</div>
+
+<div>
+  <h2>Media List</h2>
+  <ul>
+    <li *ngFor="let media of mediaList">
+      <a [href]="media.filePath" target="_blank">{{ media.filePath }}</a>
+      <button (click)="deleteMedia(media.mediaId)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -11,25 +11,18 @@ export class MediaService {
 
   constructor(private http: HttpClient) { }
 
-  // Method to upload media file as byte array
-  uploadMedia(pgId: number, file: File): Observable<Media> {
+  uploadMedia(pgId: number, file: File): Observable<any> {
     const formData = new FormData();
-    formData.append('file', file, file.name);
+    formData.append('file', file);
 
-    return this.http.post<Media>(`${this.apiUrl}/UploadMedia?pgId=${pgId}`, formData);
+    return this.http.post(`${this.apiUrl}/upload/${pgId}`, formData);
   }
 
-  // Method to fetch media by PG ID
-  getMediaByPgId(pgId: number): Observable<Media[]> {
-    return this.http.get<Media[]>(`${this.apiUrl}/ByPgId/${pgId}`).pipe(
-      tap((media) => {
-        console.log('Fetched Media:', media);
-      })
-    );
-  }  
+  getMediaByPgId(pgId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${pgId}`);
+  }
 
-  // Method to delete media by media ID
-  deleteMedia(mid: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${mid}`);
+  deleteMedia(mediaId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${mediaId}`);
   }
 }
