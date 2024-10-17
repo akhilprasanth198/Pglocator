@@ -23,6 +23,7 @@ export class PgsearchDashboardComponent implements OnInit {
 
   authservice=inject(AuthService)
   router=inject(Router);
+roomDetails: any;
   constructor(private route: ActivatedRoute, private pgService: PgService) {}
 
   ngOnInit() {

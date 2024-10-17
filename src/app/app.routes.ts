@@ -94,8 +94,7 @@ export const routes: Routes = [
     {path: 'edit-room/:roomId',component: EditRoomComponent},
 
     // User routes
-            {
-                path: 'user-navbar', component: UserNavbarComponent,
+            {path: 'user-navbar', component: UserNavbarComponent,
                 children: [
                     { path: 'user-profile', component: UserProfileComponent },
                 ]
