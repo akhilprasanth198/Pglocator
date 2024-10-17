@@ -38,7 +38,7 @@ import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
 import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
-import { ReviewComponent } from './review/review.component';
+import { ReviewComponent } from './Pgowner/review/review.component';
 import { MediaPgownerComponent } from './Pgowner/media-pgowner/media-pgowner.component';
 
 
