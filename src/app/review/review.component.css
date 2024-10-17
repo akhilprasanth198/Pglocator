@@ -39,3 +39,30 @@
 .fa-star-o {
   color: #ddd;
 }
+
+
+
+
+
+
+  .rating {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse; /* Reverse the order of stars */
+      margin-bottom: 10px;
+  }
+
+  .rating input {
+      display: none; /* Hide radio buttons */
+  }
+
+  .rating label {
+      cursor: pointer;
+      font-size: 24px;
+      color: #ccc;
+      margin-right: 5px; /* Space between stars */
+  }
+
+  .rating input:checked ~ label {
+      color: #ffcc00; /* Highlight selected stars */
+  }
