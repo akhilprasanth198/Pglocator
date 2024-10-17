@@ -1,36 +1,23 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PgService } from '../../services/pg.service';
+import { pgs } from '../../Models/pgs';
+import { HttpClient } from '@angular/common/http';
 import { PgownerService } from '../../services/pgowner.service';
+import { AuthService } from '../../services/auth.service';
+import { MediaService } from '../../services/media.service';
 import { RoomService } from '../../services/room.service';
-<<<<<<< HEAD
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-view-details-pg-user',
   standalone: true,
   imports: [NgFor,NgIf,CommonModule],
-=======
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-@Component({
-  selector: 'app-view-details-pg-user',
-  standalone: true,
-  imports: [FormsModule,CommonModule],
->>>>>>> 10b0f5b76e24c9051671ae1dcef5cc1bf2b2b722
   templateUrl: './view-details-pg-user.component.html',
   styleUrl: './view-details-pg-user.component.css'
 })
 export class ViewDetailsPgUserComponent implements OnInit {
-  pgownerservice = inject(PgownerService);
-  roomservice=inject(RoomService);
-  route = inject(ActivatedRoute);
-  router = inject(Router);
-  pgDetails: any;
-  roomDetails: any[] = [];
-  pgImages: any[] = [];
-  pgId: number | null = null;
 
-<<<<<<< HEAD
   router=inject(Router);
   pgownerservice=inject(PgownerService);
   mediaservice=inject(MediaService);
@@ -51,27 +38,22 @@ export class ViewDetailsPgUserComponent implements OnInit {
       this.loadPgDetails(Number(pgid));
       // this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
     this.loadRoomDetails(Number(pgid)); 
-=======
-ngOnInit(): void {
-    // Retrieve the PG ID from the route parameters
-    this.pgId = Number(this.route.snapshot.paramMap.get('pgId'));
-    if (this.pgId) {
-      this.loadPgDetails(this.pgId);
-      this.loadRoomDetails(this.pgId);
-      //this.loadPgImages(this.pgId);
->>>>>>> 10b0f5b76e24c9051671ae1dcef5cc1bf2b2b722
     } else {
-      console.error('Invalid PG ID');
+      console.error('PG ID not provided in the route!');
     }
-}
+  }
 
-  // Fetch PG details
-loadPgDetails(pgId: number): void {
-    this.pgownerservice.getPgById(pgId).subscribe(
-      data => this.pgDetails = data,
-      error => console.error(`Error fetching PG details: ${error.message}`)
+  // Call the service to fetch PG details
+  loadPgDetails(pgid: number): void {
+    this.pgownerservice.getPgById(pgid).subscribe(
+      (data) => {
+        this.pgDetails = data; 
+        console.log("Fetched PG Details:", this.pgDetails); // Set the fetched PG details into the object
+      },
+      (error) => {
+        console.error('Failed to load PG details:', error);
+      }
     );
-<<<<<<< HEAD
   }
   // Fetch media details related to the PG
 // loadMediaDetails(pgid: number): void {
@@ -86,30 +68,18 @@ loadPgDetails(pgId: number): void {
 // }
 
 //Fetch room details related to the PG
-=======
-}
->>>>>>> 10b0f5b76e24c9051671ae1dcef5cc1bf2b2b722
 // Fetch room details
 loadRoomDetails(pgId: number): void {
   this.roomservice.getRoomDetails(pgId).subscribe(
     data => {
       this.roomDetails = data;
       console.log('Loaded room details:', this.roomDetails); // Log the roomDetails array
-<<<<<<< HEAD
       this.roomDetails.forEach((room: { rid: any; }) => console.log('Room ID:', room.rid)); // Log each room's ID
     },
     error => {
       console.error(`Error fetching room details: ${error.message}`);
     }
   );
-=======
-      this.roomDetails.forEach(room => console.log('Room ID:', room.rid)); // Log each room's ID
-    },
-    error => {
-      console.error(`Error fetching room details: ${error.message}`);
-    }
-  );
->>>>>>> 10b0f5b76e24c9051671ae1dcef5cc1bf2b2b722
 }
 
 goBack(): void {
@@ -124,4 +94,6 @@ goToReview(): void {
     console.error('PG ID is null, cannot navigate to review.');
   }
 }
+
+
 }

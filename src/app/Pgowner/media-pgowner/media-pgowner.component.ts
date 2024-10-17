@@ -17,19 +17,12 @@ export class MediaPgownerComponent {
 mediaService=inject(MediaService) 
  route = inject(ActivatedRoute);
 
-ngOnInit(): void {
-  // Get pgId from route
-  this.route.paramMap.subscribe(params => {
-    const pgid = params.get('pgid');
-    console.log('Navigating to PG details for ID:', pgid);
-    if (pgid) {
-      this.pgId = parseInt(pgid, 10);
-      this.loadMedia();
-    } else {
-      console.error('pgId not found in the route');
-    }
-  });
+ ngOnInit(): void {
+  // Get the PG ID from the route parameters
+  this.pgId = +this.route.snapshot.paramMap.get('pgId')!;
+  this.loadMedia();
 }
+
 
 loadMedia(): void {
   if (this.pgId !== null) {
