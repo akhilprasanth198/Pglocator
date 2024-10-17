@@ -1,16 +1,16 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Review } from '../Models/review';  // Adjust the path to your model
+import { Review } from '../../Models/review'; // Adjust the path to your model
 import { FormsModule,  } from '@angular/forms';
-import { ReviewService } from '../services/review.service';  // Ensure correct path to ReviewService
+import { ReviewService } from '../../services/review.service';  // Ensure correct path to ReviewService
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-
 @Component({
   selector: 'app-review',
-  imports: [FormsModule,NgIf,NgFor,CommonModule],
   standalone: true,
-  templateUrl: './review.component.html'
+  imports: [FormsModule,NgIf,NgFor,CommonModule],
+  templateUrl: './review.component.html',
+  styleUrl: './review.component.css'
 })
 export class ReviewComponent implements OnInit {
   reviews: Review[] = [];
@@ -18,7 +18,7 @@ export class ReviewComponent implements OnInit {
     rid: 0,
     pid: 0,  // Set dynamically from the route
     uid: 0,  // Set using AuthService (logged-in user)
-    rating: 1,
+    rating: 5,
     reviewtext: '',
     reviewdate: new Date()
   };
@@ -77,8 +77,9 @@ export class ReviewComponent implements OnInit {
 
   deleteReview(id: number): void {
     this.reviewService.deleteReview(id).subscribe(() => {
-      this.loadReviews();
+      
     });
+    this.loadReviews();
   }
 
   onRatingChange(rating: number): void {
