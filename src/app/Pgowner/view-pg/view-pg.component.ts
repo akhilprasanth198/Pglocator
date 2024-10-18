@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { PgownerService } from '../../services/pgowner.service';
-
 import { NgFor, NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 
@@ -71,24 +70,4 @@ export class ViewPgComponent implements OnInit {
 
   }
 }
-
-addRoom(pgId: number): void {
-  console.log('Navigating to add room for PG ID:', pgId);
-  if (!isNaN(pgId)) {
-    this.router.navigate(['add-room', pgId]);
-  } else {
-    console.error('Invalid PG ID:', pgId);
-  }
-}
-
-
-// View the rooms of a specific PG
-// viewRooms(pgId: number): void {
-//   console.log('Navigating to view rooms for PG ID:', pgId);
-//   if (!isNaN(pgId)) {
-//     this.router.navigate(['view-rooms', pgId]); // Add a route to view rooms
-//   } else {
-//     console.error('Invalid PG ID:', pgId);
-//   }
-// }
 }

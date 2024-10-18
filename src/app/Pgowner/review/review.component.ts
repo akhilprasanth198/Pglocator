@@ -20,7 +20,10 @@ export class ReviewComponent implements OnInit {
     uid: 0,  // Set using AuthService (logged-in user)
     rating: 1,
     reviewtext: '',
-    reviewdate: new Date()
+    reviewdate: new Date(),
+    isreported:false,
+    reportedtoadmin: false
+
   };
   pgId: number | null = null;  // Store PG ID from the route
   userId: number | null = null;  // Store logged-in user ID
@@ -94,7 +97,9 @@ export class ReviewComponent implements OnInit {
         uid: this.userId,
         rating: 1,
         reviewtext: '',
-        reviewdate: new Date()
+        reviewdate: new Date(),
+        isreported:false,
+        reportedtoadmin: false
       };
     }
   }

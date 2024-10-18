@@ -27,7 +27,6 @@ roomDetails: any;
   constructor(private route: ActivatedRoute, private pgService: PgService) {}
 
   ngOnInit() {
-    // Get query parameters from the route
     this.route.queryParams.subscribe(params => {
       this.searchModel.district = params['district'];
       this.searchModel.city = params['city'];
@@ -39,7 +38,6 @@ roomDetails: any;
   }
 
   searchPgs(district: string, city: string) {
-    // Call your service to fetch PGs based on district and city
     this.pgService.getPgs(district, city).subscribe((data: any[]) => {
       console.log(data);
       this.pgs = data;
@@ -50,11 +48,9 @@ roomDetails: any;
   }
   viewPGDetails(pgId: number): void {
     if (!this.authservice.isLoggedIn()) {
-      // If not logged in, show alert or redirect to login
       console.log('User is not logged in, redirecting to login.');
       this.router.navigate(['/login'], { queryParams: { returnUrl: `/viewdetailPg/${pgId}` } });
     } else {
-      // If logged in, navigate to the PG details page
       console.log('Navigating to PG details for ID:', pgId);
       if (!isNaN(pgId)) {
         this.router.navigate(['/view-details-pg-user', pgId]);

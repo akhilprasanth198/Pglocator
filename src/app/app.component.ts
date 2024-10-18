@@ -12,22 +12,4 @@ import { ContactComponent } from "./Home/contact/contact.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Pglocator';
-  // isDashboardRoute = false;
-  // isNavlogRoute = false;
-  // constructor(private router: Router) {
-  //   this.router.events.subscribe((event: any) => {
-  //     if (event.url) {
-  //       // Update this condition based on your actual dashboard routes
-  //       this.isDashboardRoute = event.url.includes('/admin') || event.url.includes('/user');
-  //     }
-  //     if (event && event['url']) {
-  //       this.isNavlogRoute = event.url.includes('/book-search') || event.url.includes('/user-search') || event.url.includes('/add-book');
-  //     }
-  //     if (event && event['url']) {
-  //       this.isNavlogRoute = event.url.includes('/book-search') || event.url.includes('/borrow') || event.url.includes('/user-details');
-  //     }
-
-  //   });
-  // }
 }

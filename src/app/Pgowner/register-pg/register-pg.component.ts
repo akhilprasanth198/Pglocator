@@ -37,19 +37,16 @@ authservice=inject(AuthService)
  
 
 ngOnInit() {
-  // Retrieve the logged-in user's ID from AuthService and assign it to the PG's Uid
   const userId = this.authservice.getUserId();
   if (userId) {
     this.pg.Uid = userId;
   } else {
-    // Handle the case where the user is not logged in
     console.error('User not logged in');
     this.router.navigate(['/login']); // Redirect to login if not logged in
   }
 }
 
 onSubmit() {
-  // Send the PG registration data
   if (this.pg.Uid) {
     this.pgownerservice.registerPG(this.pg).subscribe(
       (response) => {

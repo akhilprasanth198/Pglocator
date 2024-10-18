@@ -1,6 +1,4 @@
-<!-- Conditionally display the correct navbar based on the login status -->
 <app-user-navbar *ngIf="authservice.isLoggedIn(); else guestNavbar"></app-user-navbar>
-<!-- Alternative navbar for guests (not logged in) -->
 <ng-template #guestNavbar>
     <app-navbar></app-navbar>
 </ng-template>

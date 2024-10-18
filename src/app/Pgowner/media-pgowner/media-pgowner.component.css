@@ -1,0 +1,97 @@
+/* Container styling */
+.media-upload-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  h2 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Upload and Choose File button styling */
+  .upload-btn {
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Media list container styling */
+  .media-list-container {
+    margin-top: 40px;
+  }
+  
+  .media-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Media image styling */
+  .media-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  /* Media info styling */
+  .media-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Delete button styling */
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    margin-top: 5px;
+  }
+  
+  /* Responsive design for mobile */
+  @media (max-width: 600px) {
+    .media-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .media-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  }
+  

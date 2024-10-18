@@ -1,9 +1,6 @@
 import { Routes,RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
-import { AdminTopbarComponent } from './admin/admin-topbar/admin-topbar.component';
-import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 import { OwnerActionComponent } from './admin/owner-action/owner-action.component';
 import { PendingPgDetailsComponent } from './admin/pending-pg-details/pending-pg-details.component';
 import { ViewActiveUserComponent } from './admin/view-active-user/view-active-user.component';
@@ -18,7 +15,6 @@ import { ContactComponent } from './Home/contact/contact.component';
 import { HomepageComponent } from './Home/homepage/homepage.component';
 import { LoginComponent } from './Home/login/login.component';
 import { NavbarComponent } from './Home/navbar/navbar.component';
-import { PgsearchComponent } from './Home/pgsearch/pgsearch.component';
 import { PgsearchDashboardComponent } from './Home/pgsearch-dashboard/pgsearch-dashboard.component';
 import { PoliciesComponent } from './Home/policies/policies.component';
 import { PolicyComponent } from './Home/policies/policy/policy.component';
@@ -27,14 +23,11 @@ import { RegistrationComponent } from './Home/registration/registration.componen
 import { AddRoomComponent } from './Pgowner/add-room/add-room.component';
 import { EditPgComponent } from './Pgowner/edit-pg/edit-pg.component';
 import { PgownerNavbarComponent } from './Pgowner/pgowner-navbar/pgowner-navbar.component';
-import { PgownerSidebarComponent } from './Pgowner/pgowner-sidebar/pgowner-sidebar.component';
-import { PgownerTopbarComponent } from './Pgowner/pgowner-topbar/pgowner-topbar.component';
 import { RegisterPgComponent } from './Pgowner/register-pg/register-pg.component';
 import { ViewPgComponent } from './Pgowner/view-pg/view-pg.component';
 import { ViewdetailsPgComponent } from './Pgowner/viewdetails-pg/viewdetails-pg.component';
 import { UserNavbarComponent } from './User/user-navbar/user-navbar.component';
 import { UserProfileComponent } from './User/user-profile/user-profile.component';
-import { UserTopbarComponent } from './User/user-topbar/user-topbar.component';
 import { UserpglistComponent } from './User/userpglist/userpglist.component';
 import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-details-pg-user.component';
 import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
@@ -82,7 +75,7 @@ export const routes: Routes = [
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
-            {path:'view-pg/:pgId',component:ViewPgComponent},            
+            {path:'view-pg/:pgId',component:ViewPgComponent},   
         ]
     },
     { path: 'viewdetails-pg/:pgId', component: ViewdetailsPgComponent }, 

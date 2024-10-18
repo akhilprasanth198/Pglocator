@@ -40,33 +40,6 @@ export class OwnerActionComponent implements OnInit {
       request.email.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
-//   approveRequest(id: number) {
-//     this.pgService.approveRequest(id).subscribe(
-//         response => {
-//             console.log(`Approved request with ID: ${id}`, response);
-//             this.fetchPendingRequests(); // Refresh the list
-//         },
-//         error => {
-//             console.error('Error approving request:', error);
-//             // You can update the UI here instead of alerting
-//             // For example, set a property to show an error message in the template
-//         }
-//     );
-// }
-
-// rejectRequest(id: number) {
-//     this.pgService.rejectRequest(id).subscribe(
-//         response => {
-//             console.log(`Rejected request with ID: ${id}`, response);
-//             this.fetchPendingRequests(); // Refresh the list
-//         },
-//         error => {
-//             console.error('Error rejecting request:', error);
-//             this.fetchPendingRequests(); 
-//             // Handle the error silently or update the UI
-//         }
-//     );
-// }
 
   //working code
   approveRequest(id: number) {
@@ -98,67 +71,3 @@ rejectRequest(id: number) {
 }
 
 }
-
-
-
-  //
-//   approveRequest(id: number) {
-//     this.pgService.approveRequest(id).subscribe(
-//       response => {
-//         console.log(`Approved request with ID: ${id}`, response);
-//         // Handle success...
-//       },
-//       error => {
-//         console.error('Error approving request:', error);
-//         alert('Failed to approve request. Please try again.');
-//       }
-//     );
-// }
-
-// rejectRequest(id: number) {
-//     this.pgService.rejectRequest(id).subscribe(
-//       response => {
-//         console.log(`Rejected request with ID: ${id}`, response);
-//         // Handle success...
-//       },
-//       error => {
-//         console.error('Error rejecting request:', error);
-//         alert('Failed to reject request. Please try again.');
-//       }
-//     );
-// }
-// }
-
-
-
-
-
-
-//   approveRequest(id: number) {
-//     this.pgService.approveRequest(id).subscribe(
-//       response => {
-//         console.log(`Approved request with ID: ${id}`);
-//         this.pendingRequests = this.pendingRequests.filter(request => request.uid !== id);
-//         this.onSearch();
-//       },
-//       error => {
-//         console.error('Error approving request:', error);
-//         alert('Failed to approve request. Please try again.');
-//       }
-//     );
-//   }
-
-//   rejectRequest(id: number) {
-//     this.pgService.rejectRequest(id).subscribe(
-//       response => {
-//         console.log(`Rejected request with ID: ${id}`);
-//         this.pendingRequests = this.pendingRequests.filter(request => request.uid !== id);
-//         this.onSearch();
-//       },
-//       error => {
-//         console.error('Error rejecting request:', error);
-//         alert('Failed to reject request. Please try again.');
-//       }
-//     );
-//   }
-// }
