@@ -1,6 +1,6 @@
 footer {
-    background-color: #0264a6;
-    color: #fff;
+    background-color: #1e5a8b ;
+    color: #f2f7fa;
     padding: 10px 0;
     text-align: center;
 }
@@ -30,29 +30,19 @@ footer {
     display: inline-block;
 }
 
-.social-icons a {
-    color: #fff;
-    font-size: 1.5em;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #007bff; /* Change to your preferred hover color */
-}
-
 .social-icons a img {
-    width: 30px; /* Set the desired size for the icons */
+    width: 30px; 
     height: 30px;
     transition: transform 0.3s;
+
 }
 
 .social-icons a img:hover {
-    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+    transform: scale(1.1); 
 }
 
 footer p {
     font-size: 0.9em;
     margin: 10px 0 0;
-    color: #aaa;
+    color: #fff;
 }

@@ -3,7 +3,7 @@
     font-size: 16px;
     padding: 60px 0px 60px 0px;
     text-align: center;
-    background: #ffffffa7;
+    background: #e9ecf2;
     margin-top: -20px;
     
 }
@@ -17,10 +17,10 @@
 }
 
 .contact-form {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
-    background: #e9edf3;
-    border-radius: 15px;
+    background: #fff;
+    border-radius: 10px;
     padding: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -32,23 +32,23 @@
 }
 
 .form-control {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    padding: 15px;
+    border: 1px solid #ddebf4;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 14px;
     margin-bottom: 15px;
 }
 
 .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #b8d7f7;
+    box-shadow: 0 0 5px rgba(141, 165, 192, 0.5);
 }
 
 .btn.modern-btn {
-    background: #007bff;
+    background: #2f92d4;
     border: none;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 14px;
     padding: 12px;
     border-radius: 10px;
     transition: background 0.3s ease;

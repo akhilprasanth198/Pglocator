@@ -7,7 +7,7 @@ import { UserTopbarComponent } from '../user-topbar/user-topbar.component';
 @Component({
   selector: 'app-user-navbar',
   standalone: true,
-  imports: [RouterLink,RouterOutlet,UserTopbarComponent],
+  imports: [RouterLink,RouterOutlet,UserTopbarComponent,UserProfileComponent],
   templateUrl: './user-navbar.component.html',
   styleUrl: './user-navbar.component.css'
 })

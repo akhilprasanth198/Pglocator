@@ -20,7 +20,7 @@ export class AuthService {
     localStorage.setItem('userId', id.toString()); // Store userId in localStorage
   }
    // Get the current user ID (returns null if not logged in)
-   getUserId(): number | null {
+  getUserId(): number | null {
     return this.userId;  // No need to check localStorage here anymore, as we store userId in the constructor
   }
 
