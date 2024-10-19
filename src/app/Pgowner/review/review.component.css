@@ -1,4 +1,4 @@
-    /* Star Rating */
+     Star Rating
     .star-rating {
         display: flex;
         flex-direction: row-reverse;
@@ -28,9 +28,8 @@
         color: gold;
     }
     
-    .star-rating label:before {
-        content: '\2605'; /* Unicode star character */
-    }
+    /* Unicode star character */
+     
     
     .fa-star {
         color: gold;
@@ -39,4 +38,4 @@
     .fa-star-o {
         color: #ddd;
     }
-    
+     

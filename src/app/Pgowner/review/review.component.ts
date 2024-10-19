@@ -18,7 +18,7 @@ export class ReviewComponent implements OnInit {
     rid: 0,
     pid: 0,  // Set dynamically from the route
     uid: 0,  // Set using AuthService (logged-in user)
-    rating: 5,
+    rating: 1,
     reviewtext: '',
     reviewdate: new Date()
   };
