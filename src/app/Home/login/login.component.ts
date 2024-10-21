@@ -4,11 +4,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { NavbarComponent } from "../navbar/navbar.component";
+import { RegistrationComponent } from '../registration/registration.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NavbarComponent,RegistrationComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']  // Ensure you fix the typo from styleUrl to styleUrls
 })
@@ -49,7 +51,7 @@ export class LoginComponent {
             console.log("Navigating to pgsearch-dashboard");
             this.router.navigateByUrl('/pgsearch-dash');
           }
-         }
+        }
           else {
           alert('Invalid username or password');
         }
@@ -61,8 +63,4 @@ export class LoginComponent {
     );
   }
 
-  // Navigate to register component
-  navigateToRegister() {
-    this.router.navigate(['/registration']);
-  }
 }

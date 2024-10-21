@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Glassmorphism Login Form</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
-    <form (ngSubmit)="onSubmit()">
-        <h3>Login Here</h3>
-
-        <!-- Email input field -->
-        <label for="email">Email</label>
-        <input type="text" [(ngModel)]="userobject.email" name="email" placeholder="Email" id="email" required>
-
-        <!-- Password input field -->
-        <label for="password">Password</label>
-        <input type="password" [(ngModel)]="userobject.password" name="password" placeholder="Password" id="password" required>
-
-        <!-- Submit button -->
-        <button type="submit">Log In</button>
-
-        <div class="social">
-            <button type="button" (click)="navigateToRegister()">Register</button>
+    <div class="container">
+        <div class="login-section">
+            <h2>LOGIN</h2>
+            <br>
+            <form (ngSubmit)="onSubmit()">
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="userobject.email" name="email" placeholder="Email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" [(ngModel)]="userobject.password" name="password" placeholder="Password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login Now</button>
+            </form>
+            <div class="login-with-others">
+                <p>Don't have an account?
+                    <a href="/registration" class="register-link">Register</a>
+                </p>
+            </div>
         </div>
-    </form>
+        <div class="image-section">
+            <img src="logincover.jpg" alt="Login Cover">
+        </div>
+    </div>
 </body>
 </html>

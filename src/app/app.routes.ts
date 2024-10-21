@@ -33,7 +33,7 @@ import { ViewDetailsPgUserComponent } from './User/view-details-pg-user/view-det
 import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
 import { ReviewComponent } from './Pgowner/review/review.component';
 import { MediaPgownerComponent } from './Pgowner/media-pgowner/media-pgowner.component';
-
+import { PgownerProfileComponent } from './Pgowner/pgowner-profile/pgowner-profile.component';
 
 
 
@@ -76,6 +76,8 @@ export const routes: Routes = [
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
             {path:'view-pg/:pgId',component:ViewPgComponent},   
+            {path:'view-pg/:pgId',component:ViewPgComponent}, 
+            {path:'pgowner-profile/:user.role',component:PgownerProfileComponent}           
         ]
     },
     { path: 'viewdetails-pg/:pgId', component: ViewdetailsPgComponent }, 
@@ -89,7 +91,7 @@ export const routes: Routes = [
     // User routes
             {path: 'user-navbar', component: UserNavbarComponent,
                 children: [
-                    { path: 'user-profile', component: UserProfileComponent },
+                    { path: 'user-profile/:user.role', component: UserProfileComponent },
                 ]
             },
     {path:'view-details-pg-user/:pgid',component:ViewDetailsPgUserComponent},

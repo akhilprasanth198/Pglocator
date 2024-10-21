@@ -7,6 +7,9 @@ import { User } from '../Models/user';
   providedIn: 'root'
 })
 export class UserService {
+  getUserId(userId: number | null) {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'https://localhost:7152/api/User';
   constructor(private http: HttpClient) { }
 
@@ -22,7 +25,11 @@ export class UserService {
   }
 
   // Fetch user details (optional, for later use if needed)
-  getUserDetails(userId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${userId}`);
+  getUserDetails(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/GetUser/${userId}`);
+  }
+  
+  updateUser(id: number, user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/update/${id}`, user);
   }
 }
