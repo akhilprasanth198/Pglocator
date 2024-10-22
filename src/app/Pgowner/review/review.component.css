@@ -1,41 +1,40 @@
-     Star Rating
-    .star-rating {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-        font-size: 1.5rem;
-    }
-    
-    .star-rating input {
-        display: none;
-    }
-    
-    .star-rating label {
-        color: #ddd;
-        font-size: 2rem;
-        padding: 0 5px;
-        cursor: pointer;
-        transition: color 0.3s;
-    }
-    
-    .star-rating input:checked ~ label,
-    .star-rating input:hover ~ label {
-        color: gold;
-    }
-    
-    .star-rating label:hover,
-    .star-rating label:hover ~ label {
-        color: gold;
-    }
-    
-    /* Unicode star character */
-     
-    
-    .fa-star {
-        color: gold;
-    }
-    
-    .fa-star-o {
-        color: #ddd;
-    }
-     
+/* Star Rating */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Keeps stars in inverted order */
+    justify-content: flex-end; /* Aligns stars to the right */
+    font-size: 1.5rem;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    font-size: 2rem;
+    padding: 0 5px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* When a star is checked or hovered over */
+.star-rating input:checked ~ label,
+.star-rating input:hover ~ label {
+    color: gold;
+}
+
+/* Hover effect for stars */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: gold;
+}
+
+/* Font Awesome Star Styles */
+.fa-star {
+    color: gold;
+}
+
+.fa-star-o {
+    color: #ddd;
+}
