@@ -15,7 +15,7 @@
   
   h2 {
     text-align: center;
-    font-family: 'Fira Sans',serif;
+    font-family: 'poppins';
     color: #ffffff;
     letter-spacing: 0.5px;
 
@@ -28,7 +28,7 @@
   label {
     display: flex;
     margin-bottom: 5px;
-    font-family: 'Raleway',serif;
+    font-family: 'poppins';
     color: #ffffff;
   }
   
@@ -37,7 +37,7 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-     font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins',sans-serif;
   }
   
   button {
