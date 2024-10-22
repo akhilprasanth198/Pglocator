@@ -1,7 +1,7 @@
 /* General styles for the card container */
 .card-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 10px;
