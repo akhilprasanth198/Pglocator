@@ -19,7 +19,6 @@ export class PgdetailsComponent implements OnInit {
   pgownerservice=inject(PgownerService);
   mediaservice=inject(MediaService);
   roomservice=inject(RoomService)
-  // authservice=inject(AuthService)
   route=inject(ActivatedRoute)
   http=inject(HttpClient)
   pgDetails:any={};  
@@ -52,20 +51,7 @@ export class PgdetailsComponent implements OnInit {
       }
     );
   }
-  // Fetch media details related to the PG
-// loadMediaDetails(pgid: number): void {
-//   this.mediaservice.getMedia   (pgid).subscribe(
-//     (data:any) => {
-//       this.media = data;  // Store media details
-//     },
-//     (error) => {
-//       console.error('Failed to load media details:', error);
-//     }
-//   );
-// }
 
-//Fetch room details related to the PG
-// Fetch room details
 loadRoomDetails(pgId: number): void {
   this.roomservice.getRoomDetails(pgId).subscribe(
     data => {
@@ -81,15 +67,6 @@ loadRoomDetails(pgId: number): void {
 
 // goBack(): void {
 //   this.router.navigate(['pgsearch-dash']);
-// }
-
-// goToReview(): void {
-//   const pgid = this.route.snapshot.paramMap.get('pgid'); 
-//   if (pgid) {
-//     this.router.navigate(['/review', pgid]); 
-//   } else {
-//     console.error('PG ID is null, cannot navigate to review.');
-//   }
 // }
 
 
