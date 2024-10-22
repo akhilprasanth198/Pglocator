@@ -11,6 +11,7 @@ export class MediaService {
 
   constructor(private http: HttpClient) { }
 
+  // Upload media
   uploadMedia(pgId: number, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
@@ -18,10 +19,12 @@ export class MediaService {
     return this.http.post(`${this.apiUrl}/upload/${pgId}`, formData);
   }
 
+  // Get media by PG ID
   getMediaByPgId(pgId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/${pgId}`);
   }
 
+  // Delete media
   deleteMedia(mediaId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${mediaId}`);
   }
