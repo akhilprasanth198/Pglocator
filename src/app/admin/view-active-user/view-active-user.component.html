@@ -34,7 +34,8 @@
                     <td><a [href]="request.chatLink">Chat</a></td>
                     <td>{{ request.address }}</td>
                     <td>
-                        <button class="ban">Ban</button>
+                
+                        <button  class="ban" (click)="banrequest(request.uid)">ban</button>
 
                     
                         
