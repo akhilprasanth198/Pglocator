@@ -46,7 +46,7 @@ export class LoginComponent {
             this.router.navigateByUrl('/admin-navbar');
           } else if (result.role === 'PGOwner') {
             console.log("Navigating to pgowner-navbar");
-            this.router.navigateByUrl('/pgowner-navbar');
+            this.router.navigateByUrl('pgowner-navbar/view-pg/:pgId');
           } else if (result.role === 'User') {
             console.log("Navigating to pgsearch-dashboard");
             this.router.navigateByUrl('/pgsearch-dash');
