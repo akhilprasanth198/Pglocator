@@ -1,5 +1,6 @@
 /* Sidebar base styles */
 .sidebar {
+  font-family:'poppins';
   width: 250px;
   height: 100vh;
   background-color: #f2f7fa; /* Same background color as the navbar */
@@ -41,8 +42,8 @@
   text-align: left; /* Align text to the left */
   text-decoration: none;
   display: block;
-  font-weight: bold;
-  padding: 10px 15px; /* Add padding for better click area */
+  font-weight: normal;
+  padding: 8px 15px; /* Add padding for better click area */
 }
 
 .sidebar-nav li a:hover {

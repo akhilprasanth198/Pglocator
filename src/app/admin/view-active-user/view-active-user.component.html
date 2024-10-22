@@ -17,7 +17,6 @@
                     <th>Gender</th>
                     <th>DOB</th>
                     <th>WhatsApp</th>
-                    <th>Chat Link</th>
                     <th>Address</th>
                     
                 </tr>
@@ -31,10 +30,10 @@
                     <td>{{ request.gender }}</td>
                     <td>{{ request.dob }}</td>
                     <td>{{ request.whatsapp }}</td>
-                    <td><a [href]="request.chatLink">Chat</a></td>
                     <td>{{ request.address }}</td>
                     <td>
-                        <button class="ban">Ban</button>
+                
+                        <button  class="ban" (click)="banrequest(request.uid)">ban</button>
 
                     
                         

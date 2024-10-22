@@ -1,13 +1,13 @@
 /* General styles for the card container */
 .card-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'poppins';
 }
 
 /* Card Header */
