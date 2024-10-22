@@ -1,9 +1,7 @@
 <div>
     <h2>Upload Media</h2>
-    <!-- Hidden file input field -->
     <input type="file" id="fileInput" (change)="onFileChange($event)" style="display: none;" />
     
-    <!-- Visible button for triggering file input -->
     <button (click)="triggerFileInput()">Upload Media</button>
   </div>
   
@@ -11,7 +9,7 @@
     <h2>Media List</h2>
     <ul>
       <li *ngFor="let media of mediaList">
-        <a [href]="media.filePath" target="_blank">{{ media.filePath }}</a>
+        <img [src]="media.filePath" target="_blank">
         <button (click)="deleteMedia(media.mediaId)">Delete</button>
       </li>
     </ul>
