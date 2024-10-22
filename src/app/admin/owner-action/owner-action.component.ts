@@ -40,18 +40,21 @@ export class OwnerActionComponent implements OnInit {
       request.email.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
+  
 
-  //working code
+
+
+
   approveRequest(id: number) {
     this.pgService.approveRequest(id).subscribe(
         response => {
-            console.log(`Approved request with ID: ${id}`);
+            console.log(`Approved request with ID: ${id}`, response);
+            alert('Approved');
             this.fetchPendingRequests(); // Refresh the list
         },
         error => {
             console.error('Error approving request:', error);
-            alert(`approved`);
-            
+            alert(`Error: ${error.error?.message || 'An error occurred'}`);
         }
     );
 }
@@ -59,15 +62,45 @@ export class OwnerActionComponent implements OnInit {
 rejectRequest(id: number) {
     this.pgService.rejectRequest(id).subscribe(
         response => {
-            console.log(`Rejected request with ID: ${id}`);
+            console.log(`Rejected request with ID: ${id}`, response);
+            alert('Approved');
             this.fetchPendingRequests(); // Refresh the list
         },
         error => {
             console.error('Error rejecting request:', error);
-            alert(`rejected`);
+            alert(`Error: ${error.error?.message || 'An error occurred'}`);
             this.fetchPendingRequests(); 
         }
     );
 }
+
+  //working code
+//   approveRequest(id: number) {
+//     this.pgService.approveRequest(id).subscribe(
+//         response => {
+//             console.log(`Approved request with ID: ${id}`);
+//             this.fetchPendingRequests(); // Refresh the list
+//         },
+//         error => {
+//             console.error('Error approving request:', error);
+//             alert(`approved`);
+            
+//         }
+//     );
+// }
+
+// rejectRequest(id: number) {
+//     this.pgService.rejectRequest(id).subscribe(
+//         response => {
+//             console.log(`Rejected request with ID: ${id}`);
+//             this.fetchPendingRequests(); // Refresh the list
+//         },
+//         error => {
+//             console.error('Error rejecting request:', error);
+//             alert(`rejected`);
+//             this.fetchPendingRequests(); 
+//         }
+//     );
+// }
 
 }

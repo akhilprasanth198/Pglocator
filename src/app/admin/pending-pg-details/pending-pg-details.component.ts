@@ -47,6 +47,7 @@ export class PendingPgDetailsComponent implements OnInit {
     this.pgownerservice.approveRequest(pgId).subscribe(
         response => {
             console.log(`Response from approval:`, response);
+            alert('approved');
           
         },
         error => {
