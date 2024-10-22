@@ -1,7 +1,8 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,inject,OnInit} from '@angular/core';
 import { PgService } from '../../services/pg.service';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-approvedpg',
@@ -14,7 +15,7 @@ export class ViewApprovedpgComponent implements OnInit {
   pgs: any[] = []; // Array to hold the pending requests
   filteredRequests: any[] = []; // Array for filtered requests
   searchTerm: string = ''; // Search term for filtering
-  router: any;
+  router=inject(Router);
 
   constructor(private pgService: PgService) {} // Inject PgService
 
@@ -43,12 +44,12 @@ export class ViewApprovedpgComponent implements OnInit {
     );
   }
 
-  viewPGDetails(pgId: number): void {
-    console.log('Navigating to PG details for ID:', pgId);
-    if (!isNaN(pgId)) {
-      this.router.navigate(['/pending-pg-deatils', pgId]);
+  viewPGDetails(pgid: number): void {
+    console.log('Navigating to PG details for ID:', pgid);
+    if (!isNaN(pgid)) {
+      this.router.navigate(['admin-navbar/pgdetails', pgid]);
     } else {
-      console.error('Invalid PG ID:', pgId);
+      console.error('Invalid PG ID:', pgid);
     }
   }
   

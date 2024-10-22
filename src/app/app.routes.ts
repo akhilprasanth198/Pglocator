@@ -34,6 +34,7 @@ import { EditRoomComponent } from './Pgowner/edit-room/edit-room.component';
 import { ReviewComponent } from './Pgowner/review/review.component';
 import { MediaPgownerComponent } from './Pgowner/media-pgowner/media-pgowner.component';
 import { PgownerProfileComponent } from './Pgowner/pgowner-profile/pgowner-profile.component';
+import { PgdetailsComponent } from './admin/pgdetails/pgdetails.component';
 
 
 
@@ -67,6 +68,8 @@ export const routes: Routes = [
                     {path:'view-pending-pg',component:ViewPendingPgComponent,
                     },
                     {path:'approved-pg',component:ViewApprovedpgComponent},
+                    {path:'pgdetails/:pgid',component:PgdetailsComponent},
+
                 ]
     },
     
