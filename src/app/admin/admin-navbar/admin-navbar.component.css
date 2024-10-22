@@ -1,13 +1,11 @@
-
-/* Content styles */
 .content {
-  margin-top: 76px; /* Content starts just below the topbar */
-  margin-left: 250px; /* Content starts to the right of the sidebar */
-  padding: 20px; /* Optional padding for the content */
-  background-color: #ffffff; /* Content background */
-  min-height: calc(100vh - 76px); /* Ensure content takes full height minus topbar height */
-  box-sizing: border-box; /* Ensure padding doesn't affect width calculation */
-  overflow-y: auto; /* Allow scrolling if content is too long */
+  margin-top: 76px; 
+  margin-left: 250px; 
+  padding: 20px; 
+  background-color: #ffffff; 
+  min-height: calc(100vh - 76px); 
+  box-sizing: border-box; 
+  overflow-y: auto; 
 }
 
 /* Responsive Styles */
@@ -15,29 +13,29 @@
 /* Medium screens (Tablets and small laptops) */
 @media (max-width: 992px) {
   app-admin-sidebar {
-    width: 220px; /* Narrower sidebar for medium screens */
+    width: 220px;
   }
   .content {
-    margin-left: 220px; /* Adjust content position based on sidebar width */
+    margin-left: 220px; 
   }
 }
 
 /* Small screens (Smartphones) */
 @media (max-width: 768px) {
   app-admin-sidebar {
-    width: 200px; /* Narrower sidebar for small screens */
+    width: 200px; 
   }
   .content {
-    margin-left: 200px; /* Adjust content position based on sidebar width */
+    margin-left: 200px; 
   }
 }
 
 /* Extra small screens (Very small smartphones) */
 @media (max-width: 480px) {
   app-admin-sidebar {
-    width: 180px; /* Compact width for very small screens */
+    width: 180px;
   }
   .content {
-    margin-left: 180px; /* Adjust content position based on sidebar width */
+    margin-left: 180px; 
   }
 }

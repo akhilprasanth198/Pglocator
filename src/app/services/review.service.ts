@@ -25,4 +25,20 @@ export class ReviewService {
   deleteReview(reviewId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${reviewId}`);
   }
+
+  // Respond to a review
+  respondToReview(reviewId: number, response: string): Observable<Review> {
+    return this.http.put<Review>(`${this.apiUrl}/respond/${reviewId}`, response);
+  }
+
+
+// Report a review to the admin
+reportReviewToAdmin(reviewId: number): Observable<void> {
+  return this.http.put<void>(`${this.apiUrl}/report/${reviewId}`, {});
+}
+
+// Get reported reviews for admin
+getReportedReviews(): Observable<Review[]> {
+  return this.http.get<Review[]>(`${this.apiUrl}/reported-reviews`);
+}
 }

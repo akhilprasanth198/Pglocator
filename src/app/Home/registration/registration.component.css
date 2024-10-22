@@ -11,15 +11,14 @@ body {
 
 /* Container styles */
 .container {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: #fff;
+  border-radius: 10px;
   padding: 40px;
   width: 100%;
-  max-width: 800px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #333;
+  margin-top: 80px;
 }
 
 /* Title styling */
@@ -39,18 +38,21 @@ h2 {
 
 /* User details section */
 .user-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: space-between;
 }
 
 /* Input box styling */
 .input-box {
   display: flex;
   flex-direction: column;
+  flex-basis: 48%; /* Two columns on larger screens */
 }
 
-.input-box .details {
+/* Label styling */
+.input-box label {
   font-weight: 500;
   margin-bottom: 5px;
   color: #444;
@@ -58,14 +60,21 @@ h2 {
 
 .input-box input,
 .input-box select {
-  padding: 12px 15px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background: #f9f9f9;
   outline: none;
   font-size: 15px;
   color: #333;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-box input:focus,
+.input-box select:focus {
+  border-color: #92bedb;
+  box-shadow: 0 3px 8px rgba(135, 132, 139, 0.3);
 }
 
 /* Alert message styling */
@@ -88,12 +97,12 @@ h2 {
 
 /* Button styling */
 button {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: #2f92d4;
   color: white;
   border: none;
   padding: 12px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
   transition: background 0.3s;
@@ -101,12 +110,15 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  background: #0056b3;
 }
-
 /* Responsive styles */
 @media (max-width: 768px) {
   .user-details {
-    grid-template-columns: 1fr;
+    flex-direction: column; /* Stack the input fields on smaller screens */
+  }
+
+  .input-box {
+    flex-basis: 100%; /* Full-width inputs on mobile */
   }
 }

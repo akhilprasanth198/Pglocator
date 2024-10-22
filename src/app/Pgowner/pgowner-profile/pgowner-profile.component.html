@@ -39,6 +39,46 @@
         </div>
     </div>
 
+    <div class="input-box">
+        <label for="phone">Phone Number</label>
+        <input id="phone" [(ngModel)]="user.phone" name="phone" type="phone" required />
+        <div *ngIf="updateProfileForm.submitted && !user.phone" class="error">
+            Phone Number is required.
+        </div>
+    </div>
+
+    <div class="input-box">
+        <label for="gender">Gender </label>
+        <input id="gender" [(ngModel)]="user.gender" name="gender" type="gender" required />
+        <div *ngIf="updateProfileForm.submitted && !user.gender" class="error">
+            Gender is required.
+        </div>
+    </div>
+    
+    <div class="input-box">
+        <label for="whatsapp">Whatsapp Number</label>
+        <input id="whatsapp" [(ngModel)]="user.whatsapp" name="whatsapp" type="whatsapp" required />
+        <div *ngIf="updateProfileForm.submitted && !user.whatsapp" class="error">
+            Whatsapp Number is required.
+        </div>
+    </div>
+
+    <div class="input-box">
+        <label for="chatlink">Chatlink </label>
+        <input id="chatlink" [(ngModel)]="user.chatlink" name="chatlink" type="chatlink" required />
+        <div *ngIf="updateProfileForm.submitted && !user.chatlink" class="error">
+            Chatlink  is required.
+        </div>
+    </div>
+
+    <div class="input-box">
+        <label for="address">Address</label>
+        <input id="address" [(ngModel)]="user.address" name="address" type="address" required />
+        <div *ngIf="updateProfileForm.submitted && !user.address" class="error">
+            Address  is required.
+        </div>
+    </div>
+
     <div class="input-box button-container">
         <button type="submit" class="update-button">Update</button>
         <button type="button" class="back-button" (click)="goBack()">Back</button>

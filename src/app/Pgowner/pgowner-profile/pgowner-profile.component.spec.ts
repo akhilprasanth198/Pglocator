@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReviewPgownerComponent } from './review-pgowner.component';
+import { PgownerProfileComponent } from './pgowner-profile.component';
 
-describe('ReviewPgownerComponent', () => {
-  let component: ReviewPgownerComponent;
-  let fixture: ComponentFixture<ReviewPgownerComponent>;
+describe('PgownerProfileComponent', () => {
+  let component: PgownerProfileComponent;
+  let fixture: ComponentFixture<PgownerProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReviewPgownerComponent]
+      imports: [PgownerProfileComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReviewPgownerComponent);
+    fixture = TestBed.createComponent(PgownerProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

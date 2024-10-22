@@ -35,22 +35,18 @@ export class RegistrationComponent {
 
 
   onSubmit() {
-    // Set status based on user role
     this.user.status = this.user.role === 'PGOwner' ? 'Pending' : 'Active';
 
     console.log('Registration data:', this.user); // Log the user data to confirm
 
-    // Make the HTTP POST request to register the user
     this.userService.register(this.user).subscribe(
       (response) => {
-        // Check if the response is JSON
         if (typeof response === 'string') {
           this.successMessage = response; // Plain text message
         } else {
           this.successMessage = response?.message || 'User Registered Successfully'; // JSON response
         }
 
-        // Reset user object
         this.user = {
           firstName: '',
           lastName: '',
@@ -66,15 +62,12 @@ export class RegistrationComponent {
           status: ''
         };
 
-        // Log the registration success response
         console.log('Registration Success:', this.successMessage);
         alert("Registered Successfully")
         this.router.navigate(['/login']);
-        // Here you can also navigate to a different page or perform other actions
       },
       (error) => {
         console.error('Registration Error:', error);
-        // Handle error scenario
         if (error.error?.errors) {
           this.errorMessage = Object.values(error.error.errors).flat().join(', ');
         } else {

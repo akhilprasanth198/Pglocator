@@ -62,23 +62,6 @@ export class ViewBannedUserComponent implements OnInit {
         }
     );
 }
-//   //working code
-//   unban(id: number) {
-//     this.pgService.unban(id).subscribe(
-//         response => {
-//             console.log(`Approved request with ID: ${id}`);
-//             this.fetchactiveuser(); // Refresh the list
-//         },
-//         error => {
-//             console.error('Error approving request:', error);
-//             alert(`unbanned`);
-//             this.fetchactiveuser(); 
-            
-//         }
-//     );
-// }
-
-
 }
 
 

@@ -4,6 +4,9 @@ export interface Review {
     uid: number;          
     rating: number;       
     reviewtext:string; 
-    reviewdate: Date;   
+    reviewdate: Date; 
+    isreported:boolean; 
+    reportedtoadmin :boolean;
+  
   }
   
