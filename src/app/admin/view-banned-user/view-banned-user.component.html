@@ -17,7 +17,6 @@
                     <th>Gender</th>
                     <th>DOB</th>
                     <th>WhatsApp</th>
-                    <th>Chat Link</th>
                     <th>Address</th>
                     <th>Actions</th>
                 </tr>
@@ -30,8 +29,7 @@
                     <td>{{ request.phone }}</td>
                     <td>{{ request.gender }}</td>
                     <td>{{ request.dob }}</td>
-                    <td>{{ request.whatsapp }}</td>
-                    <td><a [href]="request.chatLink">Chat</a></td>
+                    <td>{{ request.whatsapp }}</td> 
                     <td>{{ request.address }}</td>
                     <td>
                         <button class="ban" (click)="unban(request.uid)">Unban</button>
