@@ -48,6 +48,7 @@ export class PendingPgDetailsComponent implements OnInit {
         response => {
             console.log(`Response from approval:`, response);
             alert('approved');
+            this.router.navigate(['admin-navbar/view-pending-pg']);
           
         },
         error => {
@@ -64,7 +65,8 @@ export class PendingPgDetailsComponent implements OnInit {
       response => {
         console.log(`Response from rejection:`, response);
         alert('Rejected');
-        // Optionally, navigate away or refresh
+        this.router.navigate(['admin-navbar/view-pending-pg']);
+       
       },
       error => {
         console.error('Error rejecting request:', error);

@@ -35,6 +35,8 @@ import { ReviewComponent } from './Pgowner/review/review.component';
 import { MediaPgownerComponent } from './Pgowner/media-pgowner/media-pgowner.component';
 import { PgownerProfileComponent } from './Pgowner/pgowner-profile/pgowner-profile.component';
 import { PgdetailsComponent } from './admin/pgdetails/pgdetails.component';
+import { ViewcontactComponent } from './admin/viewcontact/viewcontact.component';
+
 
 
 
@@ -69,6 +71,7 @@ export const routes: Routes = [
                     },
                     {path:'approved-pg',component:ViewApprovedpgComponent},
                     {path:'pgdetails/:pgid',component:PgdetailsComponent},
+                    {path:'viewcontact',component:ViewcontactComponent},
 
                 ]
     },
