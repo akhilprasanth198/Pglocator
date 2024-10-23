@@ -1,23 +1,24 @@
 import { Component, inject } from '@angular/core';
 import { MediaService } from '../../services/media.service';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-media-pgowner',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,CommonModule],
   templateUrl: './media-pgowner.component.html',
   styleUrl: './media-pgowner.component.css'
 })
 export class MediaPgownerComponent {
   pgId: number|null=null; // Set this based on the PG context
   mediaList: any[] = [];
+  currentIndex = 0; // Track current slide index
 
 mediaService=inject(MediaService) 
- route = inject(ActivatedRoute);
+route = inject(ActivatedRoute);
 
- ngOnInit(): void {
+ngOnInit(): void {
   // Get the PG ID from the route parameters
   this.pgId = +this.route.snapshot.paramMap.get('pgId')!;
   this.loadMedia();
@@ -56,5 +57,13 @@ triggerFileInput(): void {
   if (fileInput) {
     fileInput.click(); // Trigger file input click
   }
+}
+
+previousImage(): void {
+  this.currentIndex = (this.currentIndex === 0) ? this.mediaList.length - 1 : this.currentIndex - 1;
+}
+
+nextImage(): void {
+  this.currentIndex = (this.currentIndex + 1) % this.mediaList.length;
 }
 }

@@ -1,136 +1,119 @@
-/* General styles for the card container */
+/* General styling for the container */
 .card-container {
-    width: 100%;
     max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins';
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Card Header */
+/* Header styling */
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
 .card-header h2 {
-    margin: 0;
-    color: black;
-}
-
-.card-header p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
 }
 
 .add-member-btn {
     background-color: #2f92d4;
-    color: white;
-    padding: 10px 15px;
+    color: #fff;
     border: none;
+    padding: 10px 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
 .add-member-btn:hover {
-    background-color: #72b5e2;
+    background-color: #0056b3;
 }
 
-/* PG Card styling */
+/* Body styling */
+.card-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Individual PG card styling */
 .pg-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f7f9fc;
-    border: 1px solid #e0e0e0;
+    background-color: #fff;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* PG Info section */
+.pg-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 .pg-info h3 {
-    margin: 0;
-    color: #055b94;
     font-size: 20px;
+    font-weight: 500;
+    color: #007bff;
+    margin-bottom: 8px;
+    text-transform: capitalize;
 }
 
 .pg-info p {
-    margin: 5px 0;
     font-size: 14px;
-    color: #666;
+    color: #555;
+    margin: 4px 0;
 }
 
-/* PG Actions section (View details button) */
+/* Action buttons styling */
 .pg-actions {
-    display: inline-grid;
-    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
 }
 
 .view-details-btn {
     background-color: #2f92d4;
-    color: white;
-    padding: 9px 5px;
+    color: #fff;
     border: none;
+    padding: 8px 14px;
     border-radius: 5px;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
 .view-details-btn:hover {
-    background-color: #72b5e2;
+    background-color: #0056b3;
 }
 
-/* Responsive Styles */
-
-/* Medium screens (Tablets and small laptops) */
-@media (max-width: 992px) {
-    .pg-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .pg-actions {
-        margin-top: 10px;
-    }
+/* Media button styling */
+.upload-media-btn {
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Small screens (Smartphones) */
+.upload-media-btn:hover {
+    background-color: #138496;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-    .card-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .pg-card {
-        padding: 15px;
-    }
-    .view-details-btn {
-        padding: 8px 16px;
-    }
-}
-
-/* Extra small screens (Very small smartphones) */
-@media (max-width: 480px) {
-    .pg-card {
-        padding: 10px;
-    }
-    .pg-info h3 {
-        font-size: 18px;
-    }
-    .pg-info p {
-        font-size: 12px;
-    }
-    .view-details-btn {
-        padding: 6px 12px;
+    .card-body {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,17 +1,21 @@
 <div>
-    <h2>Upload Media</h2>
-    <input type="file" id="fileInput" (change)="onFileChange($event)" style="display: none;" />
-    
-    <button (click)="triggerFileInput()">Upload Media</button>
+  <h3>Media</h3>
+  <input type="file" id="fileInput" (change)="onFileChange($event)" style="display: none;" />
+</div>
+
+<div class="slideshow-container">
+  <div class="media-slide" *ngFor="let media of mediaList; let i = index" [ngClass]="{'active': i === currentIndex}">
+    <div class="image-wrapper">
+      <img [src]="media.filePath" class="pic" alt="Media Image">
+      <button class="delete-btn" (click)="deleteMedia(media.mediaId)">Delete</button>
+    </div>
+  <button class="prev" (click)="previousImage()">❮</button>
+  <button class="next" (click)="nextImage()">❯</button>
   </div>
+
   
-  <div>
-    <h2>Media List</h2>
-    <ul>
-      <li *ngFor="let media of mediaList">
-        <img [src]="media.filePath" target="_blank">
-        <button (click)="deleteMedia(media.mediaId)">Delete</button>
-      </li>
-    </ul>
-  </div>
-  
+</div>
+
+<div class="upload-button-container">
+  <button (click)="triggerFileInput()">Upload Media</button>
+</div>
