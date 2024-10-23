@@ -1,127 +1,92 @@
-<div class="container">
-    <!-- <div class="pg-card">
-        <div *ngIf="pgDetails" class="pg-details">
-            <h3 class="pg-name">{{ pgDetails.pgname | titlecase }}</h3>
-            <p><strong>Description:</strong> {{ pgDetails.description }}</p>
-            <p><strong>Address:</strong> {{ pgDetails.address }}</p>
-            <p><strong>District:</strong> {{ pgDetails.district }}</p>
-            <p><strong>City:</strong> {{ pgDetails.city }}</p>
-            <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
-            <p><strong>Gender Preference:</strong> {{ pgDetails.gender_preference }}</p>
-            <p><strong>Amenities:</strong> {{ pgDetails.amenities }}</p>
-            <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
-            <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
-            <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
-        </div>
-      <div class="rooms-section" *ngIf="roomDetails && roomDetails.length > 0">
-            <h3>Rooms</h3>
-            <table class="rooms-table">
-                <thead class="head">
-                    <tr>
-                        <th>Rent</th>
-                        <th>Deposit</th>
-                        <th>Room Type</th>
-                        <th>Services</th>
-                        <th>Facility</th>
-                        <th>Total Rooms</th>
-                        <th>Availability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let room of roomDetails">
-                        <td>{{ room.price }}</td>
-                        <td>{{ room.deposit }}</td>
-                        <td>{{ room.roomtype }}</td>
-                        <td>{{ room.services }}</td>
-                        <td>{{ room.facility }}</td>
-                        <td>{{ room.totalroom }}</td>
-                        <td>{{ room.availability ? 'Yes' : 'No' }}</td>
+<!-- Breadcrumb for Navigation -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item">{{pgDetails.district}}</li>
+    <li class="breadcrumb-item active" aria-current="page">Hostel</li>
+  </ol>
+</nav>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-    </div> -->
-
-    <div class="pg-info">
-      <h1>{{pgDetails.pgname}}</h1>
-      <h3>{{pgDetails.description}}</h3>
-      <p><strong>{{pgDetails.gender_preference}}</strong></p>
-      <p>{{pgDetails.address}}{{pgDetails.city}}-{{pgDetails.pin}}</p>
-      <a href="#" class="whatsapp-link"><i class="fas fa-phone"></i> Contact via WhatsApp</a>
+<!-- PG Image Carousel -->
+<div id="pgImageCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let media of media; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img [src]="media.filePath" class="d-block w-100" alt="PG Image">
     </div>
   </div>
-
-  <div class="pg-features">
-    <h3>Features</h3>
-    <div class="feature-list">
-      <strong>Room Type Facilities:</strong>
-      <p>3-Share Non-AC Facilitie</p>
-    </div>
-
-  <div class="tariff-breakdown">
-    <h3>Amenities</h3>
-    <p>{{pgDetails.amentities}}</p>
-  </div>
-
-  <div class="tariff-breakdown">
-    <h3>Tariff Breakdown</h3>
-    <p><strong>Monthly:</strong> ₹3000</p>
-  </div>
-
-  <div class="cancellation-policy">
-    <h3>Rules</h3>
-    <p>{{pgDetails.rules}}</p>
-  </div>
-
-  <div class="cancellation-policy">
-    <h3>Food Available</h3>
-    <p>{{pgDetails.foodavailable}}</p>
-  </div>
-
-  <div class="cancellation-policy">
-    <h3>Meals</h3>
-    <p>{{pgDetails.meal}}</p>
-  </div>
-  
-  <div class="container">
-    <div class="pg-card">
-       <div class="rooms-section" *ngIf="roomDetails && roomDetails.length > 0">
-            <h3>Rooms</h3>
-            <table class="rooms-table">
-                <thead>
-                    <tr>
-                        <th>Rent</th>
-                        <th>Deposit</th>
-                        <th>Room Type</th>
-                        <th>Services</th>
-                        <th>Facility</th>
-                        <th>Total Rooms</th>
-                        <th>Availability</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let room of roomDetails">
-                        <td>{{ room.price }}</td>
-                        <td>{{ room.deposit }}</td>
-                        <td>{{ room.roomtype }}</td>
-                        <td>{{ room.services }}</td>
-                        <td>{{ room.facility }}</td>
-                        <td>{{ room.totalroom }}</td>
-                        <td>{{ room.availability ? 'Yes' : 'No' }}</td>
-                                       </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#pgImageCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#pgImageCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-  
-  
-  <div class="reviews">
-    <h3>Guest Reviews</h3>
-    <p>Be the first to review</p>
-    <button class="review-btn" (click)="goToReview()">Review</button>
+
+<!-- PG Title and Address -->
+<div class="mt-4">
+  <h2>{{ pgDetails.pgname }}</h2>
+  <p>{{pgDetails.gender_preference}}</p>
+  <p>{{ pgDetails.address }},{{pgDetails.city}}-{{pgDetails.pin}}</p>
+  <button class="btn btn-outline-primary">View on Map</button>
+</div>
+
+<!-- Features Section -->
+<!-- <div class="feature-section mt-4">
+  <h4>Features</h4>
+  <p>{{ featuresTitle }}</p>
+  <ul>
+    <li *ngFor="let feature of features">{{ feature }}</li>
+  </ul>
+</div> -->
+
+<!-- Room Type and Tariff Breakdown -->
+<div class="container tariff-section mt-4">
+  <h4>Tariff Breakdown</h4>
+  <h5 class="tariff-type-title">Room Details</h5>
+  <hr>
+  <div class="row">
+    <div *ngFor="let room of roomDetails; let i = index" class="col-lg-6 col-md-6 col-sm-12 mb-4"> <!-- Changed col-lg-3 to col-lg-6 -->
+      <div [ngClass]="{'tariff-non-ac': i === 0, 'tariff-ac': i === 1}" class="tariff-card">
+        <div class="tariff-header">{{ room.roomtype }}</div>
+        <div class="tariff-price">₹ {{ room.price }}</div>
+        <div class="tariff-price">Deposit: ₹{{ room.deposit }}</div>
+        <div class="tariff-price">Facility: {{ room.facility }}</div>
+        <div class="tariff-price">Total availability: {{ room.availability }}/{{ room.totalroom }}</div>
+        <div class="tariff-price">Services: {{ room.services }}</div>   
+      </div>
+    </div>
   </div>
+</div>
+
+<!-- Amenities Section -->
+<div class="amenities-section mt-4">
+  <h4>Amenities</h4>
+  <ul>
+    <li>{{ pgDetails.amentities }}</li>
+  </ul>
+</div>
+
+<div class="cancellation-section mt-4">
+  <h4>Meals</h4>
+  <p>{{ pgDetails.meal }}</p>
+</div>
+
+<!-- Cancellation Policy -->
+<div class="cancellation-section mt-4">
+  <h4>Rules</h4>
+  <p>{{ pgDetails.rules }}</p>
+</div>
+
+<!-- Map Location -->
+<!-- <div class="mt-4">
+  <h4>Location</h4>
+  <iframe [src]="pgMapUrl | safeUrl" class="map" frameborder="0" style="border:0;" allowfullscreen></iframe>
+</div> -->
+
+<!-- Guest Reviews Section -->
+<div class="reviews-section mt-4">
+  <h4>Guest Reviews</h4>
+  <button class="btn btn-primary review-btn" (click)="goToReview()">Review</button>
 </div>
