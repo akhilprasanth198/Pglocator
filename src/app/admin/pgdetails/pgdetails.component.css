@@ -108,3 +108,14 @@ h3 {
 .image-gallery img:hover {
     transform: scale(1.05);
 }
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #007bff;
+  }
+  .error {
+    color: #dc3545;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+  }

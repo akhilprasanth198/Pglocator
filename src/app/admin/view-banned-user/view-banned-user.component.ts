@@ -14,6 +14,9 @@ export class ViewBannedUserComponent implements OnInit {
   pendingRequests: any[] = []; // Array to hold the pending requests
   filteredRequests: any[] = []; // Array for filtered requests
   searchTerm: string = ''; // Search term for filtering
+  loading: boolean = true;
+  error: string | null = null;
+
 
   constructor(private pgService: PgService) {} // Inject PgService
 
@@ -27,9 +30,13 @@ export class ViewBannedUserComponent implements OnInit {
             console.log('Fetched pending requests:', data); // Log fetched data
             this.pendingRequests = data;
             this.filteredRequests = data; // Initialize filteredRequests
+            this.loading = false;
         },
         error => {
-            console.error('Error fetching pending requests:', error);
+          this.error = 'Failed to load  banned users';
+          this.loading = false;
+            console.error('Error fetching banned users:', error);
+
         }
     );
 }

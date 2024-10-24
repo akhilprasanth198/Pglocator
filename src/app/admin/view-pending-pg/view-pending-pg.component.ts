@@ -17,6 +17,8 @@ export class ViewPendingPgComponent implements OnInit {
   pgs: any[] = []; // Array to hold the pending requests
   filteredRequests: any[] = []; // Array for filtered requests
   searchTerm: string = ''; // Search term for filtering
+  loading: boolean = true;
+  error: string | null = null;
 
   constructor(private pgService: PgService,private router:Router) {} // Inject PgService
 
@@ -30,9 +32,12 @@ export class ViewPendingPgComponent implements OnInit {
             console.log('Fetched pending requests:', data); // Log fetched data
             this.pgs = data;
             this.filteredRequests = data; // Initialize filteredRequests
+            this.loading = false;
             
         },
         error => {
+          this.error = 'Failed to load pending requests';
+          this.loading = false;
             console.error('Error fetching pending requests:', error);
         }
     );

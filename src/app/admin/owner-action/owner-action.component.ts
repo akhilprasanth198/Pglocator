@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PgService } from '../../services/pg.service'; // Make sure to import your service
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-owner-action',
   standalone: true,
-  imports: [FormsModule, NgFor, CommonModule],
+  imports: [FormsModule, NgFor, CommonModule,NgIf],
   templateUrl: './owner-action.component.html',
   styleUrls: ['./owner-action.component.css']
 })
@@ -14,6 +14,8 @@ export class OwnerActionComponent implements OnInit {
   pendingRequests: any[] = []; // Array to hold the pending requests
   filteredRequests: any[] = []; // Array for filtered requests
   searchTerm: string = ''; // Search term for filtering
+  loading: boolean = true;
+  error: string | null = null;
 
   constructor(private pgService: PgService) {} // Inject PgService
 
@@ -27,8 +29,11 @@ export class OwnerActionComponent implements OnInit {
             console.log('Fetched pending requests:', data); // Log fetched data
             this.pendingRequests = data;
             this.filteredRequests = data; // Initialize filteredRequests
+            this.loading = false;
         },
         error => {
+          this.error = 'Failed to load pending requests';
+          this.loading = false;
             console.error('Error fetching pending requests:', error);
         }
     );

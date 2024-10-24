@@ -180,3 +180,14 @@ td {
     background-color: red; 
     font-size: 15px; 
 }
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #007bff;
+  }
+  .error {
+    color: #dc3545;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+  }

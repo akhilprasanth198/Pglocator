@@ -18,6 +18,8 @@ export class PendingPgDetailsComponent implements OnInit {
   authservice = inject(AuthService);
   pgDetails: any | null = null; // Use 'any' type for pgDetails
   pgId: number | null = null;
+  loading: boolean = true;
+  error: string | null = null;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -36,8 +38,11 @@ export class PendingPgDetailsComponent implements OnInit {
       data => {
         this.pgDetails = data; // Directly assign data
         console.log('Fetched PG details:', data);
+        this.loading = false;
       },
       error => {
+        this.error = 'Failed to load pending requests';
+        this.loading = false;
         console.error(`Error fetching PG details: ${error.status} - ${error.message}`);
       }
     );

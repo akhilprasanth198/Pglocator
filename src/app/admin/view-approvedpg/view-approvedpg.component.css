@@ -187,3 +187,14 @@ h2 {
 .search-button:active {
     background-color: #004a99;
 }
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #007bff;
+  }
+  .error {
+    color: #dc3545;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+  }

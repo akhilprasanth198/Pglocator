@@ -17,6 +17,8 @@ export class ViewApprovedOwnerComponent implements OnInit {
   filteredRequests: any[] = []; // Array for filtered requests
   searchTerm: string = ''; // Search term for filtering
   errorMessage: string = ''; // Property to hold error messages
+  loading: boolean = true;
+  error: string | null = null;
 
   constructor(private pgService: PgService) {} // Inject PgService
 
@@ -31,10 +33,12 @@ export class ViewApprovedOwnerComponent implements OnInit {
         this.approvedRequests = data;
         this.filteredRequests = data; // Initialize filteredRequests
         this.errorMessage = ''; // Clear any previous error messages
+        this.loading = false;
       },
       error => {
         console.error('Error fetching approved requests:', error);
-        this.errorMessage = 'Failed to fetch approved requests. Please try again.'; // Set error message
+        this.error = 'Failed to load approved requests';
+        this.loading = false;
       }
     );
   }

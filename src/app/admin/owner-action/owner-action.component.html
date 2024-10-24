@@ -6,6 +6,11 @@
         <button class="search-button" (click)="onSearch()">Search</button>
     </div>
 
+    <div *ngIf="loading" class="loading">Loading...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    
+    <div class="card-container" *ngIf="!loading && !error">
     <div *ngIf="filteredRequests.length > 0">
         <table class="pending-requests">
             <thead>

@@ -25,6 +25,8 @@ export class PgdetailsComponent implements OnInit {
   media:any={};
   roomDetails:any={};
   uid: number | null=null;
+  loading: boolean = true;
+  error: string | null = null;
 
   ngOnInit(): void {
     const pgid = this.route.snapshot.paramMap.get('pgid');  // Get PG ID from the route
@@ -45,8 +47,11 @@ export class PgdetailsComponent implements OnInit {
       (data) => {
         this.pgDetails = data; 
         console.log("Fetched PG Details:", this.pgDetails); // Set the fetched PG details into the object
+        this.loading = false;
       },
       (error) => {
+        this.error = 'Failed to load details';
+        this.loading = false;
         console.error('Failed to load PG details:', error);
       }
     );
