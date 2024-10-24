@@ -1,0 +1,16 @@
+<div class="contact-view">
+  <h2>Contact Details</h2>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="card-container" *ngIf="!loading && !error">
+      <div class="card" *ngFor="let contact of contactDetails">
+          <h3>{{ contact.name }}</h3>
+          <p><strong>Email:</strong> {{ contact.email }}</p>
+          <p><strong>Subject:</strong> {{ contact.subject }}</p>
+          <p><strong>Message:</strong> {{ contact.message }}</p>
+      </div>
+  </div>
+</div>

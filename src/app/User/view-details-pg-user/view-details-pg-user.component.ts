@@ -36,7 +36,7 @@ export class ViewDetailsPgUserComponent implements OnInit {
 
     if (pgid) {
       this.loadPgDetails(Number(pgid));
-      // this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
+      this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
     this.loadRoomDetails(Number(pgid)); 
     } else {
       console.error('PG ID not provided in the route!');
@@ -55,19 +55,18 @@ export class ViewDetailsPgUserComponent implements OnInit {
       }
     );
   }
-  // Fetch media details related to the PG
-// loadMediaDetails(pgid: number): void {
-//   this.mediaservice.getMedia   (pgid).subscribe(
-//     (data:any) => {
-//       this.media = data;  // Store media details
-//     },
-//     (error) => {
-//       console.error('Failed to load media details:', error);
-//     }
-//   );
-// }
+ // Fetch media details related to the PG
+loadMediaDetails(pgid: number): void {
+  this.mediaservice.getMediaByPgId(pgid).subscribe(
+    (data:any) => {
+      this.media = data;  // Store media details
+    },
+    (error) => {
+      console.error('Failed to load media details:', error);
+    }
+  );
+}
 
-//Fetch room details related to the PG
 // Fetch room details
 loadRoomDetails(pgId: number): void {
   this.roomservice.getRoomDetails(pgId).subscribe(
@@ -80,10 +79,6 @@ loadRoomDetails(pgId: number): void {
       console.error(`Error fetching room details: ${error.message}`);
     }
   );
-}
-
-goBack(): void {
-  this.router.navigate(['pgsearch-dash']);
 }
 
 goToReview(): void {

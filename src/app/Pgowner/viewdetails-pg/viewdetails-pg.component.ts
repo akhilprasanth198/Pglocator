@@ -25,7 +25,7 @@ export class ViewdetailsPgComponent implements OnInit {
   pgImages: any[] = [];
   pgId: number | null = null;
   mediaList: any[] = [];
-
+  currentIndex = 0;
   selectedRoomType: string = '';
   roomTypes: string[] = [];
   filteredRooms: any[] = [];
@@ -36,6 +36,7 @@ export class ViewdetailsPgComponent implements OnInit {
     if (this.pgId) {
       this.loadPgDetails(this.pgId);
       this.loadRoomDetails(this.pgId);
+      this.pgId = +this.route.snapshot.paramMap.get('pgId')!;
       this.loadMedia();
     } else {
       console.error('Invalid PG ID');
@@ -151,5 +152,12 @@ export class ViewdetailsPgComponent implements OnInit {
     if (fileInput) {
       fileInput.click();
     }
+  }
+  previousImage(): void {
+    this.currentIndex = (this.currentIndex === 0) ? this.mediaList.length - 1 : this.currentIndex - 1;
+  }
+  
+  nextImage(): void {
+    this.currentIndex = (this.currentIndex + 1) % this.mediaList.length;
   }
 }

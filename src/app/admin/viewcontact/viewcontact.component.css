@@ -1,0 +1,42 @@
+.contact-view {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-view h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.error {
+  color: #dc3545;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.contact-details {
+  margin-top: 20px;
+}
+
+.contact-details p {
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 1.1em;
+}
+
+.contact-details strong {
+  color: #555;
+}
