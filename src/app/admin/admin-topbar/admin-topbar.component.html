@@ -12,7 +12,9 @@
             <img src="/admincover.png" alt="Profile" class="profile-pic" />
             <div class="dropdown-content">
                 <ul>
-                    <!-- <li><a routerLink="/admin-navbar/admin-profile">Profile</a></li> -->
+                    <!-- <li><a routerLink="/admin-navbar/Admin-profile">Profile</a></li> -->
+                    <li><a [routerLink]="['/admin-navbar/Admin-profile',user.role]">Profile</a></li>
+                     
                     <li><a (click)="onLogout()">Logout</a></li>
                 </ul>
             </div>

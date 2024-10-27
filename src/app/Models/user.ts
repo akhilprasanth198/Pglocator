@@ -6,7 +6,7 @@ export interface User {
     email: string;
     dob: string; // Use a suitable date format as a string
     password: string; // Storing plain password
-    role: 'User' | 'PGOwner'; // Define roles explicitly
+    role: 'User' | 'PGOwner' |'admin'; // Define roles explicitly
     phone?: string; // Optional for PGOwner
     gender?: string; // Optional for PGOwner
     whatsapp?: string; // Optional for PGOwner

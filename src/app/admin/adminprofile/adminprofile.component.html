@@ -1,0 +1,21 @@
+<form #updateProfileForm="ngForm" (ngSubmit)="updateProfile()">
+    <div class="input-box">
+        <label for="email">Email</label>
+        <input id="email" [(ngModel)]="user.email" name="email" type="email" required />
+        <div *ngIf="updateProfileForm.submitted && !user.email" class="error">
+            A valid Email is required.
+        </div>
+
+    <div class="input-box">
+        <label for="password">Password</label>
+        <input id="password" [(ngModel)]="user.password" name="password" type="password" required />
+        <div *ngIf="updateProfileForm.submitted && !user.password" class="error">
+            Password is required.
+        </div>
+
+        <div class="input-box button-container">
+            <button type="submit" class="update-button">Update</button>
+            <!-- <button type="button" class="back-button" (click)="goBack()">Back</button> -->
+        </div>
+ 
+        

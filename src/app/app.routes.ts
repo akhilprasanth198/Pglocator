@@ -36,6 +36,7 @@ import { MediaPgownerComponent } from './Pgowner/media-pgowner/media-pgowner.com
 import { PgownerProfileComponent } from './Pgowner/pgowner-profile/pgowner-profile.component';
 import { PgdetailsComponent } from './admin/pgdetails/pgdetails.component';
 import { ViewcontactComponent } from './admin/viewcontact/viewcontact.component';
+import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
 
 
 
@@ -72,6 +73,7 @@ export const routes: Routes = [
                     {path:'approved-pg',component:ViewApprovedpgComponent},
                     {path:'pgdetails/:pgid',component:PgdetailsComponent},
                     {path:'viewcontact',component:ViewcontactComponent},
+                    {path:'Admin-profile/:user.role',component:AdminprofileComponent} 
 
                 ]
     },
@@ -83,7 +85,7 @@ export const routes: Routes = [
         children: [
             {path:'view-pg/:pgId',component:ViewPgComponent},   
             {path:'view-pg/:pgId',component:ViewPgComponent}, 
-            {path:'pgowner-profile/:user.role',component:PgownerProfileComponent}           
+            {path:'pgowner-profile/',component:PgownerProfileComponent}           
         ]
     },
     { path: 'viewdetails-pg/:pgId', component: ViewdetailsPgComponent }, 
