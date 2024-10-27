@@ -5,42 +5,95 @@
       <div class="user-details">
         <div class="input-box">
           <label for="firstName">First Name</label>
-          <input id="firstName" [(ngModel)]="user.firstName" name="firstName" required />
-          <div *ngIf="registrationForm.submitted && !user.firstName" class="error">First Name is required.</div>
+          <input
+            id="firstName"
+            [(ngModel)]="user.firstName"
+            name="firstName"
+            required
+            #firstName="ngModel"
+          />
+          <div *ngIf="firstName.invalid && firstName.touched" class="error">
+            First Name is required.
+          </div>
         </div>
 
         <div class="input-box">
           <label for="lastName">Last Name</label>
-          <input id="lastName" [(ngModel)]="user.lastName" name="lastName" required />
-          <div *ngIf="registrationForm.submitted && !user.lastName" class="error">Last Name is required.</div>
+          <input
+            id="lastName"
+            [(ngModel)]="user.lastName"
+            name="lastName"
+            required
+            #lastName="ngModel"
+          />
+          <div *ngIf="lastName.invalid && lastName.touched" class="error">
+            Last Name is required.
+          </div>
         </div>
 
         <div class="input-box">
           <label for="email">Email</label>
-          <input id="email" [(ngModel)]="user.email" name="email" type="email" required />
-          <div *ngIf="registrationForm.submitted && !user.email" class="error">A valid Email is required.</div>
+          <input
+            id="email"
+            [(ngModel)]="user.email"
+            name="email"
+            type="email"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            #email="ngModel"
+          />
+          <div *ngIf="email.invalid && email.touched" class="error">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']">Please enter a valid email address.</div>
+          </div>
         </div>
 
         <div class="input-box">
           <label for="dob">Date of Birth</label>
-          <input id="dob" [(ngModel)]="user.dob" name="dob" type="date" required />
-          <div *ngIf="registrationForm.submitted && !user.dob" class="error">Date of Birth is required.</div>
+          <input
+            id="dob"
+            [(ngModel)]="user.dob"
+            name="dob"
+            type="date"
+            required
+            #dob="ngModel"
+          />
+          <div *ngIf="dob.invalid && dob.touched" class="error">
+            Date of Birth is required.
+          </div>
         </div>
 
         <div class="input-box">
           <label for="password">Password</label>
-          <input id="password" [(ngModel)]="user.password" name="password" type="password" required />
-          <div *ngIf="registrationForm.submitted && !user.password" class="error">Password is required.</div>
+          <input
+            id="password"
+            [(ngModel)]="user.password"
+            name="password"
+            type="password"
+            required
+            #password="ngModel"
+          />
+          <div *ngIf="password.invalid && password.touched" class="error">
+            Password is required.
+          </div>
         </div>
 
         <div class="input-box">
           <label for="role">Role</label>
-          <select id="role" [(ngModel)]="user.role" name="role" required>
+          <select
+            id="role"
+            [(ngModel)]="user.role"
+            name="role"
+            required
+            #role="ngModel"
+          >
             <option value="" disabled>Select Role</option>
             <option value="User">User</option>
             <option value="PGOwner">PG Owner</option>
           </select>
-          <div *ngIf="registrationForm.submitted && !user.role" class="error">Role is required.</div>
+          <div *ngIf="role.invalid && role.touched" class="error">
+            Role is required.
+          </div>
         </div>
       </div>
 
@@ -48,32 +101,71 @@
       <div *ngIf="user.role === 'PGOwner'" class="user-details">
         <div class="input-box">
           <label for="phone">Phone</label>
-          <input id="phone" [(ngModel)]="user.phone" name="phone" />
+          <input
+            id="phone"
+            [(ngModel)]="user.phone"
+            name="phone"
+            type="text"
+            pattern="^[0-9]{10}$"
+            #phone="ngModel"
+          />
+          <div *ngIf="phone.invalid && phone.touched" class="error">
+            <div *ngIf="phone.errors?.['pattern']">Phone number must be 10 digits long.</div>
+          </div>
         </div>
 
         <div class="input-box">
           <label for="gender">Gender</label>
-          <select id="gender" [(ngModel)]="user.gender" name="gender" required>
+          <select
+            id="gender"
+            [(ngModel)]="user.gender"
+            name="gender"
+            required
+            #gender="ngModel"
+          >
             <option value="" disabled>Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Both">Both</option>
           </select>
+          <div *ngIf="gender.invalid && gender.touched" class="error">
+            Gender is required.
+          </div>
         </div>
 
         <div class="input-box">
           <label for="whatsapp">WhatsApp</label>
-          <input id="whatsapp" [(ngModel)]="user.whatsapp" name="whatsapp" />
+          <input
+            id="whatsapp"
+            [(ngModel)]="user.whatsapp"
+            name="whatsapp"
+            type="text"
+            pattern="^[0-9]{10}$"
+            #whatsapp="ngModel"
+          />
+          <div *ngIf="whatsapp.invalid && whatsapp.touched" class="error">
+            <div *ngIf="whatsapp.errors?.['pattern']">WhatsApp number must be 10 digits long.</div>
+          </div>
         </div>
 
         <div class="input-box">
           <label for="chatlink">Chat Link</label>
-          <input id="chatlink" [(ngModel)]="user.chatlink" name="chatlink" />
+          <input
+            id="chatlink"
+            [(ngModel)]="user.chatlink"
+            name="chatlink"
+            type="text"
+          />
         </div>
 
         <div class="input-box">
           <label for="address">Address</label>
-          <input id="address" [(ngModel)]="user.address" name="address" />
+          <input
+            id="address"
+            [(ngModel)]="user.address"
+            name="address"
+            type="text"
+          />
         </div>
       </div>
     </div>

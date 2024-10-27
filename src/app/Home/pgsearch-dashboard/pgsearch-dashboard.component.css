@@ -1,76 +1,109 @@
-    .pg-list {
+.pg-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f7fa;
+    border-radius: 15px;
+    margin-top: 8px;
+}
 
-        display:flex;
-        flex-direction: column; /* Arrange items in a vertical stack */
-        gap: 10px; /* Add spacing between each card */
-        padding: 20px;
-        position:relative;
-    }
-    
-    .pg-card {
+.pg-card {
+    max-width: 1000px;
+    width: 100%; /* Ensure the card takes full width up to max-width */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    padding: 20px;
+    transition: transform 0.5s, box-shadow 0.3s;
+    align-items: center;
+}
 
-        background-color: #d2d2d2;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        display: flex;
-        padding: 10px;
-        flex-direction: row; /* Ensure image and details are side by side */
-    }
-    
-    .pg-image {
-        flex-shrink: 0;
-        margin-right: 45px;
-    }
-    
-    .pg-image img {
-        
-        width: 200px;
-        height: 220px;
-        object-fit: cover;
-    }
-    
-    .pg-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    
-    .pg-buttons {
-        display: inline-flex;
-        gap: 20px;
-    }
-    
-    .pg-buttons button {
-        padding: 8px 12px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-    
-    .view-details {
-        background-color: #449ee3;
-        color: white;
-    }
-    
-    .contact-owner {
-        background-color: #f26629;
-        color: white;
-    }
-    
-    .no-results {
-        text-align: center;
-        margin-top: 40px;
-        color: #030303;
-        font-size: 16px;
-    }
-    .pg-details{
-        color:#323c4d;
-        font-family: poppins;
-    }
-    .pg-details h2{
-        font-weight: 700;
-    }
-    .pg-details p{
-        font-weight: 400;
-    }
+
+.pg-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pg-image {
+    flex-shrink: 0;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    height: 220px;
+}
+
+.pg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pg-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #323c4d;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pg-details h2 {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.pg-details p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #6b6b6b;
+    margin: 4px 0;
+}
+
+.pg-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.pg-buttons button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.view-details {
+    background-color: #449ee3;
+    color: white;
+}
+
+.view-details:hover {
+    background-color: #3680c2;
+    transform: scale(1.05);
+}
+
+.contact-owner {
+    background-color: #f26629;
+    color: white;
+}
+
+.contact-owner:hover {
+    background-color: #d1541f;
+    transform: scale(1.05);
+}
+
+.no-results {
+    text-align: center;
+    margin-top: 40px;
+    color: #030303;
+    font-size: 16px;
+    font-weight: 500;
+}

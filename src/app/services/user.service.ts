@@ -20,8 +20,8 @@ export class UserService {
   }
 
   // Method for registering new users (optional, if needed)
-  register(user: User): Observable<any> {
-    return this.http.post(`${this.apiUrl}/Registration`, user);
+  register(user: User): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/Registration`, user, { responseType: 'text' as 'json' });
   }
 
   // Fetch user details (optional, for later use if needed)

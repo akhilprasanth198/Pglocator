@@ -8,12 +8,12 @@ import { NgFor, NgIf } from '@angular/common';
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [FormsModule,NgIf,NgFor],
+  imports: [FormsModule, NgIf, NgFor],
   templateUrl: './registration.component.html',
-  styleUrl: './registration.component.css'
+  styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  user:User = {
+  user: User = {
     firstName: '',
     lastName: '',
     email: '',
@@ -25,45 +25,26 @@ export class RegistrationComponent {
     whatsapp: '',
     chatlink: '',
     address: '',
-    status:'',
+    status: '',
   };
-  
+
   successMessage: string | undefined;
   errorMessage: string | undefined;
-  userService=inject(UserService)
-  router=inject(Router)
 
+  userService = inject(UserService);
+  router = inject(Router);
 
   onSubmit() {
     this.user.status = this.user.role === 'PGOwner' ? 'Pending' : 'Active';
-
-    console.log('Registration data:', this.user); // Log the user data to confirm
-
+  
+    console.log('Registration data:', this.user);
+  
     this.userService.register(this.user).subscribe(
-      (response) => {
-        if (typeof response === 'string') {
-          this.successMessage = response; // Plain text message
-        } else {
-          this.successMessage = response?.message || 'User Registered Successfully'; // JSON response
-        }
-
-        this.user = {
-          firstName: '',
-          lastName: '',
-          email: '',
-          dob: '',
-          password: '',
-          role: 'User',
-          phone: '',
-          gender: '',
-          whatsapp: '',
-          chatlink: '',
-          address: '',
-          status: ''
-        };
-
+      (response: string) => {
+        this.successMessage = response; // Handle plain text response
+        this.resetForm();
         console.log('Registration Success:', this.successMessage);
-        alert("Registered Successfully")
+        alert("Registered Successfully");
         this.router.navigate(['/login']);
       },
       (error) => {
@@ -75,5 +56,22 @@ export class RegistrationComponent {
         }
       }
     );
+  }
+  
+  private resetForm() {
+    this.user = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      dob: '',
+      password: '',
+      role: 'User',
+      phone: '',
+      gender: '',
+      whatsapp: '',
+      chatlink: '',
+      address: '',
+      status: ''
+    };
   }
 }
