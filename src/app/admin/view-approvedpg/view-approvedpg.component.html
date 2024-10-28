@@ -16,7 +16,7 @@
     <div class="card-body">
         <div *ngFor="let pg of pgs" class="pg-card"  >
             <div class="pg-info">
-                <h3>{{ pg.pgname }}</h3>
+                <h3>{{ pg.pgname | titlecase}}</h3>
                 <h3>{{pg.userEmail}}</h3>
                 <p><strong>Address:</strong> {{pg.address}}</p>
                 <p><strong>District:</strong> {{ pg.district }}</p>

@@ -1,7 +1,7 @@
 /* Sidebar base styles */
 .sidebar {
   font-family:'poppins';
-  width: 250px;
+  width: 220px;
   height: 100vh;
   background-color: #f2f7fa; /* Same background color as the navbar */
   padding-top: 20px;
@@ -19,8 +19,8 @@
 }
 
 .profile-pic {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   background-color: transparent;
@@ -38,8 +38,8 @@
 }
 
 .sidebar-nav li a {
-  color: #2f92d4; /* Blue color similar to the site name in the navbar */
-  text-align: left; /* Align text to the left */
+  color: #2f92d4; 
+  text-align: left; 
   text-decoration: none;
   display: block;
   font-weight: normal;
@@ -47,12 +47,12 @@
 }
 
 .sidebar-nav li a:hover {
-  background-color: #d5dfe4; /* Matches the hover background color from the dropdown */
-  border-radius: 10px; /* Keep rounded corners */
+  background-color: #d5dfe4;
+  font-weight: 600;
+  border-radius: 5px; /* Keep rounded corners */
   color: #2f92d4; /* Keeps the same blue on hover */
 }
 
-/* Change Admin text color specifically */
 .sidebar-nav li.admin a {
   color: #2f92d4; /* Site name color for Admin link */
 }

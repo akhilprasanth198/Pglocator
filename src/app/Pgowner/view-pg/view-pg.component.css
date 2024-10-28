@@ -4,7 +4,7 @@
     margin: 0 auto;
     padding: 20px;
     font-family: 'Poppins';
-    background-color: #f9f9f9;
+    background-color: #f2f7fa;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -15,12 +15,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    
 }
 
 .card-header h2 {
     font-size: 24px;
     font-weight: 600;
-    color: #333;
+    color: #2f92d4;
 }
 
 .add-member-btn {
@@ -110,6 +111,7 @@
 .upload-media-btn:hover {
     background-color: #138496;
 }
+
 
 /* Responsive design */
 @media (max-width: 768px) {

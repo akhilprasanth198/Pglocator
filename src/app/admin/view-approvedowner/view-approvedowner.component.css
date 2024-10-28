@@ -2,28 +2,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     background-color: #f7f7f7;
     padding: 20px;
+    
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    background-color: white;
+    background-color: #f2f7fa;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
 h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: left;
+    color: #333;
 }
-
 p {
     font-size: 14px;
     margin-bottom: 20px;
@@ -39,8 +42,8 @@ p {
     cursor: pointer;
     font-size: 14px;
     margin-bottom: 20px;
-    width: 90px; 
-    height: 35px; 
+    width: 90px;
+    height: 35px;
 }
 
 table {
@@ -50,12 +53,12 @@ table {
 }
 
 thead {
-    background-color: #f1f1f1;
+    background-color: #b8d2e4;
 }
 
 thead th {
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 tbody tr {
@@ -65,6 +68,34 @@ tbody tr {
 td {
     padding: 15px 10px;
     vertical-align: middle;
+    text-align: center;
+}
+
+/* Responsive table design */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        margin-bottom: 20px;
+    }
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
 }
 
 .avatar {
@@ -128,17 +159,19 @@ td {
     background-color: #4caf50;
     color: white;
 }
+
+/* Search container styling */
 .search-container {
     display: flex;
-    justify-content: flex-start; /* Aligns to the left */
-    align-items: center; /* Aligns vertically centered */
+    justify-content: flex-start;
+    align-items: center;
     margin: 20px 0;
 }
 
 .input-field {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-right: 10px;
     font-size: 16px;
 }
@@ -151,7 +184,7 @@ td {
 .search-button {
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #007BFF;
     color: white;
     font-size: 16px;
@@ -161,16 +194,47 @@ td {
 
 .search-button:hover {
     background-color: #0056b3;
-/* Approve button styling */
 }
+
+/* Button styling */
+.approve, .reject {
+    width: 80px;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.approve {
+    background-color: #0cb387;
+    color: white;
+}
+
+.approve:hover {
+    background-color: #074f3e;
+}
+
+.reject {
+    background-color: rgb(241, 30, 30);
+    color: white;
+}
+
+.reject:hover {
+    background-color: rgb(148, 2, 2);
+}
+
 .loading {
     text-align: center;
     font-size: 1.2em;
-    color: #007bff;
-  }
-  .error {
+    color: #2f92d4;
+}
+
+.error {
     color: #dc3545;
     text-align: center;
     font-weight: bold;
     margin: 10px 0;
-  }
+}
