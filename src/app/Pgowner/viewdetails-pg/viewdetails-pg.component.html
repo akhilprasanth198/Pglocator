@@ -1,45 +1,45 @@
 <div class="container">
-    <div class="pg-details-wrapper">
-        <!-- PG Details Section -->
-        <div class="pg-details">
-            <div *ngIf="pgDetails">
-                <h3 class="pg-name">{{ pgDetails.pgname | uppercase }}</h3>
-                <p><strong>Description:</strong> {{ pgDetails.description }}</p>
-                <p><strong>Address:</strong> {{ pgDetails.address }}</p>
-                <p><strong>District:</strong> {{ pgDetails.district }}</p>
-                <p><strong>City:</strong> {{ pgDetails.city }}</p>
-                <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
-                <p><strong>Gender Preference:</strong> {{ pgDetails.gender_preference }}</p>
-                <p><strong>Amenities:</strong> {{ pgDetails.amenities }}</p>
-                <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
-                <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
-                <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
-                <div class="card-footer">
-                    <button class="btn btn-primary" (click)="editPg()">Edit</button>
-                    <button class="btn btn-danger" (click)="deletePg()">Delete</button>
+    <div class="pg-details-card">
+        <div class="pg-details-wrapper">
+            <!-- PG Details Section -->
+            <div class="pg-details">
+                <div *ngIf="pgDetails">
+                    <h3 class="pg-name">{{ pgDetails.pgname | uppercase }}</h3>
+                    <p><strong>Description:</strong> {{ pgDetails.description }}</p>
+                    <p><strong>Address:</strong> {{ pgDetails.address }}</p>
+                    <p><strong>District:</strong> {{ pgDetails.district }}</p>
+                    <p><strong>City:</strong> {{ pgDetails.city }}</p>
+                    <p><strong>Pin:</strong> {{ pgDetails.pin }}</p>
+                    <p><strong>Gender Preference:</strong> {{ pgDetails.gender_preference }}</p>
+                    <p><strong>Amenities:</strong> {{ pgDetails.amenities }}</p>
+                    <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
+                    <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
+                    <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" (click)="editPg()">Edit</button>
+                        <button class="btn btn-danger" (click)="deletePg()">Delete</button>
+                    </div>
                 </div>
-        <!-- PG Image Section -->
-                <div>
-                    <input type="file" id="fileInput" (change)="onFileChange($event)" style="display: none;" />
-                </div>
-            
-                <div class="slideshow-container">
-                    <div class="media-slide" *ngFor="let media of mediaList; let i = index" [ngClass]="{'active': i === currentIndex}">
+            </div>
+
+            <!-- PG Image Section -->
+            <div class="slideshow-container">
+                <input type="file" id="fileInput" (change)="onFileChange($event)" style="display: none;" />
+                <div *ngFor="let media of mediaList; let i = index" [ngClass]="{'active': i === currentIndex}" class="media-slide">
                     <div class="image-wrapper">
                         <img [src]="media.filePath" class="pic" alt="Media Image">
                         <button class="delete-btn" (click)="deleteMedia(media.mediaId)">Delete</button>
                     </div>
-                    <button class="prev" (click)="previousImage()">❮</button>
-                    <button class="next" (click)="nextImage()">❯</button>
-                    </div>
                 </div>
-            
+                <button class="prev" (click)="previousImage()">❮</button>
+                <button class="next" (click)="nextImage()">❯</button>
                 <div class="upload-button-container">
                     <button (click)="triggerFileInput()">Upload Media</button>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Room Filter and Room Details Section -->
     <div class="rooms-section" *ngIf="roomDetails && roomDetails.length > 0">
         <div class="room-filter">
