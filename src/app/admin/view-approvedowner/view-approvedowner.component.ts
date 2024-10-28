@@ -37,7 +37,7 @@ export class ViewApprovedOwnerComponent implements OnInit {
       },
       error => {
         console.error('Error fetching approved requests:', error);
-        this.error = 'Failed to load approved requests';
+        this.error = 'No Data Found';
         this.loading = false;
       }
     );

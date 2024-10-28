@@ -33,7 +33,7 @@ export class ViewActiveUserComponent implements OnInit {
             this.loading = false;
         },
         error => {
-          this.error = 'Failed to load  active users';
+          this.error = 'No Data Found';
           this.loading = false;
             console.error('Error fetching  active  users:', error);
         }

@@ -36,7 +36,7 @@ export class ViewPendingPgComponent implements OnInit {
             
         },
         error => {
-          this.error = 'Failed to load pending requests';
+          this.error = 'No Data Found';
           this.loading = false;
             console.error('Error fetching pending requests:', error);
         }

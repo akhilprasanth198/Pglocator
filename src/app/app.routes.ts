@@ -7,9 +7,9 @@ import { ViewActiveUserComponent } from './admin/view-active-user/view-active-us
 import { ViewApprovedOwnerComponent } from './admin/view-approvedowner/view-approvedowner.component';
 import { ViewApprovedpgComponent } from './admin/view-approvedpg/view-approvedpg.component';
 import { ViewBannedUserComponent } from './admin/view-banned-user/view-banned-user.component';
-import { ViewOwnerComponent } from './admin/view-owner/view-owner.component';
+
 import { ViewPendingPgComponent } from './admin/view-pending-pg/view-pending-pg.component';
-import { ViewUsersComponent } from './admin/view-users/view-users.component';
+
 import { AboutComponent } from './Home/about/about.component';
 import { ContactComponent } from './Home/contact/contact.component';
 import { HomepageComponent } from './Home/homepage/homepage.component';
@@ -67,9 +67,8 @@ export const routes: Routes = [
                     {path:'view-approved',component:ViewApprovedOwnerComponent},
                     {path:'view-active-user',component:ViewActiveUserComponent},
                     {path:'view-banned-user',component:ViewBannedUserComponent},
-                    {path:'view-owner',component:ViewOwnerComponent},
-                    {path:'view-pending-pg',component:ViewPendingPgComponent,
-                    },
+                   
+                    {path:'view-pending-pg',component:ViewPendingPgComponent,},
                     {path:'approved-pg',component:ViewApprovedpgComponent},
                     {path:'pgdetails/:pgid',component:PgdetailsComponent},
                     {path:'viewcontact',component:ViewcontactComponent},
@@ -78,7 +77,6 @@ export const routes: Routes = [
                 ]
     },
     
-    {path:'view-user',component:ViewUsersComponent},
 
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,

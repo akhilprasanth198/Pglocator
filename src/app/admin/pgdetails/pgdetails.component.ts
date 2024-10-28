@@ -50,7 +50,7 @@ export class PgdetailsComponent implements OnInit {
         this.loading = false;
       },
       (error) => {
-        this.error = 'Failed to load details';
+        this.error = 'No Data Found';
         this.loading = false;
         console.error('Failed to load PG details:', error);
       }
@@ -65,6 +65,7 @@ loadRoomDetails(pgId: number): void {
       this.roomDetails.forEach((room: { rid: any; }) => console.log('Room ID:', room.rid)); // Log each room's ID
     },
     error => {
+      this.error = 'No Data Found';
       console.error(`Error fetching room details: ${error.message}`);
     }
   );

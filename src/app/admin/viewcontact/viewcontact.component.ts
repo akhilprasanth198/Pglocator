@@ -28,7 +28,7 @@ export class ViewcontactComponent implements OnInit {
         this.loading = false;
       },
       (error) => {
-        this.error = 'Failed to load contact details.';
+        this.error = 'No Data Found';
         this.loading = false;
         console.error('Error fetching contact details:', error);
       }
