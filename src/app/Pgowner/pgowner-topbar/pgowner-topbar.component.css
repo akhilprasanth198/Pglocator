@@ -34,8 +34,9 @@ body {
 
   .site-name {
     font-size: 24px;
-    color: #2f92d4; /* White text */
+    color: #2f92d4;
     margin: 0;
+    font-weight:700;
   }
   .site-name a {
     text-decoration: none;
