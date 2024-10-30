@@ -10,7 +10,8 @@
             <div class="image-carousel">
                 <img 
                     [src]="pg.images.length > 0 ? pg.images[currentImageIndex[pg.pgid]].filePath : 'https://via.placeholder.com/200x220'" 
-                    alt="PG Image">
+                    alt="PG Image" 
+                    class="carousel-image">
                 <button class="prev" (click)="previousImage(pg.pgid)">❮</button>
                 <button class="next" (click)="nextImage(pg.pgid)">❯</button>
             </div>

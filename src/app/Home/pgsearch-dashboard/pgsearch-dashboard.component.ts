@@ -8,6 +8,7 @@ import { UserNavbarComponent } from "../../User/user-navbar/user-navbar.componen
 import { AuthService } from '../../services/auth.service';
 import { PgsearchComponent } from "../pgsearch/pgsearch.component";
 import { MediaService } from '../../services/media.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pgsearch-dashboard',
@@ -27,7 +28,6 @@ export class PgsearchDashboardComponent implements OnInit {
   router = inject(Router);
   mediaService = inject(MediaService);
   
-  // For carousel functionality
   currentImageIndex: { [key: number]: number } = {}; // Track current image index for each PG
 
   constructor(private route: ActivatedRoute, private pgService: PgService) {}
@@ -43,56 +43,63 @@ export class PgsearchDashboardComponent implements OnInit {
     });
   }
 
+  // searchPgs(district: string, city: string) {
+  //   this.pgService.getPgs(district, city).subscribe((data: any[]) => {
+  //     this.pgs = data;
+      
+  //     // Fetch media for each PG
+  //     this.pgs.forEach(pg => {
+  //       this.mediaService.getMediaByPgId(pg.pgid).subscribe(media => {
+  //         pg.images = media; // Attach media to the PG object
+  //         this.currentImageIndex[pg.pgid] = 0; // Initialize current image index
+  //       });
+  //     });
+  //   },
+  //   error => {
+  //     console.error('No PG found:', error);
+  //   });
+  // }
+
   searchPgs(district: string, city: string) {
     this.pgService.getPgs(district, city).subscribe((data: any[]) => {
-      this.pgs = data;
-      
-      // Fetch media for each PG
-      this.pgs.forEach(pg => {
-        this.mediaService.getMediaByPgId(pg.pgid).subscribe(media => {
-          pg.images = media; // Attach media to the PG object
-          this.currentImageIndex[pg.pgid] = 0; // Initialize current image index
+        this.pgs = data;
+
+        // Fetch media for each PG
+        this.pgs.forEach(pg => {
+            // Initialize images array
+            pg.images = []; // Ensure images is initialized
+
+            this.mediaService.getMediaByPgId(pg.pgid).subscribe(media => {
+                pg.images = media; // Attach media to the PG object
+                this.currentImageIndex[pg.pgid] = 0; // Initialize current image index
+                console.log(media);
+            });
         });
-      });
     },
     error => {
-      console.error('No PG found:', error);
+        console.error('No PG found:', error);
     });
-  }
+}
 
   viewPGDetails(pgId: number): void {
     if (!this.authservice.isLoggedIn()) {
       this.router.navigate(['/login'], { queryParams: { returnUrl: `/viewdetailPg/${pgId}` } });
     } else {
-      if (!isNaN(pgId)) {
-        this.router.navigate(['/view-details-pg-user', pgId]);
-      } else {
-        console.error('Invalid PG ID:', pgId);
-      }
+      this.router.navigate(['/view-details-pg-user', pgId]);
     }
   }
 
   nextImage(pgId: number): void {
-    if (this.pgs) {
-      const pg = this.pgs.find(p => p.pgid === pgId);
-      if (pg && pg.images.length > 0) {
-        this.currentImageIndex[pgId] = (this.currentImageIndex[pgId] + 1) % pg.images.length;
-      }
+    const pg = this.pgs.find(p => p.pgid === pgId);
+    if (pg && pg.images.length > 0) {
+      this.currentImageIndex[pgId] = (this.currentImageIndex[pgId] + 1) % pg.images.length;
     }
   }
 
   previousImage(pgId: number): void {
-    if (this.pgs) {
-      const pg = this.pgs.find(p => p.pgid === pgId);
-      if (pg && pg.images.length > 0) {
-        this.currentImageIndex[pgId] = (this.currentImageIndex[pgId] - 1 + pg.images.length) % pg.images.length;
-      }
-    }
-  }
-
-  showLoginAlert(): void {
-    if (!this.authservice.isLoggedIn()) {
-      alert('You must be logged in to perform this action.');
+    const pg = this.pgs.find(p => p.pgid === pgId);
+    if (pg && pg.images.length > 0) {
+      this.currentImageIndex[pgId] = (this.currentImageIndex[pgId] - 1 + pg.images.length) % pg.images.length;
     }
   }
 }
