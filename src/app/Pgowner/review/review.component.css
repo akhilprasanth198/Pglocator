@@ -1,40 +1,104 @@
+/* General Container Styles */
+.container {
+    margin: 20px auto;
+    max-width: 800px; 
+    padding: 20px; 
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); 
+}
+/* Review Card Styles */
+.review-card {
+    border: 1px solid #e0e0e0; 
+    border-radius: 10px; 
+    background-color: white; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    padding: 10px; 
+}
+
+.review-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+}
+
 /* Star Rating */
 .star-rating {
     display: flex;
     flex-direction: row-reverse; /* Keeps stars in inverted order */
-    justify-content: flex-end; /* Aligns stars to the right */
+    justify-content: flex-start; /* Aligns stars to the left */
     font-size: 1.5rem;
 }
 
 .star-rating input {
-    display: none;
+    display: none; /* Hide radio inputs */
 }
 
 .star-rating label {
-    color: #ddd;
-    font-size: 2rem;
-    padding: 0 5px;
-    cursor: pointer;
-    transition: color 0.3s;
+    color: #bbb; /* Default star color */
+    font-size: 1.5rem; /* Star size */
+    padding: 0 5px; /* Space between stars */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: color 0.3s; /* Smooth transition */
 }
 
-/* When a star is checked or hovered over */
+/* Highlight selected and hovered stars */
 .star-rating input:checked ~ label,
 .star-rating input:hover ~ label {
-    color: gold;
-}
-
-/* Hover effect for stars */
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: gold;
+    color: #ffb400; 
 }
 
 /* Font Awesome Star Styles */
 .fa-star {
-    color: gold;
+    color: #ffb400; 
 }
 
 .fa-star-o {
-    color: #ddd;
+    color: #bbb; 
+}
+
+/* Form Button Styles */
+.btn-primary {
+    background-color: #2f92d4; 
+    border-color: #2f92d4; /* Button border color */
+    transition: background-color 0.3s, border-color 0.3s; /* Transition for hover */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker green on hover */
+    border-color: #0056b3; /* Border color on hover */
+}
+
+/* Form Group Styles */
+.form-group label {
+    font-weight: bold; 
+    color: #333; 
+}
+
+.form-group textarea {
+    border-radius: 5px; 
+    border: 1px solid #ced4da; 
+    resize: none; 
+    padding: 10px; 
+}
+
+/* Message Styles */
+.text-center {
+    font-size: 1.2rem; 
+    color: #888;
+}
+
+.text-muted {
+    color: #888; 
+}
+
+/* Delete Button Styles */
+.btn-danger {
+    background-color: #dc3545; 
+    border-color: #dc3545; 
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #bd2130; 
 }
