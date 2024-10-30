@@ -102,7 +102,7 @@ export const routes: Routes = [
             },
     {path:'view-details-pg-user/:pgId',component:ViewDetailsPgUserComponent},
     {path:'userpglist',component:UserpglistComponent},
-    {path:'review/:pgid',component:ReviewComponent},
+    {path:'review/:pgid/:uid',component:ReviewComponent},
 ];
 
 @NgModule({

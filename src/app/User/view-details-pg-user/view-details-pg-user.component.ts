@@ -119,13 +119,13 @@ nextImage(): void {
   this.currentIndex = (this.currentIndex + 1) % this.mediaList.length;
 }
 goToReview(): void {
-  const pgid = this.route.snapshot.paramMap.get('pgid'); 
-  if (pgid) {
-    this.router.navigate(['/review', pgid]); 
+  const pgid = this.pgId; 
+  const uid = this.uid;
+  if (pgid && uid) {
+    this.router.navigate(['/review', pgid, uid]); 
   } else {
-    console.error('PG ID is null, cannot navigate to review.');
+    console.error('Either PG ID or User ID is null; cannot navigate to review.');
   }
 }
-
 
 }
