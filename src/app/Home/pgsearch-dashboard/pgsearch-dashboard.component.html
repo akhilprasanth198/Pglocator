@@ -7,8 +7,13 @@
 <div *ngIf="pgs.length > 0" class="pg-list">
     <div *ngFor="let pg of pgs" class="pg-card">
         <div class="pg-image">
-            <!-- Use placeholder or dynamic image -->
-            <img [src]="pg.imageUrl || 'https://via.placeholder.com/200x220'" alt="PG Image">
+            <div class="image-carousel">
+                <img 
+                    [src]="pg.images.length > 0 ? pg.images[currentImageIndex[pg.pgid]].filePath : 'https://via.placeholder.com/200x220'" 
+                    alt="PG Image">
+                <button class="prev" (click)="previousImage(pg.pgid)">❮</button>
+                <button class="next" (click)="nextImage(pg.pgid)">❯</button>
+            </div>
         </div>
         <div class="pg-details">
             <h2>{{ pg.pgname | titlecase }}</h2>
@@ -17,8 +22,6 @@
             <p>{{ pg.city }} | Pin: {{ pg.pin }}</p>
             <div class="pg-buttons">
                 <button class="view-details" (click)="viewPGDetails(pg.pgid)">View Details</button>
-                <!-- Uncomment to add contact owner button functionality -->
-                <!-- <button class="contact-owner" (click)="showLoginAlert()">Contact Owner</button> -->
             </div>
         </div>
     </div>

@@ -107,3 +107,38 @@
     font-size: 16px;
     font-weight: 500;
 }
+/* img */
+.image-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow of images */
+    width: 200px; /* Set a fixed width */
+    height: 220px; /* Set a fixed height */
+}
+
+.image-carousel img {
+    width: 100%; /* Make image fill the width */
+    height: 100%; /* Make image fill the height */
+    object-fit: cover; /* Scale the image to cover the area */
+    transition: transform 0.3s ease; /* Smooth transition for image change */
+}
+
+.prev, .next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
