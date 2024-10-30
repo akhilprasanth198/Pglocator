@@ -126,8 +126,11 @@ h3 {
     position: relative;
     display: inline-block;
     width: 100%;
-    max-width: 500px;
+    max-width: 1000px;
     text-align: center;
+    padding-right: 70px;
+    padding-top: 150px;
+
 }
 
 .pic {
@@ -136,12 +139,16 @@ h3 {
     max-height: 300px;
     object-fit: cover;
     border-radius: 8px;
+    padding-inline: 40px;
+    
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: -20px 30px; /* Center the image */
+    
 }
 
 .delete-btn {
-    position: absolute;
+    position:absolute;
+    margin-top: 150px;
     top: 10px;
     right: 10px;
     display: none; /* Hidden by default */
@@ -152,6 +159,9 @@ h3 {
     border-radius: 5px;
     font-size: 14px;
     padding: 5px;
+    margin-right: 100px;
+   
+    
 }
 
 .image-wrapper:hover .delete-btn {
@@ -215,6 +225,8 @@ h3 {
     .pic {
         max-width: 100%;
         max-height: 200px;
+        
+        
     }
 
     .prev, .next {
@@ -238,6 +250,7 @@ h3 {
     .pic {
         max-width: 100%;
         max-height: 180px;
+     
     }
 
     .prev, .next {
