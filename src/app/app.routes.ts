@@ -100,7 +100,7 @@ export const routes: Routes = [
                     { path: 'user-profile/:user.role', component: UserProfileComponent },
                 ]
             },
-    {path:'view-details-pg-user/:pgid',component:ViewDetailsPgUserComponent},
+    {path:'view-details-pg-user/:pgId',component:ViewDetailsPgUserComponent},
     {path:'userpglist',component:UserpglistComponent},
     {path:'review/:pgid',component:ReviewComponent},
 ];

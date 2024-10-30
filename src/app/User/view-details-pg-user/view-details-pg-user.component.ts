@@ -1,43 +1,50 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { PgService } from '../../services/pg.service';
 import { pgs } from '../../Models/pgs';
 import { HttpClient } from '@angular/common/http';
 import { PgownerService } from '../../services/pgowner.service';
 import { AuthService } from '../../services/auth.service';
-import { MediaService } from '../../services/media.service';
 import { RoomService } from '../../services/room.service';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MediaService } from '../../services/media.service';
 
 @Component({
   selector: 'app-view-details-pg-user',
   standalone: true,
-  imports: [NgFor,NgIf,CommonModule],
+  imports: [FormsModule, CommonModule, RouterOutlet],
   templateUrl: './view-details-pg-user.component.html',
   styleUrl: './view-details-pg-user.component.css'
 })
 export class ViewDetailsPgUserComponent implements OnInit {
-
-  router=inject(Router);
-  pgownerservice=inject(PgownerService);
-  mediaservice=inject(MediaService);
-  roomservice=inject(RoomService)
-  authservice=inject(AuthService)
-  route=inject(ActivatedRoute)
-  http=inject(HttpClient)
-  pgDetails:any={};  
-  media:any={};
-  roomDetails:any={};
-  uid: number | null=null;
+  pgownerservice = inject(PgownerService);
+  roomservice = inject(RoomService);
+  route = inject(ActivatedRoute);
+  router = inject(Router);
+  mediaService = inject(MediaService);
+  authservice = inject(AuthService)
+  pgDetails: any;
+  roomDetails: any[] = [];
+  pgImages: any[] = [];
+  pgId: number | null = null;
+  mediaList: any[] = [];
+  currentIndex = 0;
+  selectedRoomType: string = '';
+  roomTypes: string[] = [];
+  filteredRooms: any[] = [];
+  uid: number | null | undefined;
+  
 
   ngOnInit(): void {
-    const pgid = this.route.snapshot.paramMap.get('pgid');  // Get PG ID from the route
     this.uid = this.authservice.getUserId();                // Get PG owner ID from AuthService
 
-    if (pgid) {
-      this.loadPgDetails(Number(pgid));
-      this.loadMediaDetails(Number(pgid));   // Fetch media details based on PG ID
-    this.loadRoomDetails(Number(pgid)); 
+    this.pgId = Number(this.route.snapshot.paramMap.get('pgId'));
+    if (this.pgId) {
+      this.loadPgDetails(this.pgId);
+      this.loadRoomDetails(this.pgId);
+      this.pgId = +this.route.snapshot.paramMap.get('pgId')!;
+      this.loadMedia();
     } else {
       console.error('PG ID not provided in the route!');
     }
@@ -56,31 +63,61 @@ export class ViewDetailsPgUserComponent implements OnInit {
     );
   }
  // Fetch media details related to the PG
-loadMediaDetails(pgid: number): void {
-  this.mediaservice.getMediaByPgId(pgid).subscribe(
-    (data:any) => {
-      this.media = data;  // Store media details
-    },
-    (error) => {
-      console.error('Failed to load media details:', error);
+ loadMedia(): void {
+  if (this.pgId !== null) {
+    this.mediaService.getMediaByPgId(this.pgId).subscribe(
+      media => this.mediaList = media,
+      error => console.error('Error loading media:', error)
+    );
+  }
+}
+
+
+  // Fetch room details
+  loadRoomDetails(pgId: number): void {
+    this.roomservice.getRoomDetails(pgId).subscribe(
+      data => {
+        this.roomDetails = data;
+        this.roomTypes = [...new Set(data.map(room => room.roomtype))]; // Get unique room types
+        this.filterRooms(); // Initialize filtered rooms
+      },
+      error => {
+        console.error(`Error fetching room details: ${error.message}`);
+      }
+    );
+  }
+
+  filterRooms(): void {
+    if (this.selectedRoomType) {
+      this.filteredRooms = this.roomDetails.filter(room => room.roomtype === this.selectedRoomType);
+    } else {
+      this.filteredRooms = [...this.roomDetails];
     }
-  );
+  }
+
+
+onFileChange(event: any): void {
+  const file = event.target.files[0];
+  if (file && this.pgId !== null) {
+    this.mediaService.uploadMedia(this.pgId, file).subscribe(
+      () => this.loadMedia(),
+      error => console.error('Error uploading media:', error)
+    );
+  }
+}
+triggerFileInput(): void {
+  const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+  if (fileInput) {
+    fileInput.click();
+  }
+}
+previousImage(): void {
+  this.currentIndex = (this.currentIndex === 0) ? this.mediaList.length - 1 : this.currentIndex - 1;
 }
 
-// Fetch room details
-loadRoomDetails(pgId: number): void {
-  this.roomservice.getRoomDetails(pgId).subscribe(
-    data => {
-      this.roomDetails = data;
-      console.log('Loaded room details:', this.roomDetails); // Log the roomDetails array
-      this.roomDetails.forEach((room: { rid: any; }) => console.log('Room ID:', room.rid)); // Log each room's ID
-    },
-    error => {
-      console.error(`Error fetching room details: ${error.message}`);
-    }
-  );
+nextImage(): void {
+  this.currentIndex = (this.currentIndex + 1) % this.mediaList.length;
 }
-
 goToReview(): void {
   const pgid = this.route.snapshot.paramMap.get('pgid'); 
   if (pgid) {

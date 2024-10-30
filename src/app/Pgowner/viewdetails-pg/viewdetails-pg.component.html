@@ -15,10 +15,6 @@
                     <p><strong>Food Available:</strong> {{ pgDetails.foodavailable ? 'Yes' : 'No' }}</p>
                     <p><strong>Meal:</strong> {{ pgDetails.meal }}</p>
                     <p><strong>Rules:</strong> {{ pgDetails.rules }}</p>
-                    <div class="card-footer">
-                        <button class="btn btn-primary" (click)="editPg()">Edit</button>
-                        <button class="btn btn-danger" (click)="deletePg()">Delete</button>
-                    </div>
                 </div>
             </div>
 
@@ -72,10 +68,6 @@
                     <td>{{ room.facility }}</td>
                     <td>{{ room.totalroom }}</td>
                     <td>{{ room.availability ? 'Yes' : 'No' }}</td>
-                    <td>
-                        <button class="btn btn-primary" (click)="editRoom(room.rid)">Edit</button>
-                        <button class="btn btn-danger" (click)="deleteRoom(room.rid)">Delete</button>
-                    </td>
                 </tr>
             </tbody>
         </table>
