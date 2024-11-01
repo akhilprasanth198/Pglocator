@@ -81,9 +81,8 @@ export const routes: Routes = [
     // PG Owner routes 
     {path: 'pgowner-navbar', component: PgownerNavbarComponent,
         children: [
-            {path:'view-pg/:pgId',component:ViewPgComponent},   
             {path:'view-pg/:pgId',component:ViewPgComponent}, 
-            {path:'pgowner-profile/',component:PgownerProfileComponent}           
+            {path:'pgowner-profile/:user.role',component:PgownerProfileComponent}           
         ]
     },
     { path: 'viewdetails-pg/:pgId', component: ViewdetailsPgComponent }, 

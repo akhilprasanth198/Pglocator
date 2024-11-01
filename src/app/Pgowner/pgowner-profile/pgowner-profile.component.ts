@@ -75,7 +75,7 @@ updateProfile(): void {
     this.userService.updateUser(this.uid, this.user).subscribe({
       next: () => {
         alert('Profile updated successfully!'); // Success alert
-        this.router.navigate(['/pgsearch-dash']); 
+        this.router.navigate(['/pgowner-navbar/view-pg/:pgId']); 
       },
       error: (err) => {
         console.error('Error updating profile', err);
